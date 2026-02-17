@@ -1,7 +1,5 @@
 # Design Document
 
-Fill this out as a team. This is your plan — update it as your game evolves.
-
 ---
 
 ## Game Identity
@@ -78,12 +76,17 @@ There are no role restrictions. Organize however works best for your team.
 
 ## Milestones
 
-| Week | Goal |
-|------|------|
-| 1 | |
-| 2 | |
-| 3 | |
-| Final | |
+Week 1:
+- Goals:
+
+Week 2:
+- Goals:
+
+Week 3:
+- Goals:
+
+Final Week:
+- Goals
 
 ---
 
