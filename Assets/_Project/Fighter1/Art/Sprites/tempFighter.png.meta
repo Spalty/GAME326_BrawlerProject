@@ -1,0 +1,2331 @@
+fileFormatVersion: 2
+guid: 997afc1cc1a91184c9d4210b09f3a30c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2369300811374536972
+    second: tempFighter_0
+  - first:
+      213: -6481738422962075927
+    second: tempFighter_1
+  - first:
+      213: 4540893373313681512
+    second: tempFighter_2
+  - first:
+      213: 5772416409521784264
+    second: tempFighter_3
+  - first:
+      213: -8615649882781041680
+    second: tempFighter_4
+  - first:
+      213: -6908594944610171091
+    second: tempFighter_5
+  - first:
+      213: 5566946816980930800
+    second: tempFighter_6
+  - first:
+      213: -8760246265914423120
+    second: tempFighter_7
+  - first:
+      213: 9089346130797907406
+    second: tempFighter_8
+  - first:
+      213: -3863230010328706982
+    second: tempFighter_9
+  - first:
+      213: -2852549024968499597
+    second: tempFighter_10
+  - first:
+      213: 2764421643745535981
+    second: tempFighter_11
+  - first:
+      213: 3896797688050661312
+    second: tempFighter_12
+  - first:
+      213: -1205946527468809853
+    second: tempFighter_13
+  - first:
+      213: 1599707308962110112
+    second: tempFighter_14
+  - first:
+      213: -6091381027119684911
+    second: tempFighter_15
+  - first:
+      213: 4261743783847015344
+    second: tempFighter_16
+  - first:
+      213: 7869663891087201536
+    second: tempFighter_17
+  - first:
+      213: -3602780909966775528
+    second: tempFighter_18
+  - first:
+      213: 2576213327651817910
+    second: tempFighter_19
+  - first:
+      213: 3592076579588076293
+    second: tempFighter_20
+  - first:
+      213: -6880140816348401451
+    second: tempFighter_21
+  - first:
+      213: -7337846322087700650
+    second: tempFighter_22
+  - first:
+      213: 8011119091250514904
+    second: tempFighter_23
+  - first:
+      213: -5199035446713932818
+    second: tempFighter_24
+  - first:
+      213: -775085491945964564
+    second: tempFighter_25
+  - first:
+      213: -8684929321852152127
+    second: tempFighter_26
+  - first:
+      213: -273354648588443965
+    second: tempFighter_27
+  - first:
+      213: -5253451194113276859
+    second: tempFighter_28
+  - first:
+      213: 4481212618095791245
+    second: tempFighter_29
+  - first:
+      213: 304356902999306134
+    second: tempFighter_30
+  - first:
+      213: 1658503769356898449
+    second: tempFighter_31
+  - first:
+      213: 4759825940497016030
+    second: tempFighter_32
+  - first:
+      213: -8985080277892603393
+    second: tempFighter_33
+  - first:
+      213: -1218992013996043263
+    second: tempFighter_34
+  - first:
+      213: -5666760597614899165
+    second: tempFighter_35
+  - first:
+      213: -2719457332164010488
+    second: tempFighter_36
+  - first:
+      213: 6039781617275836588
+    second: tempFighter_37
+  - first:
+      213: -3951227294360907350
+    second: tempFighter_38
+  - first:
+      213: 6070630657491212553
+    second: tempFighter_39
+  - first:
+      213: 5906845446525332704
+    second: tempFighter_40
+  - first:
+      213: -2204236929011561659
+    second: tempFighter_41
+  - first:
+      213: 3942244039874190556
+    second: tempFighter_42
+  - first:
+      213: -9139670585297192450
+    second: tempFighter_43
+  - first:
+      213: 8278131752913900319
+    second: tempFighter_44
+  - first:
+      213: 7181980845291267467
+    second: tempFighter_45
+  - first:
+      213: -8105487803980730175
+    second: tempFighter_46
+  - first:
+      213: 2564173459027187268
+    second: tempFighter_47
+  - first:
+      213: -8478018851634143086
+    second: tempFighter_48
+  - first:
+      213: -6677082562219381590
+    second: tempFighter_49
+  - first:
+      213: -2081316080778330254
+    second: tempFighter_50
+  - first:
+      213: -440430054048781654
+    second: tempFighter_51
+  - first:
+      213: -8002320007689215549
+    second: tempFighter_52
+  - first:
+      213: -5424108628902524233
+    second: tempFighter_53
+  - first:
+      213: 7426195108828218351
+    second: tempFighter_54
+  - first:
+      213: -1012241410275516681
+    second: tempFighter_55
+  - first:
+      213: -9201499811874339672
+    second: tempFighter_56
+  - first:
+      213: -5162669602593316129
+    second: tempFighter_57
+  - first:
+      213: -7554613395136657122
+    second: tempFighter_58
+  - first:
+      213: 2313367824369036349
+    second: tempFighter_59
+  - first:
+      213: -7871849220880033255
+    second: tempFighter_60
+  - first:
+      213: -3258073580941504209
+    second: tempFighter_61
+  - first:
+      213: -6347318518547899243
+    second: tempFighter_62
+  - first:
+      213: -2413081583728596707
+    second: tempFighter_63
+  - first:
+      213: -7214719295672056283
+    second: tempFighter_64
+  - first:
+      213: -169155516466743091
+    second: tempFighter_65
+  - first:
+      213: 4521163859160343606
+    second: tempFighter_66
+  - first:
+      213: -5667934024498026195
+    second: tempFighter_67
+  - first:
+      213: 7057334868580348256
+    second: tempFighter_68
+  - first:
+      213: 1844239830634214327
+    second: tempFighter_69
+  - first:
+      213: -6183722854561597244
+    second: tempFighter_70
+  - first:
+      213: -6208911854765726665
+    second: tempFighter_71
+  - first:
+      213: -1311524531980385119
+    second: tempFighter_72
+  - first:
+      213: 80279152502432754
+    second: tempFighter_73
+  - first:
+      213: 6034500556235224348
+    second: tempFighter_74
+  - first:
+      213: 6990598430945677705
+    second: tempFighter_75
+  - first:
+      213: 4355288118537011586
+    second: tempFighter_76
+  - first:
+      213: -5179597858277218414
+    second: tempFighter_77
+  - first:
+      213: 5598798199717845184
+    second: tempFighter_78
+  - first:
+      213: -1947519065972107209
+    second: tempFighter_79
+  - first:
+      213: 4609683949254224863
+    second: tempFighter_80
+  - first:
+      213: -7822736656471739330
+    second: tempFighter_81
+  - first:
+      213: -6875839571459015979
+    second: tempFighter_82
+  - first:
+      213: -6871205778498734668
+    second: tempFighter_83
+  - first:
+      213: -4712356422638880455
+    second: tempFighter_84
+  - first:
+      213: -193235770174258326
+    second: tempFighter_85
+  - first:
+      213: -2884877143022986168
+    second: tempFighter_86
+  - first:
+      213: 2154000535312620905
+    second: tempFighter_87
+  - first:
+      213: -7358762150012897586
+    second: tempFighter_88
+  - first:
+      213: 8523681428808810523
+    second: tempFighter_89
+  - first:
+      213: -787336359394135835
+    second: tempFighter_90
+  - first:
+      213: -3556897221404099275
+    second: tempFighter_91
+  - first:
+      213: 4879643390289546229
+    second: tempFighter_92
+  - first:
+      213: 4382863106004410173
+    second: tempFighter_93
+  - first:
+      213: -7974859464876055543
+    second: tempFighter_94
+  - first:
+      213: 1918052413672798161
+    second: tempFighter_95
+  - first:
+      213: -6097776474235024474
+    second: tempFighter_96
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tempFighter_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 1251
+        width: 34
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c09260ce88271e020800000000000000
+      internalID: 2369300811374536972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_1
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 1251
+        width: 43
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e6485cfe3d3c06a0800000000000000
+      internalID: -6481738422962075927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_2
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 1251
+        width: 43
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 868894fd67e740f30800000000000000
+      internalID: 4540893373313681512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_3
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 1253
+        width: 46
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c58e21142ebb1050800000000000000
+      internalID: 5772416409521784264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_4
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 1253
+        width: 44
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fb33bb44101f6880800000000000000
+      internalID: -8615649882781041680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_5
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 1253
+        width: 41
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d27837d408dbf10a0800000000000000
+      internalID: -6908594944610171091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_6
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 1253
+        width: 43
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f0d3a592a4c14d40800000000000000
+      internalID: 5566946816980930800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_7
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 1252
+        width: 55
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b88a375f6a5d6680800000000000000
+      internalID: -8760246265914423120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_8
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 1255
+        width: 47
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecdc7c60628d32e70800000000000000
+      internalID: 9089346130797907406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_9
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 1254
+        width: 43
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a509abc16cc036ac0800000000000000
+      internalID: -3863230010328706982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_10
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 1185
+        width: 66
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37e9d5676c5b968d0800000000000000
+      internalID: -2852549024968499597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_11
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 1185
+        width: 77
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de7aad4a6d23d5620800000000000000
+      internalID: 2764421643745535981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_12
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 1187
+        width: 59
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c7b2d5e9d4341630800000000000000
+      internalID: 3896797688050661312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_13
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 1189
+        width: 52
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3811b1cc50e934fe0800000000000000
+      internalID: -1205946527468809853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_14
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 1186
+        width: 66
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0aa5847625d433610800000000000000
+      internalID: 1599707308962110112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_15
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 1186
+        width: 66
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d22af6ba31177ba0800000000000000
+      internalID: -6091381027119684911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_16
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 1182
+        width: 54
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b33ee74461c42b30800000000000000
+      internalID: 4261743783847015344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_17
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 1185
+        width: 51
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00598f91d99a63d60800000000000000
+      internalID: 7869663891087201536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_18
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 1094
+        width: 32
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81b2fd9c9d9500ec0800000000000000
+      internalID: -3602780909966775528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_19
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1130
+        width: 45
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b940544f5c80c320800000000000000
+      internalID: 2576213327651817910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_20
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 968
+        width: 63
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 503f8541e9e99d130800000000000000
+      internalID: 3592076579588076293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_21
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 966
+        width: 35
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d033ec4164d480a0800000000000000
+      internalID: -6880140816348401451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_22
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 977
+        width: 57
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6575e8bc5abba2a90800000000000000
+      internalID: -7337846322087700650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_23
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 972
+        width: 55
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8db46576e563d2f60800000000000000
+      internalID: 8011119091250514904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_24
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 959
+        width: 64
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee3a3ff8ec059d7b0800000000000000
+      internalID: -5199035446713932818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_25
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 977
+        width: 68
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ceb70060ad75e35f0800000000000000
+      internalID: -775085491945964564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_26
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 969
+        width: 45
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c6d0a7ebcee87780800000000000000
+      internalID: -8684929321852152127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_27
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 972
+        width: 71
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ce1f293569d43cf0800000000000000
+      internalID: -273354648588443965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_28
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 973
+        width: 70
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 544c60219fdf717b0800000000000000
+      internalID: -5253451194113276859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_29
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 876
+        width: 44
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8c09983227703e30800000000000000
+      internalID: 4481212618095791245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_30
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 875
+        width: 64
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69f2630adfa493400800000000000000
+      internalID: 304356902999306134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_31
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 863
+        width: 40
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1901a2f1460340710800000000000000
+      internalID: 1658503769356898449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_32
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 858
+        width: 38
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed4a308697c4e0240800000000000000
+      internalID: 4759825940497016030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_33
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 744
+        width: 45
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 10, y: 0, z: 0, w: 14}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff1e7dd97159e4380800000000000000
+      internalID: -8985080277892603393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_34
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 744
+        width: 47
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1045ab5c835451fe0800000000000000
+      internalID: -1218992013996043263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_35
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 745
+        width: 85
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 320dbff924f9b51b0800000000000000
+      internalID: -5666760597614899165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_36
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 743
+        width: 86
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80e5886f6fb824ad0800000000000000
+      internalID: -2719457332164010488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_37
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 744
+        width: 58
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca819aa716d91d350800000000000000
+      internalID: 6039781617275836588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_38
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 740
+        width: 41
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa15ac4d5bb6a29c0800000000000000
+      internalID: -3951227294360907350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_39
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 741
+        width: 50
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9091c5e5b663f3450800000000000000
+      internalID: 6070630657491212553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_40
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 742
+        width: 65
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0eca64743a459f150800000000000000
+      internalID: 5906845446525332704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_41
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 744
+        width: 50
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54bc77d013af861e0800000000000000
+      internalID: -2204236929011561659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_42
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 741
+        width: 41
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdc1a9e311aa5b630800000000000000
+      internalID: 3942244039874190556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_43
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 659
+        width: 62
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef93647d60e592180800000000000000
+      internalID: -9139670585297192450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_44
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 660
+        width: 85
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f13905848f4d1e270800000000000000
+      internalID: 8278131752913900319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_45
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 661
+        width: 56
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b85ee3be6858ba360800000000000000
+      internalID: 7181980845291267467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_46
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 660
+        width: 51
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c0b77879c5838f80800000000000000
+      internalID: -8105487803980730175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_47
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 659
+        width: 43
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 446dcc7ec26c59320800000000000000
+      internalID: 2564173459027187268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_48
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 660
+        width: 48
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 290284dd5c6085a80800000000000000
+      internalID: -8478018851634143086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_49
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 659
+        width: 41
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aac65fe49cc3653a0800000000000000
+      internalID: -6677082562219381590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_50
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 569
+        width: 66
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27f36e34d0ead13e0800000000000000
+      internalID: -2081316080778330254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_51
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 572
+        width: 78
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aaa2408033743e9f0800000000000000
+      internalID: -440430054048781654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_52
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 571
+        width: 49
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c1eea2e95c02f090800000000000000
+      internalID: -8002320007689215549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_53
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 579
+        width: 39
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ba422fa0f1b9b4b0800000000000000
+      internalID: -5424108628902524233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_54
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 572
+        width: 46
+        height: 67
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe303761b152f0760800000000000000
+      internalID: 7426195108828218351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_55
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 548
+        width: 79
+        height: 93
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fe5699eccbc3f1f0800000000000000
+      internalID: -1012241410275516681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_56
+      rect:
+        serializedVersion: 2
+        x: 507
+        y: 549
+        width: 70
+        height: 99
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a408683ca4bd4080800000000000000
+      internalID: -9201499811874339672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_57
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 560
+        width: 70
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd2e7b479538a58b0800000000000000
+      internalID: -5162669602593316129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_58
+      rect:
+        serializedVersion: 2
+        x: 683
+        y: 560
+        width: 61
+        height: 67
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e19c877a42f982790800000000000000
+      internalID: -7554613395136657122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_59
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 479
+        width: 32
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3ca55e87cbba1020800000000000000
+      internalID: 2313367824369036349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_60
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 283
+        width: 138
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91a920827d291c290800000000000000
+      internalID: -7871849220880033255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_61
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 483
+        width: 62
+        height: 67
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2195e3175ff8c2d0800000000000000
+      internalID: -3258073580941504209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_62
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 480
+        width: 63
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59c91b9df6bc9e7a0800000000000000
+      internalID: -6347318518547899243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_63
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 486
+        width: 54
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d19e1dba513038ed0800000000000000
+      internalID: -2413081583728596707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_64
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 489
+        width: 50
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5268f4b960b20eb90800000000000000
+      internalID: -7214719295672056283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_65
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 483
+        width: 43
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc8b33934f907adf0800000000000000
+      internalID: -169155516466743091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_66
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 480
+        width: 43
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 634269463966ebe30800000000000000
+      internalID: 4521163859160343606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_67
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 382
+        width: 48
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d29e173e8047751b0800000000000000
+      internalID: -5667934024498026195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_68
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 382
+        width: 54
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 061b5beeba0b0f160800000000000000
+      internalID: 7057334868580348256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_69
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 379
+        width: 60
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b33491da5e089910800000000000000
+      internalID: 1844239830634214327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_70
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 380
+        width: 67
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c8346893d00f2aa0800000000000000
+      internalID: -6183722854561597244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_71
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 380
+        width: 87
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7342af6709385d9a0800000000000000
+      internalID: -6208911854765726665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_72
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 379
+        width: 109
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a4491d03678ccde0800000000000000
+      internalID: -1311524531980385119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_73
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 376
+        width: 107
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f3e6cfb6753d1100800000000000000
+      internalID: 80279152502432754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_74
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 285
+        width: 127
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c153c43a84adeb350800000000000000
+      internalID: 6034500556235224348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_75
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 284
+        width: 127
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9819be33c38930160800000000000000
+      internalID: 6990598430945677705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_76
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 284
+        width: 138
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 281c0efe777117c30800000000000000
+      internalID: 4355288118537011586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_77
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 283
+        width: 140
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 297230ac03f5e18b0800000000000000
+      internalID: -5179597858277218414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_78
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 170
+        width: 142
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c857478c4de2bd40800000000000000
+      internalID: 5598798199717845184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_79
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 168
+        width: 142
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7389e675ab509f4e0800000000000000
+      internalID: -1947519065972107209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_80
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 170
+        width: 143
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdb2e12f023e8ff30800000000000000
+      internalID: 4609683949254224863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_81
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 171
+        width: 143
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e343393257e007390800000000000000
+      internalID: -7822736656471739330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tempFighter_82
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 91
+        width: 144
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5da7c9ae65c1490a0800000000000000
+      internalID: -6875839571459015979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: ce39f2e0307fb5749aa7b0fd97b76e7d
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      tempFighter_0: 2369300811374536972
+      tempFighter_1: -6481738422962075927
+      tempFighter_10: -2852549024968499597
+      tempFighter_11: 2764421643745535981
+      tempFighter_12: 3896797688050661312
+      tempFighter_13: -1205946527468809853
+      tempFighter_14: 1599707308962110112
+      tempFighter_15: -6091381027119684911
+      tempFighter_16: 4261743783847015344
+      tempFighter_17: 7869663891087201536
+      tempFighter_18: -3602780909966775528
+      tempFighter_19: 2576213327651817910
+      tempFighter_2: 4540893373313681512
+      tempFighter_20: 3592076579588076293
+      tempFighter_21: -6880140816348401451
+      tempFighter_22: -7337846322087700650
+      tempFighter_23: 8011119091250514904
+      tempFighter_24: -5199035446713932818
+      tempFighter_25: -775085491945964564
+      tempFighter_26: -8684929321852152127
+      tempFighter_27: -273354648588443965
+      tempFighter_28: -5253451194113276859
+      tempFighter_29: 4481212618095791245
+      tempFighter_3: 5772416409521784264
+      tempFighter_30: 304356902999306134
+      tempFighter_31: 1658503769356898449
+      tempFighter_32: 4759825940497016030
+      tempFighter_33: -8985080277892603393
+      tempFighter_34: -1218992013996043263
+      tempFighter_35: -5666760597614899165
+      tempFighter_36: -2719457332164010488
+      tempFighter_37: 6039781617275836588
+      tempFighter_38: -3951227294360907350
+      tempFighter_39: 6070630657491212553
+      tempFighter_4: -8615649882781041680
+      tempFighter_40: 5906845446525332704
+      tempFighter_41: -2204236929011561659
+      tempFighter_42: 3942244039874190556
+      tempFighter_43: -9139670585297192450
+      tempFighter_44: 8278131752913900319
+      tempFighter_45: 7181980845291267467
+      tempFighter_46: -8105487803980730175
+      tempFighter_47: 2564173459027187268
+      tempFighter_48: -8478018851634143086
+      tempFighter_49: -6677082562219381590
+      tempFighter_5: -6908594944610171091
+      tempFighter_50: -2081316080778330254
+      tempFighter_51: -440430054048781654
+      tempFighter_52: -8002320007689215549
+      tempFighter_53: -5424108628902524233
+      tempFighter_54: 7426195108828218351
+      tempFighter_55: -1012241410275516681
+      tempFighter_56: -9201499811874339672
+      tempFighter_57: -5162669602593316129
+      tempFighter_58: -7554613395136657122
+      tempFighter_59: 2313367824369036349
+      tempFighter_6: 5566946816980930800
+      tempFighter_60: -7871849220880033255
+      tempFighter_61: -3258073580941504209
+      tempFighter_62: -6347318518547899243
+      tempFighter_63: -2413081583728596707
+      tempFighter_64: -7214719295672056283
+      tempFighter_65: -169155516466743091
+      tempFighter_66: 4521163859160343606
+      tempFighter_67: -5667934024498026195
+      tempFighter_68: 7057334868580348256
+      tempFighter_69: 1844239830634214327
+      tempFighter_7: -8760246265914423120
+      tempFighter_70: -6183722854561597244
+      tempFighter_71: -6208911854765726665
+      tempFighter_72: -1311524531980385119
+      tempFighter_73: 80279152502432754
+      tempFighter_74: 6034500556235224348
+      tempFighter_75: 6990598430945677705
+      tempFighter_76: 4355288118537011586
+      tempFighter_77: -5179597858277218414
+      tempFighter_78: 5598798199717845184
+      tempFighter_79: -1947519065972107209
+      tempFighter_8: 9089346130797907406
+      tempFighter_80: 4609683949254224863
+      tempFighter_81: -7822736656471739330
+      tempFighter_82: -6875839571459015979
+      tempFighter_83: -6871205778498734668
+      tempFighter_84: -4712356422638880455
+      tempFighter_85: -193235770174258326
+      tempFighter_86: -2884877143022986168
+      tempFighter_87: 2154000535312620905
+      tempFighter_88: -7358762150012897586
+      tempFighter_89: 8523681428808810523
+      tempFighter_9: -3863230010328706982
+      tempFighter_90: -787336359394135835
+      tempFighter_91: -3556897221404099275
+      tempFighter_92: 4879643390289546229
+      tempFighter_93: 4382863106004410173
+      tempFighter_94: -7974859464876055543
+      tempFighter_95: 1918052413672798161
+      tempFighter_96: -6097776474235024474
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
