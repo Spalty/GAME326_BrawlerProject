@@ -45,17 +45,17 @@ namespace Brawler.UI
                 winnerPanel.SetActive(false);
 
             // TODO STEP 1: Subscribe to game events
-            // GameEvents.OnRoundStart += OnRoundStart;
-            // GameEvents.OnGameStateChanged += OnGameStateChanged;
-            // GameEvents.OnMatchEnd += OnMatchEnd;
+            GameEvents.OnRoundStart += OnRoundStart;
+            GameEvents.OnGameStateChanged += OnGameStateChanged;
+            GameEvents.OnMatchEnd += OnMatchEnd;
         }
 
         private void OnDestroy()
         {
             // TODO: Unsubscribe from events
-            // GameEvents.OnRoundStart -= OnRoundStart;
-            // GameEvents.OnGameStateChanged -= OnGameStateChanged;
-            // GameEvents.OnMatchEnd -= OnMatchEnd;
+            GameEvents.OnRoundStart -= OnRoundStart;
+            GameEvents.OnGameStateChanged -= OnGameStateChanged;
+            GameEvents.OnMatchEnd -= OnMatchEnd;
         }
 
         /// <summary>
@@ -71,12 +71,9 @@ namespace Brawler.UI
             }
 
             // TODO STEP 2: Start countdown coroutine
-            // StartCoroutine(CountdownCoroutine());
+            StartCoroutine(CountdownCoroutine());
         }
 
-        /*
-         * TODO STEP 2: Implement countdown coroutine
-         *
         private IEnumerator CountdownCoroutine()
         {
             if (announcementText == null) yield break;
@@ -101,7 +98,6 @@ namespace Brawler.UI
 
             announcementText.gameObject.SetActive(false);
         }
-        */
 
         /// <summary>
         /// Called when game state changes.
@@ -110,15 +106,15 @@ namespace Brawler.UI
         private void OnGameStateChanged(GameState newState)
         {
             // TODO STEP 3: Handle different states
-            // switch (newState)
-            // {
-            //     case GameState.RoundEnd:
-            //         // Show "KO!" or round winner
-            //         break;
-            //     case GameState.Paused:
-            //         // Show pause menu
-            //         break;
-            // }
+            switch (newState)
+            {
+                 case GameState.RoundEnd:
+                     // Show "KO!" or round winner
+                     break;
+                 case GameState.Paused:
+                     // Show pause menu
+                     break;
+            }
         }
 
         /// <summary>
@@ -128,17 +124,17 @@ namespace Brawler.UI
         private void OnMatchEnd(int winnerIndex)
         {
             // TODO STEP 4: Show winner panel
-            // if (winnerPanel != null)
-            //     winnerPanel.SetActive(true);
+            if (winnerPanel != null)
+                winnerPanel.SetActive(true);
 
-            // if (winnerText != null)
-            //     winnerText.text = $"Player {winnerIndex + 1} Wins!";
+            if (winnerText != null)
+                winnerText.text = $"Player {winnerIndex + 1} Wins!";
 
-            // if (announcementText != null)
-            // {
-            //     announcementText.gameObject.SetActive(true);
-            //     announcementText.text = "GAME!";
-            // }
+            if (announcementText != null)
+            {
+                announcementText.gameObject.SetActive(true);
+                announcementText.text = "GAME!";
+            }
         }
 
         /// <summary>

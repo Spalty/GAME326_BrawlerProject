@@ -245,7 +245,12 @@ namespace Brawler.Fighter
         /// </summary>
         public virtual AttackData GetCurrentAttack()
         {
-            return Attacks?.CurrentAttack;
+            if (Attacks != null)
+            {
+                return Attacks.CurrentAttack;
+            }
+
+            return null;
         }
 
         /// <summary>
