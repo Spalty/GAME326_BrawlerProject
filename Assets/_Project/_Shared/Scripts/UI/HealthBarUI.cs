@@ -53,7 +53,7 @@ namespace Brawler.UI
                 health = fighter.GetComponent<FighterHealth>();
 
                 // TODO STEP 1: Subscribe to health changes
-                // health.OnHealthChanged += OnHealthChanged;
+                health.OnHealthChanged += OnHealthChanged;
 
                 // Initialize
                 UpdateHealthBar(health.HealthPercent);
@@ -67,10 +67,10 @@ namespace Brawler.UI
         private void OnDestroy()
         {
             // TODO: Unsubscribe
-            // if (health != null)
-            // {
-            //     health.OnHealthChanged -= OnHealthChanged;
-            // }
+            if (health != null)
+            {
+                health.OnHealthChanged -= OnHealthChanged;
+            }
         }
 
         private void Update()
@@ -132,20 +132,24 @@ namespace Brawler.UI
         public void SetFighter(FighterBase newFighter)
         {
             // Unsubscribe from old
-            // if (health != null)
-            // {
-            //     health.OnHealthChanged -= OnHealthChanged;
-            // }
+            if (health != null)
+            {
+                health.OnHealthChanged -= OnHealthChanged;
+            }
 
             fighter = newFighter;
-            health = fighter?.GetComponent<FighterHealth>();
+
+            if (fighter != null)
+            {
+                health = fighter.GetComponent<FighterHealth>();
+            }
 
             // Subscribe to new
-            // if (health != null)
-            // {
-            //     health.OnHealthChanged += OnHealthChanged;
-            //     UpdateHealthBar(health.HealthPercent);
-            // }
+            if (health != null)
+            {
+                health.OnHealthChanged += OnHealthChanged;
+                UpdateHealthBar(health.HealthPercent);
+            }
         }
     }
 }
