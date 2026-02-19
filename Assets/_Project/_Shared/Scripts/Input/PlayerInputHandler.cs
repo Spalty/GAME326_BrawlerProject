@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -23,6 +24,7 @@ namespace Brawler.Input
         [Tooltip("The InputActionAsset containing the Player action map.")]
         [SerializeField] private InputActionAsset inputActions;
 
+        [Expandable]
         [Header("Config")]
         [Tooltip("Input configuration for deadzones and buffering.")]
         [SerializeField] private InputConfig config;
