@@ -1,6 +1,7 @@
 using UnityEngine;
 using Brawler.Input;
 using Brawler.Combat;
+using NaughtyAttributes;
 
 namespace Brawler.Fighter
 {
@@ -22,6 +23,7 @@ namespace Brawler.Fighter
     [RequireComponent(typeof(Rigidbody2D))]
     public class FighterMovement : MonoBehaviour
     {
+        [Expandable]
         [Header("Config")]
         [SerializeField] private MovementConfig config;
 
