@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using Brawler.Fighter;
+using NaughtyAttributes;
 
 namespace Brawler.Combat
 {
@@ -20,6 +21,7 @@ namespace Brawler.Combat
     [RequireComponent(typeof(Collider2D))]
     public class Hitbox : MonoBehaviour
     {
+        [Expandable]
         [Header("Settings")]
         [Tooltip("The attack data this hitbox uses. Set by AttackController.")]
         [SerializeField] private AttackData attackData;
