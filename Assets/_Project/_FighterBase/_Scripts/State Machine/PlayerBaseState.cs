@@ -2,6 +2,8 @@ public abstract class PlayerBaseState
 {
     protected PlayerStateMachine _context;
     protected PlayerStateFactory _factory;
+    protected PlayerBaseState _currentSuperState;
+    protected PlayerBaseState _currentSubState;
     public PlayerBaseState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
     {
         _context = currentContext;
