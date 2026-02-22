@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerIdleState : PlayerBaseState
 {
-    public PlayerIdleState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
+    public PlayerIdleState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) : base(currentContext, playerStateFactory)
     {
 
     }
@@ -15,6 +15,7 @@ public class PlayerIdleState : PlayerBaseState
     public override void UpdateState()
     {
         // Implementation for updating idle state
+        CheckSwitchState();
     }
 
     public override void ExitState()

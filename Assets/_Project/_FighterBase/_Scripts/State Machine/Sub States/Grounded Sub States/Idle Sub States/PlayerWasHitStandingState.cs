@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerWasHitStandingState : PlayerBaseState
 {
-    public PlayerWasHitStandingState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
+    public PlayerWasHitStandingState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) : base(currentContext, playerStateFactory)
     {
     }
     public override void EnterState()
@@ -14,6 +14,7 @@ public class PlayerWasHitStandingState : PlayerBaseState
     public override void UpdateState()
     {
         // Implementation for updating was hit standing state
+        CheckSwitchState();
     }
 
     public override void ExitState()

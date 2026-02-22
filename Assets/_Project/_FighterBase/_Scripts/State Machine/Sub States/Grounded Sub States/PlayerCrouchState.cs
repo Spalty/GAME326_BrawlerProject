@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerCrouchState : PlayerBaseState
 {
-    public PlayerCrouchState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
+    public PlayerCrouchState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) : base(currentContext, playerStateFactory)
     {
 
     }
@@ -15,6 +15,7 @@ public class PlayerCrouchState : PlayerBaseState
     public override void UpdateState()
     {
         // Implementation for updating crouch state
+        CheckSwitchState();
     }
 
     public override void ExitState()

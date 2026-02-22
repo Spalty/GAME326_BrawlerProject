@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerGroundState : PlayerBaseState
 {
-    public PlayerGroundState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
+    public PlayerGroundState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) : base(currentContext, playerStateFactory)
     {
         
     }
@@ -15,6 +15,7 @@ public class PlayerGroundState : PlayerBaseState
     public override void UpdateState()
     {
         // Implementation for updating ground state
+        CheckSwitchState();
     }
 
     public override void ExitState()

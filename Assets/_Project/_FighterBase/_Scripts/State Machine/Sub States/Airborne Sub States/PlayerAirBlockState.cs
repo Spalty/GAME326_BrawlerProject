@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerAirBlockState : PlayerBaseState
 {
-    public PlayerAirBlockState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
+    public PlayerAirBlockState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) : base(currentContext, playerStateFactory)
     {
         
     }
@@ -15,6 +15,7 @@ public class PlayerAirBlockState : PlayerBaseState
     public override void UpdateState()
     {
         // Implementation for updating air block state
+        CheckSwitchState();
     }
 
     public override void ExitState()

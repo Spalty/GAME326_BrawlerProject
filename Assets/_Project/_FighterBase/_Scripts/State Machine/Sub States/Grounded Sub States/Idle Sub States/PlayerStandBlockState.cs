@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerStandBlockState : PlayerBaseState
 {
-    public PlayerStandBlockState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
+    public PlayerStandBlockState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) : base(currentContext, playerStateFactory)
     {
     }
     public override void EnterState()
@@ -14,6 +14,7 @@ public class PlayerStandBlockState : PlayerBaseState
     public override void UpdateState()
     {
         // Implementation for updating stand block state
+        CheckSwitchState();
     }
 
     public override void ExitState()

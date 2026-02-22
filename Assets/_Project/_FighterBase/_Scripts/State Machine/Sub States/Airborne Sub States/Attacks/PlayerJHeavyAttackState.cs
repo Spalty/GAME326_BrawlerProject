@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerJHeavyAttackState : PlayerBaseState
 {
-    public PlayerJHeavyAttackState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
+    public PlayerJHeavyAttackState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) : base(currentContext, playerStateFactory)
     {
         
     }
@@ -15,6 +15,7 @@ public class PlayerJHeavyAttackState : PlayerBaseState
     public override void UpdateState()
     {
         // Implementation for updating jump heavy attack state
+        CheckSwitchState();
     }
 
     public override void ExitState()

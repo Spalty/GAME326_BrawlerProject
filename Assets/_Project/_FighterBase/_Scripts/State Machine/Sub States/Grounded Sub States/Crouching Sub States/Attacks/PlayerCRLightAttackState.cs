@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerCRLightAttackState : PlayerBaseState
 {
-    public PlayerCRLightAttackState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
+    public PlayerCRLightAttackState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) : base(currentContext, playerStateFactory)
     {
     }
     public override void EnterState()

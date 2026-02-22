@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerCRMediumAttackState : PlayerBaseState
 {
-    public PlayerCRMediumAttackState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
+    public PlayerCRMediumAttackState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) : base(currentContext, playerStateFactory)
     {
     }
     public override void EnterState()
