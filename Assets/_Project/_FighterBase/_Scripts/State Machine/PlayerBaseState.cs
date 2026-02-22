@@ -14,19 +14,28 @@ public abstract class PlayerBaseState
     public abstract void InitializeSubState();
 
     void UpdateStates(){}
-    void SwitchState(PlayerBaseState newState)
+    protected void SwitchState(PlayerBaseState newState)
     {
+        //Exit current state
         ExitState();
+
+        //New state becomes current state
         newState.EnterState();
+
+        //switch current state of context
+        _context.CurrentState = newState;
     }
 
-    void SetSuperState(PlayerBaseState superState)
+    protected void SetSuperState(PlayerBaseState newSuperState)
     {
         // Implementation for setting super state
+        _currentSuperState = newSuperState;
     }
 
-    void SetSubState(PlayerBaseState subState)
+    protected void SetSubState(PlayerBaseState newSubState)
     {
         // Implementation for setting sub state
+        _currentSubState = newSubState;
+        newSubState.SetSuperState(this);
     }
 }

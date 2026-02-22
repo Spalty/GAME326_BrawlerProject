@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerWasHitCrouchingState : PlayerBaseState
 {
-    public PlayerWasHitCrouchingState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
+    public PlayerWasHitCrouchingState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) : base(currentContext, playerStateFactory)
     {
 
     }

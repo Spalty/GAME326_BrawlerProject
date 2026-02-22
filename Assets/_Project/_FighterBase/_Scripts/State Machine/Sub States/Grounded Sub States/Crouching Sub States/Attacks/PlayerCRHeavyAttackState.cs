@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerCRHeavyAttackState : PlayerBaseState
 {
-    public PlayerCRHeavyAttackState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
+    public PlayerCRHeavyAttackState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) : base(currentContext, playerStateFactory)
     {
     }
     public override void EnterState()

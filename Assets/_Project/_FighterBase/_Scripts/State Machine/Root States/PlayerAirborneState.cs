@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerAirborneState : PlayerBaseState
 {
-    public PlayerAirborneState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
+    public PlayerAirborneState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) : base(currentContext, playerStateFactory)
     {
         
     }
@@ -15,6 +15,7 @@ public class PlayerAirborneState : PlayerBaseState
     public override void UpdateState()
     {
         // Implementation for updating airborne state
+        CheckSwitchState();
     }
 
     public override void ExitState()

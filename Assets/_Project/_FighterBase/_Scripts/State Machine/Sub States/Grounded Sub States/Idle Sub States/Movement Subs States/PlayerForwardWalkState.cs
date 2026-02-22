@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerForwardWalkState : PlayerBaseState
 {
-    public PlayerForwardWalkState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
+    public PlayerForwardWalkState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) : base(currentContext, playerStateFactory)
     {
     }
     public override void EnterState()
@@ -14,6 +14,7 @@ public class PlayerForwardWalkState : PlayerBaseState
     public override void UpdateState()
     {
         // Implementation for updating forward walk state
+        CheckSwitchState();
     }
 
     public override void ExitState()

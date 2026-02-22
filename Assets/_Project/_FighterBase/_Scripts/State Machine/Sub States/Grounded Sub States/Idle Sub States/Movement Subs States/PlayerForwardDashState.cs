@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerForwardDashState : PlayerBaseState
 {
-    public PlayerForwardDashState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
+    public PlayerForwardDashState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) : base(currentContext, playerStateFactory)
     {
     }
     public override void EnterState()
@@ -14,6 +14,7 @@ public class PlayerForwardDashState : PlayerBaseState
     public override void UpdateState()
     {
         // Implementation for updating forward dash state
+        CheckSwitchState();
     }
 
     public override void ExitState()

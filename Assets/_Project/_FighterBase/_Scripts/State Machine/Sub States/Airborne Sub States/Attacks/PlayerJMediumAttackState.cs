@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerJMediumAttackState : PlayerBaseState
 {
-    public PlayerJMediumAttackState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
+    public PlayerJMediumAttackState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) : base(currentContext, playerStateFactory)
     {
         
     }
@@ -15,6 +15,7 @@ public class PlayerJMediumAttackState : PlayerBaseState
     public override void UpdateState()
     {
         // Implementation for updating jump medium attack state
+        CheckSwitchState();
     }
 
     public override void ExitState()

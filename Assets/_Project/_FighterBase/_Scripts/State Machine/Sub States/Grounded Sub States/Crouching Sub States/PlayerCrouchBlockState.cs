@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerCrouchBlockState : PlayerBaseState
 {
-    public PlayerCrouchBlockState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
+    public PlayerCrouchBlockState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) : base(currentContext, playerStateFactory)
     {
 
     }
