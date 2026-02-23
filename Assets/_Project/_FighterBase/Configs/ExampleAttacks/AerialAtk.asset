@@ -26,4 +26,4 @@ MonoBehaviour:
   context: 2
   attackSound: {fileID: 0}
   hitSound: {fileID: 0}
-  animationTrigger: Attack
+  animationTrigger: Aerial

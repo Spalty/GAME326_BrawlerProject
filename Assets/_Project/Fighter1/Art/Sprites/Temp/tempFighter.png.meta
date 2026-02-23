@@ -413,10 +413,10 @@ TextureImporter:
       name: tempFighter_1
       rect:
         serializedVersion: 2
-        x: 71
-        y: 1251
-        width: 43
-        height: 44
+        x: 72
+        y: 1252
+        width: 41
+        height: 42
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1227,12 +1227,12 @@ TextureImporter:
       name: tempFighter_38
       rect:
         serializedVersion: 2
-        x: 415
-        y: 740
-        width: 41
-        height: 69
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 416
+        y: 741
+        width: 39
+        height: 67
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1249,12 +1249,12 @@ TextureImporter:
       name: tempFighter_39
       rect:
         serializedVersion: 2
-        x: 483
-        y: 741
-        width: 50
-        height: 66
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 484
+        y: 742
+        width: 48
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1271,12 +1271,12 @@ TextureImporter:
       name: tempFighter_40
       rect:
         serializedVersion: 2
-        x: 552
-        y: 742
-        width: 65
-        height: 65
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 553
+        y: 743
+        width: 63
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1293,12 +1293,12 @@ TextureImporter:
       name: tempFighter_41
       rect:
         serializedVersion: 2
-        x: 639
-        y: 744
-        width: 50
-        height: 66
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 640
+        y: 745
+        width: 48
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1315,12 +1315,12 @@ TextureImporter:
       name: tempFighter_42
       rect:
         serializedVersion: 2
-        x: 717
-        y: 741
-        width: 41
-        height: 69
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 718
+        y: 742
+        width: 39
+        height: 67
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1337,12 +1337,12 @@ TextureImporter:
       name: tempFighter_43
       rect:
         serializedVersion: 2
-        x: 5
-        y: 659
-        width: 62
-        height: 60
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 6
+        y: 660
+        width: 60
+        height: 58
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1359,12 +1359,12 @@ TextureImporter:
       name: tempFighter_44
       rect:
         serializedVersion: 2
-        x: 91
-        y: 660
-        width: 85
-        height: 50
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 92
+        y: 661
+        width: 83
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1381,12 +1381,12 @@ TextureImporter:
       name: tempFighter_45
       rect:
         serializedVersion: 2
-        x: 188
-        y: 661
-        width: 56
-        height: 49
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 189
+        y: 662
+        width: 54
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1403,12 +1403,12 @@ TextureImporter:
       name: tempFighter_46
       rect:
         serializedVersion: 2
-        x: 272
-        y: 660
-        width: 51
-        height: 49
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 273
+        y: 661
+        width: 49
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1425,12 +1425,12 @@ TextureImporter:
       name: tempFighter_47
       rect:
         serializedVersion: 2
-        x: 351
-        y: 659
-        width: 43
-        height: 66
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 352
+        y: 660
+        width: 41
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1557,12 +1557,12 @@ TextureImporter:
       name: tempFighter_53
       rect:
         serializedVersion: 2
-        x: 266
-        y: 579
-        width: 39
-        height: 45
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 267
+        y: 580
+        width: 37
+        height: 43
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1579,12 +1579,12 @@ TextureImporter:
       name: tempFighter_54
       rect:
         serializedVersion: 2
-        x: 330
-        y: 572
-        width: 46
-        height: 67
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 331
+        y: 573
+        width: 44
+        height: 65
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1601,12 +1601,12 @@ TextureImporter:
       name: tempFighter_55
       rect:
         serializedVersion: 2
-        x: 401
-        y: 548
-        width: 79
-        height: 93
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 402
+        y: 549
+        width: 77
+        height: 91
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1623,12 +1623,12 @@ TextureImporter:
       name: tempFighter_56
       rect:
         serializedVersion: 2
-        x: 507
-        y: 549
-        width: 70
-        height: 99
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 508
+        y: 550
+        width: 68
+        height: 97
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1645,12 +1645,12 @@ TextureImporter:
       name: tempFighter_57
       rect:
         serializedVersion: 2
-        x: 599
-        y: 560
-        width: 70
-        height: 75
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 600
+        y: 561
+        width: 68
+        height: 73
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1667,12 +1667,12 @@ TextureImporter:
       name: tempFighter_58
       rect:
         serializedVersion: 2
-        x: 683
-        y: 560
-        width: 61
-        height: 67
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 684
+        y: 561
+        width: 59
+        height: 65
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1689,12 +1689,12 @@ TextureImporter:
       name: tempFighter_59
       rect:
         serializedVersion: 2
-        x: 336
-        y: 479
-        width: 32
-        height: 84
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 337
+        y: 480
+        width: 30
+        height: 82
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1733,12 +1733,12 @@ TextureImporter:
       name: tempFighter_61
       rect:
         serializedVersion: 2
-        x: 15
-        y: 483
-        width: 62
-        height: 67
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 16
+        y: 484
+        width: 60
+        height: 65
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1755,12 +1755,12 @@ TextureImporter:
       name: tempFighter_62
       rect:
         serializedVersion: 2
-        x: 102
-        y: 480
-        width: 63
-        height: 55
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 103
+        y: 481
+        width: 61
+        height: 53
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1777,12 +1777,12 @@ TextureImporter:
       name: tempFighter_63
       rect:
         serializedVersion: 2
-        x: 183
-        y: 486
-        width: 54
-        height: 50
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 184
+        y: 487
+        width: 52
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1799,12 +1799,12 @@ TextureImporter:
       name: tempFighter_64
       rect:
         serializedVersion: 2
-        x: 260
-        y: 489
-        width: 50
-        height: 45
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 261
+        y: 490
+        width: 48
+        height: 43
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []

@@ -26,4 +26,4 @@ MonoBehaviour:
   context: 3
   attackSound: {fileID: 0}
   hitSound: {fileID: 0}
-  animationTrigger: Attack
+  animationTrigger: Jab

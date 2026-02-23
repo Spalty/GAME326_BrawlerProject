@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using Brawler.Input;
 using Brawler.Combat;
+using NaughtyAttributes;
 
 namespace Brawler.Fighter
 {
@@ -21,19 +22,24 @@ namespace Brawler.Fighter
     /// </summary>
     public class AttackController : MonoBehaviour
     {
+        [Expandable]
         [Header("Attack Assignments")]
         [Tooltip("Attack used with no directional input while grounded.")]
         [SerializeField] private AttackData neutralAttack;
 
+        [Expandable]
         [Tooltip("Attack used with forward input while grounded.")]
         [SerializeField] private AttackData forwardAttack;
 
+        [Expandable]
         [Tooltip("Attack used with up input while grounded.")]
         [SerializeField] private AttackData upAttack;
 
+        [Expandable]
         [Tooltip("Attack used with down input while grounded.")]
         [SerializeField] private AttackData downAttack;
 
+        [Expandable]
         [Tooltip("Default attack used in the air.")]
         [SerializeField] private AttackData aerialAttack;
 
