@@ -21,7 +21,7 @@ namespace Brawler.Arena
     {
         [Header("Settings")]
         [Tooltip("How long to disable collision when dropping through.")]
-        [SerializeField] private float dropThroughDuration = 0.25f;
+        //[SerializeField] private float dropThroughDuration = 0.25f;
 
         [Header("Debug")]
         [SerializeField] private bool logDropThrough = false;
