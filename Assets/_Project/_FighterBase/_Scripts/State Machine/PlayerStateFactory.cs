@@ -1,110 +1,162 @@
+using System.Collections.Generic;
+
 public class PlayerStateFactory
 {
-   PlayerStateMachine _context;
+    enum PlayerStates
+    {
+        Ground,
+        Airborne,
+        Idle,
+        Crouch,
+        ForwardWalk,
+        ForwardDash,
+        BackWalk,
+        BackDash,
+        StandBlock,
+        LightAttack,
+        MediumAttack,
+        HeavyAttack,
+        WasHitStanding,
+        CrouchBlock,
+        CRLightAttack,
+        CRMediumAttack,
+        CRHeavyAttack,
+        WasHitCrouching,
+        AirBlock,
+        JLightAttack,
+        JMediumAttack,
+        JHeavyAttack,
+        WasHitAirborne
+    }
+    PlayerStateMachine _context;
+    Dictionary<PlayerStates, PlayerBaseState> _stateCache = new Dictionary<PlayerStates, PlayerBaseState>();
 
     public PlayerStateFactory(PlayerStateMachine currentContext)
     {
         _context = currentContext;
+        _stateCache[PlayerStates.Ground] = new PlayerGroundState(_context, this);
+        _stateCache[PlayerStates.Airborne] = new PlayerAirborneState(_context, this);
+        _stateCache[PlayerStates.Idle] = new PlayerIdleState(_context, this);
+        _stateCache[PlayerStates.Crouch] = new PlayerCrouchState(_context, this);
+        _stateCache[PlayerStates.ForwardWalk] = new PlayerForwardWalkState(_context, this);
+        _stateCache[PlayerStates.ForwardDash] = new PlayerForwardDashState(_context, this);
+        _stateCache[PlayerStates.BackWalk] = new PlayerBackWalkState(_context, this);
+        _stateCache[PlayerStates.BackDash] = new PlayerBackDashState(_context, this);
+        _stateCache[PlayerStates.StandBlock] = new PlayerStandBlockState(_context, this);
+        _stateCache[PlayerStates.LightAttack] = new PlayerLightAttackState(_context, this);
+        _stateCache[PlayerStates.MediumAttack] = new PlayerMediumAttackState(_context, this);
+        _stateCache[PlayerStates.HeavyAttack] = new PlayerHeavyAttackState(_context, this);
+        _stateCache[PlayerStates.WasHitStanding] = new PlayerWasHitStandingState(_context, this);
+        _stateCache[PlayerStates.CrouchBlock] = new PlayerCrouchBlockState(_context, this);
+        _stateCache[PlayerStates.CRLightAttack] = new PlayerCRLightAttackState(_context, this);
+        _stateCache[PlayerStates.CRMediumAttack] = new PlayerCRMediumAttackState(_context, this);
+        _stateCache[PlayerStates.CRHeavyAttack] = new PlayerCRHeavyAttackState(_context, this);
+        _stateCache[PlayerStates.WasHitCrouching] = new PlayerWasHitCrouchingState(_context, this);
+        _stateCache[PlayerStates.AirBlock] = new PlayerAirBlockState(_context, this);
+        _stateCache[PlayerStates.JLightAttack] = new PlayerJLightAttackState(_context, this);
+        _stateCache[PlayerStates.JMediumAttack] = new PlayerJMediumAttackState(_context, this);
+        _stateCache[PlayerStates.JHeavyAttack] = new PlayerJHeavyAttackState(_context, this);
+        _stateCache[PlayerStates.WasHitAirborne] = new PlayerWasHitAirborneState(_context, this);
     }
 
-    public PlayerGroundState Ground()
+    public PlayerBaseState Ground()
     {
-        return new PlayerGroundState(_context, this);
+        return _stateCache[PlayerStates.Ground];
     }
-    public PlayerIdleState Idle()//Idle is the default sub state of Ground, so it will be the first state to enter when we switch to Ground
+    public PlayerBaseState Idle()//Idle is the default sub state of Ground, so it will be the first state to enter when we switch to Ground
     {
-        return new PlayerIdleState(_context, this);
+        return _stateCache[PlayerStates.Idle];
     }
     #region ---Idle Sub States---
-    public PlayerForwardWalkState ForwardWalk()
+    public PlayerBaseState ForwardWalk()
     {
-        return new PlayerForwardWalkState(_context, this);
+        return _stateCache[PlayerStates.ForwardWalk];
     }
-    public PlayerForwardDashState ForwardDash()
+    public PlayerBaseState ForwardDash()
     {
-        return new PlayerForwardDashState(_context, this);
+        return _stateCache[PlayerStates.ForwardDash];
     }
-    public PlayerBackWalkState BackWalk()
+    public PlayerBaseState BackWalk()
     {
-        return new PlayerBackWalkState(_context, this);
+        return _stateCache[PlayerStates.BackWalk];
     }
-    public PlayerBackDashState BackDash()
+    public PlayerBaseState BackDash()
     {
-        return new PlayerBackDashState(_context, this);
+        return _stateCache[PlayerStates.BackDash];
     }
-    public PlayerStandBlockState StandBlock()
+    public PlayerBaseState StandBlock()
     {
-        return new PlayerStandBlockState(_context, this);
+        return _stateCache[PlayerStates.StandBlock];
     }
-    public PlayerLightAttackState LightAttack()
+    public PlayerBaseState LightAttack()
     {
-        return new PlayerLightAttackState(_context, this);
+        return _stateCache[PlayerStates.LightAttack];
     }
-    public PlayerMediumAttackState MediumAttack()
+    public PlayerBaseState MediumAttack()
     {
-        return new PlayerMediumAttackState(_context, this);
+        return _stateCache[PlayerStates.MediumAttack];
     }
-    public PlayerHeavyAttackState HeavyAttack()
+    public PlayerBaseState HeavyAttack()
     {
-        return new PlayerHeavyAttackState(_context, this);
+        return _stateCache[PlayerStates.HeavyAttack];
     }
-    public PlayerWasHitStandingState WasHitStanding()
+    public PlayerBaseState WasHitStanding()
     {
-        return new PlayerWasHitStandingState(_context, this);
+        return _stateCache[PlayerStates.WasHitStanding];
     }
 
     
     #endregion
-    public PlayerCrouchState Crouch()//Crouch is the default sub state of Ground when the player is holding down, so it will be the first state to enter when we switch to Ground while holding down
+    public PlayerBaseState Crouch()//Crouch is the default sub state of Ground when the player is holding down, so it will be the first state to enter when we switch to Ground while holding down
     {
-        return new PlayerCrouchState(_context, this);
+        return _stateCache[PlayerStates.Crouch];
     }
     #region ---Crouch Sub States---
-    public PlayerCrouchBlockState CrouchBlock()
+    public PlayerBaseState CrouchBlock()
     {
-        return new PlayerCrouchBlockState(_context, this);
+        return _stateCache[PlayerStates.CrouchBlock];
     }
-    public PlayerCRLightAttackState CRLightAttack()
+    public PlayerBaseState CRLightAttack()
     {
-        return new PlayerCRLightAttackState(_context, this);
+        return _stateCache[PlayerStates.CRLightAttack];
     }
-    public PlayerCRMediumAttackState CRMediumAttack()
+    public PlayerBaseState CRMediumAttack()
     {
-        return new PlayerCRMediumAttackState(_context, this);
+        return _stateCache[PlayerStates.CRMediumAttack];
     }
-    public PlayerCRHeavyAttackState CRHeavyAttack()
+    public PlayerBaseState CRHeavyAttack()
     {
-        return new PlayerCRHeavyAttackState(_context, this);
+        return _stateCache[PlayerStates.CRHeavyAttack];
     }
-    public PlayerWasHitCrouchingState WasHitCrouching()
+    public PlayerBaseState WasHitCrouching()
     {
-        return new PlayerWasHitCrouchingState(_context, this);
+        return _stateCache[PlayerStates.WasHitCrouching];
     }
     #endregion
-    public PlayerAirborneState Airborne()
+    public PlayerBaseState Airborne()
     {
-        return new PlayerAirborneState(_context, this);
+        return _stateCache[PlayerStates.Airborne];
     }
     #region ---Airborne Sub States---
-    public PlayerAirBlockState AirBlock()
+    public PlayerBaseState AirBlock()
     {
-        return new PlayerAirBlockState(_context, this);
+        return _stateCache[PlayerStates.AirBlock];
     }
-    public PlayerJLightAttackState JLightAttack()
+    public PlayerBaseState JLightAttack()
     {
-        return new PlayerJLightAttackState(_context, this);
+        return _stateCache[PlayerStates.JLightAttack];
     }
-    public PlayerJMediumAttackState JMediumAttack()
+    public PlayerBaseState JMediumAttack()
     {
-        return new PlayerJMediumAttackState(_context, this);
+        return _stateCache[PlayerStates.JMediumAttack];
     }
-    public PlayerJHeavyAttackState JHeavyAttack()
+    public PlayerBaseState JHeavyAttack()
     {
-        return new PlayerJHeavyAttackState(_context, this);
+        return _stateCache[PlayerStates.JHeavyAttack];
     }
-    public PlayerWasHitAirborneState WasHitAirborne()
+    public PlayerBaseState WasHitAirborne()
     {
-        return new PlayerWasHitAirborneState(_context, this);
+        return _stateCache[PlayerStates.WasHitAirborne];
     }
     #endregion
 }

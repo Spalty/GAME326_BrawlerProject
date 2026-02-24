@@ -4,10 +4,11 @@ public class PlayerAirborneState : PlayerBaseState
 {
     public PlayerAirborneState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) : base(currentContext, playerStateFactory)
     {
-        
+        IsRootState = true;
     }
    public override void EnterState()
     {
+        InitializeSubState();
         // Implementation for entering airborne state
         Debug.Log("Entering Airborne State");
     }

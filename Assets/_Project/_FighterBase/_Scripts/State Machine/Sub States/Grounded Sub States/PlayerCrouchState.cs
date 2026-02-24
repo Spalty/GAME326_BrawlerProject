@@ -26,10 +26,43 @@ public class PlayerCrouchState : PlayerBaseState
     public override void CheckSwitchState()
     {
         // Implementation for checking state switches
+        if (!Context.isCrouching)
+        {
+            SwitchState(Factory.Idle());
+        }
+        else if (Context.isLightAttackPressed && Context.isCrouching)
+        {
+            SwitchState(Factory.CRLightAttack());
+        }
+        else if (Context.isMediumAttackPressed && Context.isCrouching)
+        {
+            SwitchState(Factory.CRMediumAttack());
+        }
+        else if (Context.isHeavyAttackPressed && Context.isCrouching)
+        {
+            SwitchState(Factory.CRHeavyAttack());
+        }
     }
 
     public override void InitializeSubState()
     {
         // Implementation for initializing sub states
+        if (Context.isLightAttackPressed && Context.isCrouching)
+        {
+            SetSubState(Factory.CRLightAttack());
+        }
+        else if (Context.isMediumAttackPressed && Context.isCrouching)
+        {
+            SetSubState(Factory.CRMediumAttack());
+        }
+        else if (Context.isHeavyAttackPressed && Context.isCrouching)
+        {
+            SetSubState(Factory.CRHeavyAttack());
+        }
+        /*else if (Context.MoveDirection < 0 && Context.isCrouching)
+        {
+            SetSubState(Factory.CrouchBlock());
+        }
+        */
     }
 }
