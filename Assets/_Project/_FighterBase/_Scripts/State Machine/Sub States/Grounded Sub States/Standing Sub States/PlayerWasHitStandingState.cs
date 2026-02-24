@@ -2,9 +2,8 @@ using UnityEngine;
 
 public class PlayerWasHitStandingState : PlayerBaseState
 {
-    public PlayerWasHitStandingState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) : base(currentContext, playerStateFactory)
-    {
-    }
+    public PlayerWasHitStandingState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) : base(currentContext, playerStateFactory){}
+    
     public override void EnterState()
     {
         // Implementation for entering was hit standing state

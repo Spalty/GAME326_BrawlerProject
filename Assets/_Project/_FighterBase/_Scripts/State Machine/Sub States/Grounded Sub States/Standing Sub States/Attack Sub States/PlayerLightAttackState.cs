@@ -24,6 +24,7 @@ public class PlayerLightAttackState : PlayerBaseState
     public override void CheckSwitchState()
     {
         // Implementation for checking state switches
+        
     }
 
     public override void InitializeSubState()

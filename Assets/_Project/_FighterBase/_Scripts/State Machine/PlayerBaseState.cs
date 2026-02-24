@@ -17,7 +17,7 @@ public abstract class PlayerBaseState
     public abstract void CheckSwitchState();
     public abstract void InitializeSubState();
 
-    void UpdateAllStates()
+    public void UpdateAllStates()
     {
         UpdateState();
 
@@ -55,6 +55,7 @@ public abstract class PlayerBaseState
         // Implementation for setting sub state
         _currentSubState = newSubState;
         newSubState.SetSuperState(this);
+        newSubState.EnterState();
     }
 
     #region ---Getters---

@@ -4,10 +4,16 @@ public class PlayerStateFactory
 {
     enum PlayerStates
     {
-        Ground,
+        //Root States
         Airborne,
-        Idle,
+        Ground,
+        
+        //Ground Sub States
+        Standing,
         Crouch,
+        
+        //Standing Sub States
+        Idle,
         ForwardWalk,
         ForwardDash,
         BackWalk,
@@ -17,11 +23,15 @@ public class PlayerStateFactory
         MediumAttack,
         HeavyAttack,
         WasHitStanding,
+        
+        //Crouch Sub States
         CrouchBlock,
         CRLightAttack,
         CRMediumAttack,
         CRHeavyAttack,
         WasHitCrouching,
+       
+        //Air Sub States
         AirBlock,
         JLightAttack,
         JMediumAttack,
@@ -34,10 +44,16 @@ public class PlayerStateFactory
     public PlayerStateFactory(PlayerStateMachine currentContext)
     {
         _context = currentContext;
-        _stateCache[PlayerStates.Ground] = new PlayerGroundState(_context, this);
+        //root states
         _stateCache[PlayerStates.Airborne] = new PlayerAirborneState(_context, this);
-        _stateCache[PlayerStates.Idle] = new PlayerIdleState(_context, this);
+        _stateCache[PlayerStates.Ground] = new PlayerGroundState(_context, this);
+        
+        //Ground sub states
+        _stateCache[PlayerStates.Standing] = new PlayerStandingState(_context, this);
         _stateCache[PlayerStates.Crouch] = new PlayerCrouchState(_context, this);
+        
+        //Standing sub states
+        _stateCache[PlayerStates.Idle] = new PlayerIdleState(_context, this);
         _stateCache[PlayerStates.ForwardWalk] = new PlayerForwardWalkState(_context, this);
         _stateCache[PlayerStates.ForwardDash] = new PlayerForwardDashState(_context, this);
         _stateCache[PlayerStates.BackWalk] = new PlayerBackWalkState(_context, this);
@@ -47,11 +63,15 @@ public class PlayerStateFactory
         _stateCache[PlayerStates.MediumAttack] = new PlayerMediumAttackState(_context, this);
         _stateCache[PlayerStates.HeavyAttack] = new PlayerHeavyAttackState(_context, this);
         _stateCache[PlayerStates.WasHitStanding] = new PlayerWasHitStandingState(_context, this);
+        
+        //Crouch sub states
         _stateCache[PlayerStates.CrouchBlock] = new PlayerCrouchBlockState(_context, this);
         _stateCache[PlayerStates.CRLightAttack] = new PlayerCRLightAttackState(_context, this);
         _stateCache[PlayerStates.CRMediumAttack] = new PlayerCRMediumAttackState(_context, this);
         _stateCache[PlayerStates.CRHeavyAttack] = new PlayerCRHeavyAttackState(_context, this);
         _stateCache[PlayerStates.WasHitCrouching] = new PlayerWasHitCrouchingState(_context, this);
+        
+        //Airborne sub states
         _stateCache[PlayerStates.AirBlock] = new PlayerAirBlockState(_context, this);
         _stateCache[PlayerStates.JLightAttack] = new PlayerJLightAttackState(_context, this);
         _stateCache[PlayerStates.JMediumAttack] = new PlayerJMediumAttackState(_context, this);
@@ -63,11 +83,15 @@ public class PlayerStateFactory
     {
         return _stateCache[PlayerStates.Ground];
     }
+    public PlayerBaseState Standing()
+    {
+        return _stateCache[PlayerStates.Standing];
+    }
+    #region ---Standing Sub States---
     public PlayerBaseState Idle()//Idle is the default sub state of Ground, so it will be the first state to enter when we switch to Ground
     {
         return _stateCache[PlayerStates.Idle];
     }
-    #region ---Idle Sub States---
     public PlayerBaseState ForwardWalk()
     {
         return _stateCache[PlayerStates.ForwardWalk];

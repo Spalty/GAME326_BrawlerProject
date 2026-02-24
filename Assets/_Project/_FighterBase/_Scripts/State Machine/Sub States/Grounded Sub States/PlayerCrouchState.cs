@@ -26,19 +26,19 @@ public class PlayerCrouchState : PlayerBaseState
     public override void CheckSwitchState()
     {
         // Implementation for checking state switches
-        if (!Context.isCrouching)
+        if (!Context.IsCrouching)
         {
             SwitchState(Factory.Idle());
         }
-        else if (Context.isLightAttackPressed && Context.isCrouching)
+        else if (Context.InputHandler.IsLightAttackPressed && Context.IsCrouching)
         {
             SwitchState(Factory.CRLightAttack());
         }
-        else if (Context.isMediumAttackPressed && Context.isCrouching)
+        else if (Context.InputHandler.IsMediumAttackPressed && Context.IsCrouching)
         {
             SwitchState(Factory.CRMediumAttack());
         }
-        else if (Context.isHeavyAttackPressed && Context.isCrouching)
+        else if (Context.InputHandler.IsHeavyAttackPressed && Context.IsCrouching)
         {
             SwitchState(Factory.CRHeavyAttack());
         }
@@ -47,15 +47,15 @@ public class PlayerCrouchState : PlayerBaseState
     public override void InitializeSubState()
     {
         // Implementation for initializing sub states
-        if (Context.isLightAttackPressed && Context.isCrouching)
+        if (Context.InputHandler.IsLightAttackPressed && Context.IsCrouching)
         {
             SetSubState(Factory.CRLightAttack());
         }
-        else if (Context.isMediumAttackPressed && Context.isCrouching)
+        else if (Context.InputHandler.IsMediumAttackPressed && Context.IsCrouching)
         {
             SetSubState(Factory.CRMediumAttack());
         }
-        else if (Context.isHeavyAttackPressed && Context.isCrouching)
+        else if (Context.InputHandler.IsHeavyAttackPressed && Context.IsCrouching)
         {
             SetSubState(Factory.CRHeavyAttack());
         }

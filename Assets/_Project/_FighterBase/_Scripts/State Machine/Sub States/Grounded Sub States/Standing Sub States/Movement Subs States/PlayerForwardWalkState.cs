@@ -14,6 +14,8 @@ public class PlayerForwardWalkState : PlayerBaseState
     public override void UpdateState()
     {
         // Implementation for updating forward walk state
+        HandleWalkingForward();
+        
         CheckSwitchState();
     }
 
@@ -22,42 +24,42 @@ public class PlayerForwardWalkState : PlayerBaseState
         // Implementation for exiting forward walk state
     }
 
-    public override void CheckSwitchState()
-    {
-        // Implementation for checking state switches
-        if (!Context.isMoving || Context.MoveDirection == 0)
-        {
-            SwitchState(Factory.Idle());
-        }
-        else if (Context.isCrouching)
-        {
-            SwitchState(Factory.Crouch());
-        }
-        else if (Context.isLightAttackPressed)
-        {
-            SwitchState(Factory.LightAttack());
-        }
-        else if (Context.isMediumAttackPressed)
-        {
-            SwitchState(Factory.MediumAttack());
-        }
-        else if (Context.isHeavyAttackPressed)
-        {
-            SwitchState(Factory.HeavyAttack());
-        }
-        else if (Context.WasDashPressed)
-        {
-            SwitchState(Factory.ForwardDash());
-        }
-    }
 
     public override void InitializeSubState()
     {
         // Implementation for initializing sub states
     }
+    public override void CheckSwitchState()
+    {
+        // Implementation for checking state switches
+        if (!Context.IsMoving || Context.InputHandler.MoveDirection == 0)
+        {
+            SwitchState(Factory.Idle());
+        }
+        else if (Context.IsCrouching)
+        {
+            SwitchState(Factory.Crouch());
+        }
+        else if (Context.InputHandler.IsLightAttackPressed)
+        {
+            SwitchState(Factory.LightAttack());
+        }
+        else if (Context.InputHandler.IsMediumAttackPressed)
+        {
+            SwitchState(Factory.MediumAttack());
+        }
+        else if (Context.InputHandler.IsHeavyAttackPressed)
+        {
+            SwitchState(Factory.HeavyAttack());
+        }
+        else if (Context.InputHandler.WasDashPressed)
+        {
+            SwitchState(Factory.ForwardDash());
+        }
+    }
 
     private void HandleWalkingForward()
     {
-        Context.PlayerRB.linearVelocity = new Vector2(Context.MoveDirection * Context.WalkSpeed, Context.PlayerRB.linearVelocity.y);
+        Context.PlayerRB.linearVelocity = new Vector2(Context.InputHandler.MoveDirection * Context.WalkSpeed, Context.PlayerRB.linearVelocity.y);
     }
 }

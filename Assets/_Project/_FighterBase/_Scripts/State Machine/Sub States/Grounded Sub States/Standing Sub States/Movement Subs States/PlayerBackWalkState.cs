@@ -25,27 +25,27 @@ public class PlayerBackWalkState : PlayerBaseState
     public override void CheckSwitchState()
     {
         // Implementation for checking state switches
-        if (!Context.isMoving || Context.MoveDirection == 0)
+        if (!Context.IsMoving || Context.InputHandler.MoveDirection == 0)
         {
             SwitchState(Factory.Idle());
         }
-        else if (Context.isCrouching)
+        else if (Context.IsCrouching)
         {
             SwitchState(Factory.Crouch());
         }
-        else if (Context.isLightAttackPressed)
+        else if (Context.InputHandler.IsLightAttackPressed)
         {
             SwitchState(Factory.LightAttack());
         }
-        else if (Context.isMediumAttackPressed)
+        else if (Context.InputHandler.IsMediumAttackPressed)
         {
             SwitchState(Factory.MediumAttack());
         }
-        else if (Context.isHeavyAttackPressed)
+        else if (Context.InputHandler.IsHeavyAttackPressed)
         {
             SwitchState(Factory.HeavyAttack());
         }
-        else if (Context.WasDashPressed)
+        else if (Context.InputHandler.WasDashPressed)
         {
             SwitchState(Factory.BackDash());
         }

@@ -11,25 +11,21 @@ public class PlayerGroundState : PlayerBaseState
     {
         InitializeSubState();
         
-        // Implementation for entering ground state
         Debug.Log("Entering Ground State");
     }
 
     public override void UpdateState()
     {
-        // Implementation for updating ground state
+        Debug.Log("Updating Ground State");
         CheckSwitchState();
     }
 
-    public override void ExitState()
-    {
-        // Implementation for exiting ground state
-    }
+    public override void ExitState() { }
+    
 
     public override void CheckSwitchState()
     {
-        // Implementation for checking state switches
-        if (!Context.isGrounded)
+        if (!Context.IsGrounded)
         {
             SwitchState(Factory.Airborne());
         }
@@ -37,15 +33,14 @@ public class PlayerGroundState : PlayerBaseState
 
     public override void InitializeSubState()
     {
-        // Implementation for initializing sub states
 
-        if (Context.isCrouching)
+        if (Context.IsCrouching)
         {
             SetSubState(Factory.Crouch());
         }
         else
         {
-            SetSubState(Factory.Idle());
+            SetSubState(Factory.Standing());
         }
     }
 }
