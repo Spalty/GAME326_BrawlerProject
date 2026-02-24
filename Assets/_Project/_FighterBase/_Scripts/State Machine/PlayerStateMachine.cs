@@ -7,7 +7,7 @@ public class PlayerStateMachine : MonoBehaviour
     private PlayerStateFactory _states;
     private Rigidbody2D _playerRB;
 
-    private InputHandler _inputHandler;
+    private InputManager _inputManager;
 
     private bool _isGrounded = true;
     private bool _isCrouching;
@@ -19,7 +19,7 @@ public class PlayerStateMachine : MonoBehaviour
     #region ---Getter/Setters---
     public PlayerBaseState CurrentState { get { return _currentState; } set { _currentState = value; } }
     public Rigidbody2D PlayerRB { get { return _playerRB; } set { _playerRB = value; } }
-    public InputHandler InputHandler { get { return _inputHandler; } set { _inputHandler = value; } }
+    public InputManager InputHandler { get { return _inputManager; } set { _inputManager = value; } }
     public bool IsCrouching { get { return _isCrouching; } set { _isCrouching = value; } }
     public bool IsMoving { get { return _isMoving; } set { _isMoving = value; } }
     public bool IsGrounded { get { return _isGrounded; } set { _isGrounded = value; } }
@@ -29,6 +29,9 @@ public class PlayerStateMachine : MonoBehaviour
     
     void Awake()
     {
+        _playerRB = GetComponent<Rigidbody2D>();
+        _inputManager = GetComponent<InputManager>();
+        
         _states = new PlayerStateFactory(this);
         _currentState = _states.Ground();
         _currentState.EnterState();
