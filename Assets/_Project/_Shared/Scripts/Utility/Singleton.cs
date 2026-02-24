@@ -28,7 +28,13 @@ public class Singleton<T> : MonoBehaviour where T : Component
         if (_instance == null)
         {
             _instance = this as T;
-            DontDestroyOnLoad(gameObject);
+
+#if UNITY_EDITOR
+            if (Application.isPlaying)
+#endif
+            {
+                DontDestroyOnLoad(gameObject);
+            }
         }
         else if (_instance != null && _instance != this as T)
         {
