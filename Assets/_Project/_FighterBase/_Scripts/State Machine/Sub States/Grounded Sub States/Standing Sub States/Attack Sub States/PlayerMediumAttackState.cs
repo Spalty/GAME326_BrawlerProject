@@ -14,6 +14,7 @@ public class PlayerMediumAttackState : PlayerBaseState
     public override void UpdateState()
     {
         // Implementation for updating medium attack state
+        CheckSwitchState();
     }
 
     public override void ExitState()

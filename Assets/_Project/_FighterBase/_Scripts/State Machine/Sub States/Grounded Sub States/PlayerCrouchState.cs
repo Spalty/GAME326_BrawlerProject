@@ -26,19 +26,19 @@ public class PlayerCrouchState : PlayerBaseState
     public override void CheckSwitchState()
     {
         // Implementation for checking state switches
-        if (!Context.IsCrouching)
+        if (Context.InputHandler.verticalInput >= 0)
         {
             SwitchState(Factory.Idle());
         }
-        else if (Context.InputHandler.IsLightAttackPressed && Context.IsCrouching)
+        else if (Context.InputHandler.IsLightAttackPressed && Context.InputHandler.verticalInput < 0)
         {
             SwitchState(Factory.CRLightAttack());
         }
-        else if (Context.InputHandler.IsMediumAttackPressed && Context.IsCrouching)
+        else if (Context.InputHandler.IsMediumAttackPressed && Context.InputHandler.verticalInput < 0)
         {
             SwitchState(Factory.CRMediumAttack());
         }
-        else if (Context.InputHandler.IsHeavyAttackPressed && Context.IsCrouching)
+        else if (Context.InputHandler.IsHeavyAttackPressed && Context.InputHandler.verticalInput < 0)
         {
             SwitchState(Factory.CRHeavyAttack());
         }
@@ -47,15 +47,15 @@ public class PlayerCrouchState : PlayerBaseState
     public override void InitializeSubState()
     {
         // Implementation for initializing sub states
-        if (Context.InputHandler.IsLightAttackPressed && Context.IsCrouching)
+        if (Context.InputHandler.IsLightAttackPressed && Context.InputHandler.verticalInput < 0)
         {
             SetSubState(Factory.CRLightAttack());
         }
-        else if (Context.InputHandler.IsMediumAttackPressed && Context.IsCrouching)
+        else if (Context.InputHandler.IsMediumAttackPressed && Context.InputHandler.verticalInput < 0)
         {
             SetSubState(Factory.CRMediumAttack());
         }
-        else if (Context.InputHandler.IsHeavyAttackPressed && Context.IsCrouching)
+        else if (Context.InputHandler.IsHeavyAttackPressed && Context.InputHandler.verticalInput < 0)
         {
             SetSubState(Factory.CRHeavyAttack());
         }

@@ -1,7 +1,10 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerStateMachine : MonoBehaviour
 {
+    //THE GAME IS HARD CAPPED TO 60 FPS, SO THIS IS A WAY TO MAKE SURE THE ATTACK LASTS FOR THE SAME AMOUNT OF TIME REGARDLESS OF FRAME RATE
+    
     //State Machine Variables
     private PlayerBaseState _currentState;
     private PlayerStateFactory _states;
@@ -10,8 +13,8 @@ public class PlayerStateMachine : MonoBehaviour
     private InputManager _inputManager;
 
     private bool _isGrounded = true;
-    private bool _isCrouching;
-    private bool _isMoving;
+    private bool _isActionable = true;
+    
     private bool _touchingBlockBox;
     
     private float _walkSpeed = 5f;
@@ -20,11 +23,10 @@ public class PlayerStateMachine : MonoBehaviour
     public PlayerBaseState CurrentState { get { return _currentState; } set { _currentState = value; } }
     public Rigidbody2D PlayerRB { get { return _playerRB; } set { _playerRB = value; } }
     public InputManager InputHandler { get { return _inputManager; } set { _inputManager = value; } }
-    public bool IsCrouching { get { return _isCrouching; } set { _isCrouching = value; } }
-    public bool IsMoving { get { return _isMoving; } set { _isMoving = value; } }
     public bool IsGrounded { get { return _isGrounded; } set { _isGrounded = value; } }
     public bool TouchingBlockBox { get { return _touchingBlockBox; } set { _touchingBlockBox = value; } }
     public float WalkSpeed { get { return _walkSpeed; } set { _walkSpeed = value; } }
+    public bool IsActionable { get { return _isActionable; } set { _isActionable = value; } }
     #endregion
     
     void Awake()
@@ -39,7 +41,7 @@ public class PlayerStateMachine : MonoBehaviour
 
     void Start()
     {
-        _currentState.EnterState();
+        
     }
 
     void Update()

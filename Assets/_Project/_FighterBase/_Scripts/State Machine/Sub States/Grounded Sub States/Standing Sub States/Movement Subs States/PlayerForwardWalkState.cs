@@ -32,11 +32,11 @@ public class PlayerForwardWalkState : PlayerBaseState
     public override void CheckSwitchState()
     {
         // Implementation for checking state switches
-        if (!Context.IsMoving || Context.InputHandler.MoveDirection == 0)
+        if (Context.InputHandler.moveDirection == 0)
         {
             SwitchState(Factory.Idle());
         }
-        else if (Context.IsCrouching)
+        else if (Context.InputHandler.verticalInput < 0)
         {
             SwitchState(Factory.Crouch());
         }
@@ -60,6 +60,6 @@ public class PlayerForwardWalkState : PlayerBaseState
 
     private void HandleWalkingForward()
     {
-        Context.PlayerRB.linearVelocity = new Vector2(Context.InputHandler.MoveDirection * Context.WalkSpeed, Context.PlayerRB.linearVelocity.y);
+        Context.PlayerRB.linearVelocity = new Vector2(Context.InputHandler.moveDirection * Context.WalkSpeed, Context.PlayerRB.linearVelocity.y);
     }
 }

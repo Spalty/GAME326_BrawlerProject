@@ -16,7 +16,6 @@ public class PlayerStandingState : PlayerBaseState
     public override void UpdateState()
     {
         // Implementation for updating standing state
-        Debug.Log("Updating Standing State");
         CheckSwitchState();
     }
 
@@ -28,7 +27,7 @@ public class PlayerStandingState : PlayerBaseState
     public override void CheckSwitchState()
     {
         // Implementation for checking state switches
-        if (Context.IsCrouching)
+        if (Context.InputHandler.verticalInput < 0)
         {
             SwitchState(Factory.Crouch());
         }
@@ -37,15 +36,12 @@ public class PlayerStandingState : PlayerBaseState
     public override void InitializeSubState()
     {
         // Implementation for initializing sub states
-        if (!Context.IsMoving)
-        {
-            SetSubState(Factory.Idle());
-        }
-        else if (Context.InputHandler.MoveDirection > 0)
+        
+        if (Context.InputHandler.moveDirection > 0)
         {
             SetSubState(Factory.ForwardWalk());
         }
-        else if (Context.InputHandler.MoveDirection < 0)
+        else if (Context.InputHandler.moveDirection < 0)
         {
             SetSubState(Factory.BackWalk());
         }

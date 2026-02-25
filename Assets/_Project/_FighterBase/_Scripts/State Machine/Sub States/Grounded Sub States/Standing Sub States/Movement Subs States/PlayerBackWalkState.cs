@@ -14,6 +14,8 @@ public class PlayerBackWalkState : PlayerBaseState
     public override void UpdateState()
     {
         // Implementation for updating back walk state
+        HandleWalkingBackwards();
+
         CheckSwitchState();
     }
 
@@ -25,11 +27,11 @@ public class PlayerBackWalkState : PlayerBaseState
     public override void CheckSwitchState()
     {
         // Implementation for checking state switches
-        if (!Context.IsMoving || Context.InputHandler.MoveDirection == 0)
+        if (Context.InputHandler.moveDirection == 0)
         {
             SwitchState(Factory.Idle());
         }
-        else if (Context.IsCrouching)
+        else if (Context.InputHandler.verticalInput < 0)
         {
             SwitchState(Factory.Crouch());
         }
@@ -58,5 +60,11 @@ public class PlayerBackWalkState : PlayerBaseState
     public override void InitializeSubState()
     {
         // Implementation for initializing sub states
+    }
+
+    private void HandleWalkingBackwards()
+    {
+        // Implementation for handling backward walking movement
+        Context.PlayerRB.linearVelocity = new Vector2(Context.InputHandler.moveDirection * Context.WalkSpeed, Context.PlayerRB.linearVelocity.y);
     }
 }

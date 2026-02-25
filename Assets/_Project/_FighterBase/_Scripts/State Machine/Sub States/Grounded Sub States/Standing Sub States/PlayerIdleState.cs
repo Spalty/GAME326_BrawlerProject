@@ -16,7 +16,7 @@ public class PlayerIdleState : PlayerBaseState
     public override void UpdateState()
     {
         // Implementation for updating idle state
-        Debug.Log("Updating Idle State");
+        
         CheckSwitchState();
     }
 
@@ -28,11 +28,11 @@ public class PlayerIdleState : PlayerBaseState
     public override void CheckSwitchState()
     {
         
-        if (Context.IsMoving && Context.InputHandler.MoveDirection > 0)
+        if (Context.InputHandler.moveDirection > 0)
         {
             SwitchState(Factory.ForwardWalk());
         }
-        else if (Context.IsMoving && Context.InputHandler.MoveDirection < 0)
+        else if (Context.InputHandler.moveDirection < 0)
         {
             SwitchState(Factory.BackWalk());
         }

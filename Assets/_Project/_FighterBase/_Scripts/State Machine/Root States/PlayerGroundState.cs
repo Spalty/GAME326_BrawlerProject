@@ -16,7 +16,7 @@ public class PlayerGroundState : PlayerBaseState
 
     public override void UpdateState()
     {
-        Debug.Log("Updating Ground State");
+        
         CheckSwitchState();
     }
 
@@ -34,7 +34,7 @@ public class PlayerGroundState : PlayerBaseState
     public override void InitializeSubState()
     {
 
-        if (Context.IsCrouching)
+        if (Context.InputHandler.verticalInput < 0)
         {
             SetSubState(Factory.Crouch());
         }
