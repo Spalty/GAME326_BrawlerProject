@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using Brawler.Fighter;
 using Brawler.Arena;
+using NaughtyAttributes;
 
 namespace Brawler.Core
 {
@@ -21,6 +22,7 @@ namespace Brawler.Core
     {
         public static GameManager Instance { get; private set; }
 
+        [Expandable]
         [Header("Configuration")]
         [Tooltip("Match settings (rounds, timing, etc.)")]
         [SerializeField] private MatchConfig matchConfig;
