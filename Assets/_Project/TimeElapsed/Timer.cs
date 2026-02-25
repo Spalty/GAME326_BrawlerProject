@@ -1,22 +1,40 @@
 using UnityEngine;
 using TMPro;
+using Brawler.Core;
+using NaughtyAttributes;
+using System.Xml.Serialization;
 
 public class ElapsedTime: MonoBehaviour
 {
+    [Header("References")]
     public TMP_Text timerText; //inspector
-    private float elapsedTime = 0f;
+    private float _remainingTime;
+
+    [Header("Config")]
+    [Expandable]
+    [SerializeField] private MatchConfig matchConfig;
+
+    private void Awake()
+    {
+        _remainingTime = matchConfig.matchTimeLimit;
+    }
 
     void Update()
     {
-        elapsedTime += Time.deltaTime;
         UpdateTimerDisplay();
     }
 
     void UpdateTimerDisplay()
     {
-        int minutes = Mathf.FloorToInt(elapsedTime / 60f);
-        int seconds = Mathf.FloorToInt(elapsedTime % 60f);
+        if (_remainingTime > 0)
+        {
+            _remainingTime -= Time.deltaTime;
+        }
+        else
+        {
+            Debug.Log("Game Over");
+        }
 
-        timerText.text = minutes.ToString("00") + ":" + seconds.ToString("00");
+        timerText.text = _remainingTime.ToString("00");
     }
 }
