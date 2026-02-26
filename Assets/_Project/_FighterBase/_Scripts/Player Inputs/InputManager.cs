@@ -5,6 +5,7 @@ public class InputManager : MonoBehaviour
 {
     private FighterController _fighterController;
     private bool _wasDashPressed;
+    private bool _wasJumpPressed;
 
     private bool _isLightAttackPressed;
     private bool _isMediumAttackPressed;
@@ -17,6 +18,7 @@ public class InputManager : MonoBehaviour
     public bool IsLightAttackPressed { get { return _isLightAttackPressed; } set { _isLightAttackPressed = value; } }
     public bool IsMediumAttackPressed { get { return _isMediumAttackPressed; } set { _isMediumAttackPressed = value; } }
     public bool IsHeavyAttackPressed { get { return _isHeavyAttackPressed; } set { _isHeavyAttackPressed = value; } }
+    public bool WasJumpPressed { get { return _wasJumpPressed; } set { _wasJumpPressed = value; } }
     public bool WasDashPressed { get { return _wasDashPressed; } set { _wasDashPressed = value; } }
     public float moveDirection { get { return _horizontalInput; } set { _horizontalInput = value; } }
     public float verticalInput { get { return _verticalInput; } set { _verticalInput = value; } }
@@ -67,6 +69,18 @@ public class InputManager : MonoBehaviour
         else if (context.canceled)
         {
             WasDashPressed = false;
+        }
+    }
+
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            WasJumpPressed = true;   
+        }
+        else if (context.canceled)
+        {
+            WasJumpPressed = false;
         }
     }
     public void OnLight(InputAction.CallbackContext context)
