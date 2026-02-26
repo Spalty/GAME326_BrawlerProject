@@ -217,10 +217,10 @@ GameObject:
   - component: {fileID: 273730656}
   - component: {fileID: 273730655}
   - component: {fileID: 273730653}
-  - component: {fileID: 273730654}
   - component: {fileID: 273730658}
   - component: {fileID: 273730657}
   - component: {fileID: 273730659}
+  - component: {fileID: 273730660}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -265,20 +265,6 @@ CapsuleCollider2D:
   m_Offset: {x: -0.005444348, y: -0.010888815}
   m_Size: {x: 0.98999393, y: 2.0017657}
   m_Direction: 0
---- !u!114 &273730654
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 273730652}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fba0d02074df7884ea77aa610ac29ef8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  config: {fileID: 11400000, guid: 6b280850aae062a49aaef1b226ebbd07, type: 2}
-  groundCheckPoint: {fileID: 1761922052}
 --- !u!50 &273730655
 Rigidbody2D:
   serializedVersion: 5
@@ -335,6 +321,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd439d753d21a4644bd1dd0db16f4967, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveConfig: {fileID: 11400000, guid: 6b280850aae062a49aaef1b226ebbd07, type: 2}
+  lightAtk: {fileID: 11400000, guid: 829122c7e51dcdd4e9fd943c9ae5e64a, type: 2}
+  mediumAtk: {fileID: 11400000, guid: 481414c4a168b5e48bf0361856f66ec2, type: 2}
+  heavyAtk: {fileID: 11400000, guid: 81821a38c872a764dbfadf1e95dcc4dd, type: 2}
+  jLightAtk: {fileID: 11400000, guid: 85b34a828556c5f469656cdd0451966f, type: 2}
+  jMediumAtk: {fileID: 0}
+  jHeavyAtk: {fileID: 0}
+  crLightAtk: {fileID: 0}
+  crMediumAtk: {fileID: 0}
+  crHeavyAtk: {fileID: 0}
 --- !u!114 &273730658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -377,6 +373,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 804ba9de7225f9b429a2326f3dd09d2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &273730660
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273730652}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: db81da7bca9e1124b95dbb039e666f7b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

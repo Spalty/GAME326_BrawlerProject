@@ -82,6 +82,8 @@ namespace Brawler.Fighter
             Animator = GetComponent<FighterAnimator>();
             Input = GetComponent<PlayerInputHandler>();
 
+            Input.Initialize(playerIndex);
+
             // Configure rigidbody for fighting game physics
             Rb.freezeRotation = true;
             Rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;

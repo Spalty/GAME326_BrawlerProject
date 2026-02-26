@@ -5,7 +5,6 @@ using Brawler.Input;
 public class TempFighter : FighterBase
 {
     private SpriteRenderer _spriteRenderer;
-    private PlayerInputHandler _inputHandler;
 
     [Header("---Fighter Settings---")]
     [SerializeField] private string fighterName = "TempFighter";
@@ -18,9 +17,8 @@ public class TempFighter : FighterBase
     {
         base.Awake();
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-        _inputHandler = GetComponent<PlayerInputHandler>();
 
-        base.Initialize(playerIndex, _inputHandler);
+        base.Initialize(PlayerIndex, Input);
     }
 
     protected override void OnFighterInitialized()

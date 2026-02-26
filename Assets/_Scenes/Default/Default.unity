@@ -1604,7 +1604,7 @@ MonoBehaviour:
   downAttack: {fileID: 11400000, guid: 81821a38c872a764dbfadf1e95dcc4dd, type: 2}
   aerialAttack: {fileID: 11400000, guid: 85b34a828556c5f469656cdd0451966f, type: 2}
   hitbox: {fileID: 2052616512}
-  logAttacks: 1
+  logAttacks: 0
 --- !u!114 &1703152159
 MonoBehaviour:
   m_ObjectHideFlags: 0
