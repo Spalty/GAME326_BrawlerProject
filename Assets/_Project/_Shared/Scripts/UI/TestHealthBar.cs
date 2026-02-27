@@ -20,5 +20,7 @@ public class TestHealthBar : MonoBehaviour
     private void UpdateHealthBar(int index)
     {
         Debug.Log("Hit Player");
+
+
     }
 }
