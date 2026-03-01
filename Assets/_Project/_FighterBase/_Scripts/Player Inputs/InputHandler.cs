@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class InputManager : MonoBehaviour
+public class InputHandler : MonoBehaviour
 {
     private FighterController _fighterController;
     private bool _wasDashPressed;

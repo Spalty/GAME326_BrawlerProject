@@ -2,38 +2,33 @@ using UnityEngine;
 
 public class PlayerBackWalkState : PlayerBaseState
 {
-    public PlayerBackWalkState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) : base(currentContext, playerStateFactory)
-    {
-    }
+    public PlayerBackWalkState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) : base(currentContext, playerStateFactory) { }
+
+    private InputHandler InputHandler => Context.InputHandler;
+    private Rigidbody2D PlayerRB => Context.PlayerRB;
+    private FighterData FighterData => Context.FightData;
+
     public override void EnterState()
     {
-        // Implementation for entering back walk state
-        Debug.Log("Entering Back Walk State");
+        Context.CurrentSubSubState = SubSubStates.Stand_BackWalk;
+
+        Context.AnimController.SetMoveType(MovementType.Walking);
     }
+
+    public override void InitializeSubState() { }
 
     public override void UpdateState()
     {
-        // Implementation for updating back walk state
         HandleWalkingBackwards();
 
         CheckSwitchState();
     }
 
-    public override void ExitState()
-    {
-        // Implementation for exiting back walk state
-    }
-
     public override void CheckSwitchState()
     {
-        // Implementation for checking state switches
         if (Context.InputHandler.moveDirection == 0)
         {
             SwitchState(Factory.Idle());
-        }
-        else if (Context.InputHandler.verticalInput < 0)
-        {
-            SwitchState(Factory.Crouch());
         }
         else if (Context.InputHandler.IsLightAttackPressed)
         {
@@ -57,14 +52,12 @@ public class PlayerBackWalkState : PlayerBaseState
         }
     }
 
-    public override void InitializeSubState()
-    {
-        // Implementation for initializing sub states
-    }
+    public override void ExitState() { }
 
     private void HandleWalkingBackwards()
     {
-        // Implementation for handling backward walking movement
-        Context.PlayerRB.linearVelocity = new Vector2(Context.InputHandler.moveDirection * Context.WalkSpeed, Context.PlayerRB.linearVelocity.y);
+        float xVelocity = InputHandler.moveDirection * FighterData.WalkSpeed;
+        Vector2 moveVelocity = new(xVelocity, PlayerRB.linearVelocity.y);
+        PlayerRB.linearVelocity = moveVelocity;
     }
 }

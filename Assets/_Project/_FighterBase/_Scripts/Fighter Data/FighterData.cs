@@ -4,11 +4,17 @@ using UnityEngine;
 public class FighterData : ScriptableObject
 {
     [Header("Fighter Properties")]
-    public float maxHealth = 1000f;
+    [SerializeField] private float maxHealth = 1000f;
     
     [Header("Fighter Movement")]
-    public float walkSpeed = 5f;
-    public float jumpForce = 10f;
-    public float dashSpeed = 8f;
+    [SerializeField] private float walkSpeed = 5f;
+    [SerializeField] private float jumpForce = 10f;
+    [SerializeField] private float dashSpeed = 8f;
 
+    #region Getter / Setter Properties
+    public float MaxHealth => maxHealth;
+    public float WalkSpeed => walkSpeed;
+    public float DashSpeed => dashSpeed;
+    public float JumpForce => jumpForce;
+    #endregion
 }

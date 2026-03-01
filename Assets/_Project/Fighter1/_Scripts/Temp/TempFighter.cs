@@ -1,6 +1,5 @@
 using UnityEngine;
 using Brawler.Fighter;
-using Brawler.Input;
 
 public class TempFighter : FighterBase
 {

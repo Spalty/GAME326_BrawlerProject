@@ -2,32 +2,25 @@ using UnityEngine;
 
 public class PlayerIdleState : PlayerBaseState
 {
-    public PlayerIdleState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) : base(currentContext, playerStateFactory)
-    {
-        
-    }
+    public PlayerIdleState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) : base(currentContext, playerStateFactory) { }
+   
     public override void EnterState()
     {
         InitializeSubState();
-        // Implementation for entering idle state
-        Debug.Log("Entering Idle State");
+        Context.CurrentSubSubState = SubSubStates.Stand_Idle;
+
+        Context.AnimController.SetMoveType(MovementType.Idle);
     }
+
+    public override void InitializeSubState() { }
 
     public override void UpdateState()
     {
-        // Implementation for updating idle state
-        
         CheckSwitchState();
-    }
-
-    public override void ExitState()
-    {
-        // Implementation for exiting idle state
     }
 
     public override void CheckSwitchState()
     {
-        
         if (Context.InputHandler.moveDirection > 0)
         {
             SwitchState(Factory.ForwardWalk());
@@ -50,8 +43,5 @@ public class PlayerIdleState : PlayerBaseState
         }
     }
 
-    public override void InitializeSubState()
-    {
-        
-    }
+    public override void ExitState() { }
 }

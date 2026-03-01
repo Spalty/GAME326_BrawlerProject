@@ -26,4 +26,4 @@ MonoBehaviour:
   context: 4
   attackSound: {fileID: 0}
   hitSound: {fileID: 0}
-  animationTrigger: Forward
+  animationTrigger: HeavyAtk

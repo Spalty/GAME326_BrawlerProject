@@ -81,7 +81,7 @@ public class PlayerStateFactory
         _stateCache[PlayerStates.WasHitAirborne] = new PlayerWasHitAirborneState(_context, this);
     }
 
-    public PlayerBaseState Ground()
+    public PlayerBaseState Grounded()
     {
         return _stateCache[PlayerStates.Ground];
     }

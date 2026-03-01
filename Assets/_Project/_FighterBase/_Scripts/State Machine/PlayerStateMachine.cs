@@ -1,26 +1,82 @@
-using Brawler.Combat;
-using Brawler.Fighter;
-using NaughtyAttributes;
-using System.Collections;
 using UnityEngine;
+using Brawler.Combat;
+using NaughtyAttributes;
+
+public enum RootStates
+{
+    Grounded,
+    Airborne,
+}
+
+public enum SubStates
+{
+    //Grounded Sub States
+    Standing,
+    Crouching,
+
+    //Airborne SubStates
+    Air_LightAtk,
+    Air_MediumAtk,
+    Air_HeavyAtk,
+    Air_Block,
+    Air_Hit,
+}
+
+public enum SubSubStates
+{
+    None,
+
+    //Standing SubSub States
+    Stand_Idle,
+    Stand_ForwardWalk,
+    Stand_ForwardDash,
+    Stand_BackWalk,
+    Stand_BackDash,
+
+    Stand_LightAtk,
+    Stand_MediumAtk,
+    Stand_HeavyAtk,
+    Stand_Block,
+    Stand_Hit,
+
+    //Crouching SubSubStates
+    Crouch_LightAtk,
+    Crouch_MediumAtk,
+    Crouch_HeavyAtk,
+    Crouch_Block,
+    Crouch_Hit,
+}
 
 public class PlayerStateMachine : MonoBehaviour
 {
-    //THE GAME IS HARD CAPPED TO 60 FPS, SO THIS IS A WAY TO MAKE SURE THE ATTACK LASTS FOR THE SAME AMOUNT OF TIME REGARDLESS OF FRAME RATE
+    //THE GAME IS HARD CAPPED TO 60 FPS,
+    //THIS MAKES SURE THE ATTACK LASTS FOR THE SAME AMOUNT OF TIME REGARDLESS OF FRAME RATE
+
     #region StateMachine Properties
     private PlayerBaseState _currentState;
     private PlayerStateFactory _states;
+    public PlayerBaseState CurrentState { get { return _currentState; } set { _currentState = value; } }
+
+    //Debug Properties
+    private RootStates _currentRootState;
+    private SubStates _currentSubState;
+    private SubSubStates _currentSubSubState;
+    public RootStates CurrentRootState { get { return _currentRootState; } set { _currentRootState = value; } }
+    public SubStates CurrentSubState { get { return _currentSubState; } set { _currentSubState = value; } }
+    public SubSubStates CurrentSubSubState { get { return _currentSubSubState; } set { _currentSubSubState = value; } }
     #endregion
 
     private Rigidbody2D _playerRB;
-    private InputManager _inputManager;
+    private InputHandler _inputHandler;
+    private FighterAnimController _animController;
 
     private bool _isGrounded = true;
     private bool _isActionable = true;
     private bool _touchingBlockBox;
-    
-    private float _walkSpeed = 5f;
-    
+
+    [Header("---Fighter Data---")]
+    [Expandable][SerializeField] private FighterData figherData;
+     
     [Header("---Attack Data---")]
     [Expandable][SerializeField] private AttackData lightAtk;
     [Expandable][SerializeField] private AttackData mediumAtk;
@@ -35,13 +91,16 @@ public class PlayerStateMachine : MonoBehaviour
     [Expandable][SerializeField] private AttackData crHeavyAtk;
 
     #region ---Getter/Setters---
-    public PlayerBaseState CurrentState { get { return _currentState; } set { _currentState = value; } }
     public Rigidbody2D PlayerRB { get { return _playerRB; } set { _playerRB = value; } }
-    public InputManager InputHandler { get { return _inputManager; } set { _inputManager = value; } }
+    public InputHandler InputHandler { get { return _inputHandler; } set { _inputHandler = value; } }
+    public FighterAnimController AnimController { get { return _animController; } set { _animController = value; } }
+
     public bool IsGrounded { get { return _isGrounded; } set { _isGrounded = value; } }
     public bool TouchingBlockBox { get { return _touchingBlockBox; } set { _touchingBlockBox = value; } }
-    public float WalkSpeed { get { return _walkSpeed; } set { _walkSpeed = value; } }
     public bool IsActionable { get { return _isActionable; } set { _isActionable = value; } }
+
+    //Fighter Data
+    public FighterData FightData => figherData;
 
     //AttackData
     public AttackData LightAtk => lightAtk;
@@ -58,21 +117,16 @@ public class PlayerStateMachine : MonoBehaviour
     void Awake()
     {
         _playerRB = GetComponent<Rigidbody2D>();
-        _inputManager = GetComponent<InputManager>();
-        
-        _states = new PlayerStateFactory(this);
-        _currentState = _states.Ground();
-        _currentState.EnterState();
-    }
+        _inputHandler = GetComponent<InputHandler>();
+        _animController = GetComponent<FighterAnimController>();
 
-    void Start()
-    {
-        
+        _states = new PlayerStateFactory(this);
+        _currentState = _states.Grounded();
+        _currentState.EnterState();
     }
 
     void Update()
     {
         _currentState.UpdateAllStates();
     }
-
 }
