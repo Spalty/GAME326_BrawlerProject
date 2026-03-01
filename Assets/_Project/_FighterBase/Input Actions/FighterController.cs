@@ -145,6 +145,15 @@ public partial class @FighterController: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""0f017de8-37d7-4fcf-8bd3-6c6a186df388"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -433,6 +442,39 @@ public partial class @FighterController: IInputActionCollection2, IDisposable
                     ""action"": ""Vertical"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7d239948-d604-4723-92d6-b2c77cd3e054"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4fdd837f-8e7e-4f5c-b6e8-e5eaafeba3fa"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""865f0235-ea07-419d-b217-4f5f5de087c0"",
+                    ""path"": ""<Gamepad>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -548,6 +590,7 @@ public partial class @FighterController: IInputActionCollection2, IDisposable
         m_StandingActions_Medium = m_StandingActions.FindAction("Medium", throwIfNotFound: true);
         m_StandingActions_Heavy = m_StandingActions.FindAction("Heavy", throwIfNotFound: true);
         m_StandingActions_Dash = m_StandingActions.FindAction("Dash", throwIfNotFound: true);
+        m_StandingActions_Jump = m_StandingActions.FindAction("Jump", throwIfNotFound: true);
         // CrouchingActions
         m_CrouchingActions = asset.FindActionMap("CrouchingActions", throwIfNotFound: true);
         m_CrouchingActions_CrouchLight = m_CrouchingActions.FindAction("CrouchLight", throwIfNotFound: true);
@@ -640,6 +683,7 @@ public partial class @FighterController: IInputActionCollection2, IDisposable
     private readonly InputAction m_StandingActions_Medium;
     private readonly InputAction m_StandingActions_Heavy;
     private readonly InputAction m_StandingActions_Dash;
+    private readonly InputAction m_StandingActions_Jump;
     /// <summary>
     /// Provides access to input actions defined in input action map "StandingActions".
     /// </summary>
@@ -675,6 +719,10 @@ public partial class @FighterController: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "StandingActions/Dash".
         /// </summary>
         public InputAction @Dash => m_Wrapper.m_StandingActions_Dash;
+        /// <summary>
+        /// Provides access to the underlying input action "StandingActions/Jump".
+        /// </summary>
+        public InputAction @Jump => m_Wrapper.m_StandingActions_Jump;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -719,6 +767,9 @@ public partial class @FighterController: IInputActionCollection2, IDisposable
             @Dash.started += instance.OnDash;
             @Dash.performed += instance.OnDash;
             @Dash.canceled += instance.OnDash;
+            @Jump.started += instance.OnJump;
+            @Jump.performed += instance.OnJump;
+            @Jump.canceled += instance.OnJump;
         }
 
         /// <summary>
@@ -748,6 +799,9 @@ public partial class @FighterController: IInputActionCollection2, IDisposable
             @Dash.started -= instance.OnDash;
             @Dash.performed -= instance.OnDash;
             @Dash.canceled -= instance.OnDash;
+            @Jump.started -= instance.OnJump;
+            @Jump.performed -= instance.OnJump;
+            @Jump.canceled -= instance.OnJump;
         }
 
         /// <summary>
@@ -948,6 +1002,13 @@ public partial class @FighterController: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnDash(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Jump" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnJump(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "CrouchingActions" which allows adding and removing callbacks.

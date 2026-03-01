@@ -5,11 +5,12 @@ public class PlayerLightAttackState : PlayerBaseState
 {   
     IEnumerator WaitForFrames(int frameCount)//Timer for how many frames the attack should last
     {
+        
         for (int i = 0; i < frameCount; i++)
         {
-            yield return Context.IsActionable = true;
+            yield return null;
         }
-    
+        Context.IsActionable = true;
     }
     public PlayerLightAttackState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) : base(currentContext, playerStateFactory)
     {
@@ -33,7 +34,7 @@ public class PlayerLightAttackState : PlayerBaseState
 
     public override void ExitState()
     {
-        
+        Debug.Log("Exiting Light Attack State");
     }
 
     public override void CheckSwitchState()
