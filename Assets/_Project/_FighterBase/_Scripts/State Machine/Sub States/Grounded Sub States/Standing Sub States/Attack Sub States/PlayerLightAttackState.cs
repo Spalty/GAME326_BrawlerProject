@@ -4,12 +4,13 @@ using UnityEngine;
 public class PlayerLightAttackState : PlayerBaseState
 {   
     public PlayerLightAttackState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) : base(currentContext, playerStateFactory) { }
+    private Rigidbody2D PlayerRB => Context.PlayerRB;
 
     public override void EnterState()
     {
         Debug.Log("Entering Light Attack State");
 
-        //PLAY LIGHT ATTACK ANIMATION
+        PlayerRB.linearVelocity = Vector2.zero; // Stop player movement during attack
         Context.IsActionable = false;
         Context.StartCoroutine(WaitForFrames(20)); // Assuming 20 frames for the attack
 

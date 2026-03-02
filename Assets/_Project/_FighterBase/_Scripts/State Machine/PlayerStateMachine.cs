@@ -1,6 +1,7 @@
 using UnityEngine;
 using Brawler.Combat;
 using NaughtyAttributes;
+using UnityEngine.XR;
 
 public enum RootStates
 {
@@ -73,9 +74,13 @@ public class PlayerStateMachine : MonoBehaviour
     private bool _isGrounded = true;
     private bool _isActionable = true;
     private bool _touchingBlockBox;
+    [Header("---Ground Check---")]
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private LayerMask groundLayer;
+    private float groundCheckRadius = 0.2f;
 
     [Header("---Fighter Data---")]
-    [Expandable][SerializeField] private FighterData figherData;
+    [Expandable][SerializeField] private FighterData fighterData;
      
     [Header("---Attack Data---")]
     [Expandable][SerializeField] private AttackData lightAtk;
@@ -100,7 +105,7 @@ public class PlayerStateMachine : MonoBehaviour
     public bool IsActionable { get { return _isActionable; } set { _isActionable = value; } }
 
     //Fighter Data
-    public FighterData FightData => figherData;
+    public FighterData FightData => fighterData;
 
     //AttackData
     public AttackData LightAtk => lightAtk;
@@ -127,6 +132,12 @@ public class PlayerStateMachine : MonoBehaviour
 
     void Update()
     {
+        HandleGroundCheck();
         _currentState.UpdateAllStates();
+    }
+
+    public void HandleGroundCheck()
+    {
+        IsGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer) != null;
     }
 }
