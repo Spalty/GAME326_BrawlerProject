@@ -1,9 +1,11 @@
 public abstract class PlayerBaseState
 {
-    protected PlayerStateMachine _context;
-    protected PlayerStateFactory _factory;
-    protected PlayerBaseState _currentSuperState;
-    protected PlayerBaseState _currentSubState;
+    private PlayerStateMachine _context;
+    private PlayerStateFactory _factory;
+    private PlayerBaseState _currentSuperState;
+    private PlayerBaseState _currentSubState;
+    private bool _isRootState = false;
+
     public PlayerBaseState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
     {
         _context = currentContext;
@@ -15,7 +17,15 @@ public abstract class PlayerBaseState
     public abstract void CheckSwitchState();
     public abstract void InitializeSubState();
 
-    void UpdateStates(){}
+    public void UpdateAllStates()
+    {
+        UpdateState();
+
+        if (_currentSubState != null)
+        {
+            _currentSubState.UpdateAllStates();
+        }
+    }
     protected void SwitchState(PlayerBaseState newState)
     {
         //Exit current state
@@ -23,9 +33,15 @@ public abstract class PlayerBaseState
 
         //New state becomes current state
         newState.EnterState();
-
-        //switch current state of context
-        _context.CurrentState = newState;
+        if (_isRootState)
+        {  
+            _context.CurrentState = newState;
+        }
+        else if (_currentSuperState != null)
+        {
+            _currentSuperState.SetSubState(newState);
+        }
+        
     }
 
     protected void SetSuperState(PlayerBaseState newSuperState)
@@ -39,5 +55,13 @@ public abstract class PlayerBaseState
         // Implementation for setting sub state
         _currentSubState = newSubState;
         newSubState.SetSuperState(this);
+        newSubState.EnterState();
     }
+
+    #region ---Getters---
+    protected PlayerStateMachine Context { get { return _context; } }
+    protected PlayerStateFactory Factory { get { return _factory; } }
+    protected bool IsRootState { set { _isRootState = value; } }
+
+    #endregion
 }

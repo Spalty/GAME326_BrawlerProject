@@ -2,6 +2,8 @@ using System.Collections;
 using UnityEngine;
 using Brawler.Fighter;
 using Brawler.Arena;
+using NaughtyAttributes;
+using UnityEngine.SceneManagement;
 
 namespace Brawler.Core
 {
@@ -21,6 +23,16 @@ namespace Brawler.Core
     {
         public static GameManager Instance { get; private set; }
 
+        public static string winnerMessage;
+
+       // public void GameOver(string message)
+       // {
+       //     winnerMessage = message;
+       //     SceneManager.LoadScene("GameOverScene");
+       // }
+
+
+        [Expandable]
         [Header("Configuration")]
         [Tooltip("Match settings (rounds, timing, etc.)")]
         [SerializeField] private MatchConfig matchConfig;
@@ -34,6 +46,8 @@ namespace Brawler.Core
 
         [Header("Debug")]
         [SerializeField] private bool logStateChanges = true;
+
+       
 
         // Match state
         public GameState CurrentState { get; private set; } = GameState.Waiting;

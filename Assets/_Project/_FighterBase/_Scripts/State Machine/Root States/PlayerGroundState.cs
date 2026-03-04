@@ -4,32 +4,41 @@ public class PlayerGroundState : PlayerBaseState
 {
     public PlayerGroundState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) : base(currentContext, playerStateFactory)
     {
-        
+        IsRootState = true;
     }
+
     public override void EnterState()
     {
-        // Implementation for entering ground state
-        Debug.Log("Entering Ground State");
-    }
+        InitializeSubState();
+        Context.CurrentRootState = RootStates.Grounded;
 
-    public override void UpdateState()
-    {
-        // Implementation for updating ground state
-        CheckSwitchState();
-    }
-
-    public override void ExitState()
-    {
-        // Implementation for exiting ground state
-    }
-
-    public override void CheckSwitchState()
-    {
-        // Implementation for checking state switches
+        Context.AnimController.SetGroundedBool(true);
     }
 
     public override void InitializeSubState()
     {
-        // Implementation for initializing sub states
+        if (Context.InputHandler.verticalInput < 0)
+        {
+            SetSubState(Factory.Crouch());
+        }
+        else
+        {
+            SetSubState(Factory.Standing());
+        }
     }
+
+    public override void UpdateState()
+    {
+        CheckSwitchState();
+    }
+
+    public override void CheckSwitchState()
+    {
+        if (!Context.IsGrounded)
+        {
+            SwitchState(Factory.Airborne());
+        }
+    }
+
+    public override void ExitState() { }
 }
