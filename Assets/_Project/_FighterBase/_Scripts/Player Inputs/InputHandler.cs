@@ -76,7 +76,11 @@ public class InputHandler : MonoBehaviour
     {
         if (context.started)
         {
-            WasJumpPressed = true;
+            WasJumpPressed = true;   
+        }
+        else if (context.canceled)
+        {
+            WasJumpPressed = false;
         }
     }
     public void OnLight(InputAction.CallbackContext context)
@@ -113,7 +117,7 @@ public class InputHandler : MonoBehaviour
         _fighterController.StandingActions.Horizontal.canceled += OnHorizontal;
         _fighterController.StandingActions.Vertical.performed += OnVertical;
         _fighterController.StandingActions.Vertical.canceled += OnVertical;
-
+        
         _fighterController.StandingActions.Jump.started += OnJump;
         _fighterController.StandingActions.Jump.canceled += OnJump;
         
@@ -151,7 +155,7 @@ public class InputHandler : MonoBehaviour
         _fighterController.StandingActions.Horizontal.canceled -= OnHorizontal;
         _fighterController.StandingActions.Vertical.performed -= OnVertical;
         _fighterController.StandingActions.Vertical.canceled -= OnVertical;
-
+        
         _fighterController.StandingActions.Jump.started -= OnJump;
         _fighterController.StandingActions.Jump.canceled -= OnJump;
         

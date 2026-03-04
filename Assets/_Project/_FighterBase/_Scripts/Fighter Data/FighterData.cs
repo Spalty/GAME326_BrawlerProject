@@ -8,6 +8,7 @@ public class FighterData : ScriptableObject
     
     [Header("Fighter Movement")]
     [SerializeField] private float walkSpeed = 5f;
+    [SerializeField] private float jumpForce = 10f;
     [SerializeField] private float dashSpeed = 8f;
     [SerializeField] private float verticalJumpForce = 10f;
     [SerializeField] private float horizontalJumpForce = 5f;

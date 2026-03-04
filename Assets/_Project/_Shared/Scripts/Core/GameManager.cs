@@ -26,7 +26,7 @@ namespace Brawler.Core
         public static string winnerMessage;
 
        // public void GameOver(string message)
-        //{
+       // {
        //     winnerMessage = message;
        //     SceneManager.LoadScene("GameOverScene");
        // }

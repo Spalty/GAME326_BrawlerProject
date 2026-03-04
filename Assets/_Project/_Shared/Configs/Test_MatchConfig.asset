@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b30cd364e090b174dbd8f49d9ad6f1df, type: 3}
   m_Name: Test_MatchConfig
   m_EditorClassIdentifier: 
-  roundsToWin: 2
+  roundsToWin: 3
   roundStartDelay: 2
   roundEndDelay: 1.5
-  matchTimeLimit: 99
+  matchTimeLimit: 10
   respawnInvincibilityDuration: 2
   enableSuddenDeath: 1
   suddenDeathOneHitKO: 1
