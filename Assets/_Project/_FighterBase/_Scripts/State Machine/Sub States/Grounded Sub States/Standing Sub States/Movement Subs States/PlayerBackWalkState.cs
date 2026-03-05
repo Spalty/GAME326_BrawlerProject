@@ -10,8 +10,13 @@ public class PlayerBackWalkState : PlayerBaseState
 
     public override void EnterState()
     {
+        //Debug
         Context.CurrentSubSubState = SubSubStates.Stand_BackWalk;
 
+        //Logic 
+
+        //Animation
+        Context.AnimController.SetMoveDirection(MoveDirection.Left);
         Context.AnimController.SetMoveType(MovementType.Walking);
     }
 

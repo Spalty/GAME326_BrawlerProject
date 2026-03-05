@@ -4,14 +4,6 @@ using UnityEngine;
 using NaughtyAttributes;
 using Brawler.Core;
 
-public enum RoundResults
-{
-    None = -1,
-    Player1Wins = 0,
-    Player2Wins = 1,
-    Tie = 2
-}
-
 public class TestGameManager : Singleton<TestGameManager>
 {
     // Events
@@ -220,45 +212,4 @@ public class TestGameManager : Singleton<TestGameManager>
         OnHealthChanged?.Invoke(new PlayerHitEvent(1, 1));
     }
     #endregion
-}
-
-public struct PlayerHitEvent
-{
-    public int PlayerIndex;
-    public float DamagePercent;
-    public PlayerHitEvent(int index, float percent)
-    {
-        PlayerIndex = index;
-        DamagePercent = percent;
-    }
-}
-
-public struct PlayerKOEvent
-{
-    public RoundResults Result;
-    public int[] PlayerWinCounts;
-    public PlayerKOEvent(RoundResults result, int[] winCounts)
-    {
-        Result = result;
-        PlayerWinCounts = winCounts;
-    }
-}
-
-public struct MatchEvent
-{
-    public RoundResults Result;
-    public readonly bool IsMatchEnd => Result != RoundResults.None;
-    public MatchEvent(RoundResults result)
-    {
-        Result = result;
-    }
-}
-
-public struct TimerChangedEvent
-{
-    public float RemainingTime;
-    public TimerChangedEvent(float remainingTime)
-    {
-        RemainingTime = remainingTime;
-    }
 }

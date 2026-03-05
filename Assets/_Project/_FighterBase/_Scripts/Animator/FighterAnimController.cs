@@ -1,5 +1,11 @@
 using UnityEngine;
 
+public enum MoveDirection
+{
+    Left,
+    Right,
+}
+
 public enum MovementType
 {
     Idle,
@@ -19,7 +25,9 @@ public class FighterAnimController : MonoBehaviour
     public int IsHitHash => Animator.StringToHash("IsHit");
 
     //Movement Hashes
+    public int MoveDirectionX => Animator.StringToHash("MoveDirX");
     public int MoveValue => Animator.StringToHash("HorizontalSpeed");
+    public int VerticalSpeed => Animator.StringToHash("VerticalSpeed");
     public int JumpingHash => Animator.StringToHash("Jumping");
 
     //Attack Hashes
@@ -64,6 +72,12 @@ public class FighterAnimController : MonoBehaviour
     #endregion
 
     #region Movement Methods
+    public void SetMoveDirection(MoveDirection moveDirection)
+    {
+        float directionValue = moveDirection == MoveDirection.Left ? -1f : 1f;
+        _animator.SetFloat(MoveDirectionX, directionValue);  
+    }
+    
     public void SetMoveType(MovementType movementType)
     {
         //The values are for the Movement Blend Tree in the Animator
