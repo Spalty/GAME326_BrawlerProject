@@ -17,13 +17,11 @@ public class TestRoundTracker : MonoBehaviour
     private void OnEnable()
     {
         TestGameManager.OnPlayerKO += UpdateRoundTracker;
-        TestGameManager.OnMatchEnd += ShowLastMatchResults;
     }
 
     private void OnDisable()
     {
         TestGameManager.OnPlayerKO -= UpdateRoundTracker;
-        TestGameManager.OnMatchEnd -= ShowLastMatchResults;
     }
 
     private void Awake()
@@ -33,30 +31,14 @@ public class TestRoundTracker : MonoBehaviour
 
     private void UpdateRoundTracker(PlayerKOEvent playerKOEvent)
     {
-        if (playerKOEvent.WinnerIndex != playerIndex) return;
-
         SetAllTrackers(inactiveColor);
 
         for (int i = 0; i < roundTrackers.Count; i++)
         {
-            roundTrackers[i].color =
-                i < playerKOEvent.RoundsWon ? activeColor : inactiveColor;
-        }
-    }
+            if (roundTrackers[i] == null || roundTrackers[i].enabled == false) return;
 
-    private void ShowLastMatchResults(MatchEvent matchEvent)
-    {
-        int roundsWon =
-            playerIndex == 0
-                ? TestGameManager.Instance.LastMatchRoundsP1
-                : TestGameManager.Instance.LastMatchRoundsP2;
-
-        SetAllTrackers(inactiveColor);
-
-        for (int i = 0; i < roundTrackers.Count; i++)
-        {
-            roundTrackers[i].color =
-                i < roundsWon ? activeColor : inactiveColor;
+            Color displayColor = i < playerKOEvent.PlayerWinCounts[playerIndex] ? activeColor : inactiveColor;
+            roundTrackers[i].color = displayColor;
         }
     }
 
@@ -64,6 +46,8 @@ public class TestRoundTracker : MonoBehaviour
     {
         foreach (var tracker in roundTrackers)
         {
+            if (tracker == null || tracker.enabled == false) return;
+
             tracker.color = color;
         }
     }
