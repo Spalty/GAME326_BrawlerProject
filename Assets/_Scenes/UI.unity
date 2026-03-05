@@ -201,7 +201,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 224754306}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1389412826}
+        m_TargetAssemblyTypeName: QuitGame, Assembly-CSharp
+        m_MethodName: Quit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &224754306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1159,6 +1171,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1389412825}
   - component: {fileID: 1389412824}
+  - component: {fileID: 1389412827}
+  - component: {fileID: 1389412826}
   m_Layer: 0
   m_Name: Test_GameManager
   m_TagString: Untagged
@@ -1197,6 +1211,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1389412826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389412823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3edd60d409a9024da30849c3352720c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1389412827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389412823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75b277ddc4bf49b49af62637ea390e21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1442320924 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2195825776546762255, guid: 89a172ffdccd18040beb1b3470c9084c, type: 3}
@@ -1289,7 +1327,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1583790144}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1389412827}
+        m_TargetAssemblyTypeName: RestartScene, Assembly-CSharp
+        m_MethodName: RestartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1583790144
 MonoBehaviour:
   m_ObjectHideFlags: 0
