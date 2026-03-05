@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,13 +17,13 @@ public class TestRoundTracker : MonoBehaviour
     private void OnEnable()
     {
         TestGameManager.OnPlayerKO += UpdateRoundTracker;
-        TestGameManager.OnMatchStart += ResetTrackers;
+        TestGameManager.OnMatchEnd += ShowLastMatchResults;
     }
 
     private void OnDisable()
     {
         TestGameManager.OnPlayerKO -= UpdateRoundTracker;
-        TestGameManager.OnMatchStart -= ResetTrackers;
+        TestGameManager.OnMatchEnd -= ShowLastMatchResults;
     }
 
     private void Awake()
@@ -39,15 +39,24 @@ public class TestRoundTracker : MonoBehaviour
 
         for (int i = 0; i < roundTrackers.Count; i++)
         {
-            roundTrackers[i].color = i < playerKOEvent.RoundsWon ? activeColor : inactiveColor;
+            roundTrackers[i].color =
+                i < playerKOEvent.RoundsWon ? activeColor : inactiveColor;
         }
     }
 
-    private void ResetTrackers(MatchEvent matchEvent)
+    private void ShowLastMatchResults(MatchEvent matchEvent)
     {
-        if (!matchEvent.IsMatchEnd)
+        int roundsWon =
+            playerIndex == 0
+                ? TestGameManager.Instance.LastMatchRoundsP1
+                : TestGameManager.Instance.LastMatchRoundsP2;
+
+        SetAllTrackers(inactiveColor);
+
+        for (int i = 0; i < roundTrackers.Count; i++)
         {
-            SetAllTrackers(inactiveColor);
+            roundTrackers[i].color =
+                i < roundsWon ? activeColor : inactiveColor;
         }
     }
 
