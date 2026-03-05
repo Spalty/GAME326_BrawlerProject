@@ -4,6 +4,14 @@ using UnityEngine;
 using NaughtyAttributes;
 using Brawler.Core;
 
+public enum RoundResults
+{
+    None = -1,
+    Player1Wins = 0,
+    Player2Wins = 1,
+    Tie = 2
+}
+
 public class TestGameManager : Singleton<TestGameManager>
 {
     // Events
@@ -20,17 +28,19 @@ public class TestGameManager : Singleton<TestGameManager>
     [Header("---Health Settings---")]
     [SerializeField] private float maxHealth = 100f;
     private readonly float[] _playerHealths = new float[2];
-    private readonly int[] _playerRoundsWon = new int[2];
 
-    // ✅ LAST MATCH RESULTS
-    private int _lastMatchRoundsP1;
-    private int _lastMatchRoundsP2;
-
-    public int LastMatchRoundsP1 => _lastMatchRoundsP1;
-    public int LastMatchRoundsP2 => _lastMatchRoundsP2;
-
-    private bool _isRoundActive;
+    //Timer Properties
     private float _remainingTime;
+
+    //Round Tracking Properties
+    private readonly int[] _playerWinCounts = new int[2];
+    private bool _isRoundActive;
+    public bool IsRoundActive { get { return _isRoundActive; } set { _isRoundActive = value; } }
+    private RoundResults _roundResult;
+
+    //Match State Properties
+    private bool IsMatchOver => _playerWinCounts[0] >= matchConfig.roundsToWin 
+                                || _playerWinCounts[1] >= matchConfig.roundsToWin;
 
     #region Debug Properties
     [Header("---Debug---")]
@@ -63,35 +73,16 @@ public class TestGameManager : Singleton<TestGameManager>
         ResetPlayerHealth();
     }
 
-    [ShowIf("useDebug")]
-    [Button]
-    public void StartNextRound()
-    {
-        if (_isRoundActive || IsMatchOver)
-        {
-            Debug.Log("A Player Needs To Die");
-            return;
-        }
-
-        StartCoroutine(StartNextRoundAfterDelay());
-    }
-
-    // when a match is over
-    [HideInInspector]
-    public bool IsMatchOver =>
-        _playerRoundsWon[0] >= matchConfig.roundsToWin ||
-        _playerRoundsWon[1] >= matchConfig.roundsToWin;
-
     [ShowIf("IsMatchOver")]
     [Button]
-    public void ResetMatch()
+    public void StartNewMatch()
     {
         ResetRoundWins();
         ResetPlayerHealth();
         ResetTimer();
         _isRoundActive = true;
 
-        OnMatchStart?.Invoke(new MatchEvent(-1));
+        OnMatchStart?.Invoke(new MatchEvent(RoundResults.None));
     }
     #endregion
 
@@ -99,12 +90,10 @@ public class TestGameManager : Singleton<TestGameManager>
     {
         base.Awake();
 
-        // load last match (optional persistence)
-        _lastMatchRoundsP1 = PlayerPrefs.GetInt("LastP1", 0);
-        _lastMatchRoundsP2 = PlayerPrefs.GetInt("LastP2", 0);
-
+        ResetRoundWins();
         ResetPlayerHealth();
         ResetTimer();
+
         _isRoundActive = true;
     }
 
@@ -123,26 +112,28 @@ public class TestGameManager : Singleton<TestGameManager>
         }
     }
 
+    #region Timer Methods
     private void HandleTimeOut()
     {
         int winnerIndex;
 
         if (_playerHealths[0] == _playerHealths[1])
         {
-            winnerIndex = -1; // tie
+            _playerWinCounts[0] += 1;
+            _playerWinCounts[1] += 1;
+
+            _roundResult = RoundResults.Tie;
         }
         else
         {
             winnerIndex = _playerHealths[0] > _playerHealths[1] ? 0 : 1;
-            _playerRoundsWon[winnerIndex] += 1;
+            _playerWinCounts[winnerIndex] += 1;
+
+            _roundResult = winnerIndex == 0 ? RoundResults.Player1Wins : RoundResults.Player2Wins;
         }
 
-        OnPlayerKO?.Invoke(new PlayerKOEvent(
-            winnerIndex,
-            winnerIndex == -1 ? 0 : _playerRoundsWon[winnerIndex]
-        ));
-
         _isRoundActive = false;
+        OnPlayerKO?.Invoke(new PlayerKOEvent(_roundResult, _playerWinCounts));
 
         if (!IsMatchOver)
         {
@@ -150,8 +141,7 @@ public class TestGameManager : Singleton<TestGameManager>
         }
         else
         {
-            SaveLastMatchResults();
-            OnMatchEnd?.Invoke(new MatchEvent(winnerIndex));
+            OnMatchEnd?.Invoke(new MatchEvent(_roundResult));
         }
     }
 
@@ -159,34 +149,15 @@ public class TestGameManager : Singleton<TestGameManager>
     {
         yield return new WaitForSeconds(matchConfig.roundStartDelay);
 
-        ResetPlayerHealth();
         ResetTimer();
+        ResetPlayerHealth();
         _isRoundActive = true;
 
-        OnMatchStart?.Invoke(new MatchEvent(-1));
+        OnMatchStart?.Invoke(new MatchEvent(RoundResults.None));
     }
+    #endregion
 
-    private void ResetRoundWins()
-    {
-        _playerRoundsWon[0] = 0;
-        _playerRoundsWon[1] = 0;
-    }
-
-    private void ResetTimer()
-    {
-        _remainingTime = matchConfig.matchTimeLimit;
-        OnTimeChanged?.Invoke(new TimerChangedEvent(_remainingTime));
-    }
-
-    private void ResetPlayerHealth()
-    {
-        _playerHealths[0] = maxHealth;
-        _playerHealths[1] = maxHealth;
-
-        OnHealthChanged?.Invoke(new PlayerHitEvent(0, 1));
-        OnHealthChanged?.Invoke(new PlayerHitEvent(1, 1));
-    }
-
+    #region Player Hit and KO Handling
     public void NotifyHealthChanged(int playerIndex, float damageAmount)
     {
         if (_playerHealths[playerIndex] <= 0) return;
@@ -199,8 +170,10 @@ public class TestGameManager : Singleton<TestGameManager>
         if (_playerHealths[playerIndex] <= 0)
         {
             int winnerIndex = 1 - playerIndex;
-            _playerRoundsWon[winnerIndex] += 1;
-            OnPlayerKO?.Invoke(new PlayerKOEvent(winnerIndex, _playerRoundsWon[winnerIndex]));
+            _playerWinCounts[winnerIndex] += 1;
+
+            _roundResult = winnerIndex == 0 ? RoundResults.Player1Wins : RoundResults.Player2Wins;
+            OnPlayerKO?.Invoke(new PlayerKOEvent(_roundResult, _playerWinCounts));
 
             _isRoundActive = false;
 
@@ -210,21 +183,43 @@ public class TestGameManager : Singleton<TestGameManager>
             }
             else
             {
-                SaveLastMatchResults();
-                OnMatchEnd?.Invoke(new MatchEvent(winnerIndex));
+                OnMatchEnd?.Invoke(new MatchEvent(_roundResult));
             }
         }
     }
+    #endregion
 
-    private void SaveLastMatchResults()
+    #region Reset Methods
+    public void ResetMatch()
     {
-        _lastMatchRoundsP1 = _playerRoundsWon[0];
-        _lastMatchRoundsP2 = _playerRoundsWon[1];
+        ResetRoundWins();
+        ResetPlayerHealth();
+        ResetTimer();
 
-        PlayerPrefs.SetInt("LastP1", _lastMatchRoundsP1);
-        PlayerPrefs.SetInt("LastP2", _lastMatchRoundsP2);
-        PlayerPrefs.Save();
+        _isRoundActive = true;
     }
+
+    private void ResetTimer()
+    {
+        _remainingTime = matchConfig.matchTimeLimit;
+        OnTimeChanged?.Invoke(new TimerChangedEvent(_remainingTime));
+    }
+
+    private void ResetRoundWins()
+    {
+        _playerWinCounts[0] = 0;
+        _playerWinCounts[1] = 0;
+    }
+
+    private void ResetPlayerHealth()
+    {
+        _playerHealths[0] = maxHealth;
+        _playerHealths[1] = maxHealth;
+
+        OnHealthChanged?.Invoke(new PlayerHitEvent(0, 1));
+        OnHealthChanged?.Invoke(new PlayerHitEvent(1, 1));
+    }
+    #endregion
 }
 
 public struct PlayerHitEvent
@@ -240,22 +235,22 @@ public struct PlayerHitEvent
 
 public struct PlayerKOEvent
 {
-    public int WinnerIndex;
-    public int RoundsWon;
-    public PlayerKOEvent(int index, int winCount)
+    public RoundResults Result;
+    public int[] PlayerWinCounts;
+    public PlayerKOEvent(RoundResults result, int[] winCounts)
     {
-        WinnerIndex = index;
-        RoundsWon = winCount;
+        Result = result;
+        PlayerWinCounts = winCounts;
     }
 }
 
 public struct MatchEvent
 {
-    public int WinnerIndex;
-    public readonly bool IsMatchEnd => WinnerIndex != -1;
-    public MatchEvent(int index)
+    public RoundResults Result;
+    public readonly bool IsMatchEnd => Result != RoundResults.None;
+    public MatchEvent(RoundResults result)
     {
-        WinnerIndex = index;
+        Result = result;
     }
 }
 
