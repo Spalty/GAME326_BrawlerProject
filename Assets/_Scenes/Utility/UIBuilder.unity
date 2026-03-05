@@ -228,7 +228,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &337092348
 RectTransform:
   m_ObjectHideFlags: 0
@@ -260,7 +260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4805af001109ac94caf3a2860c778b35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 353405022}
+  m_Material: {fileID: 1681767964}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -271,11 +271,11 @@ MonoBehaviour:
   resolution: 10
   useCustomDimensions: 1
   dimension: {x: 51.2, y: 51.2}
-  renderTexture: {fileID: 1736852306}
+  renderTexture: {fileID: 1695424300}
   useComputeShader: 1
   shader: {fileID: 7200000, guid: b605ddcba803f0d40856db9bba19848d, type: 3}
   shapeMaterial: {fileID: 2100000, guid: 16b40b4387c38f045b42bea509eb7508, type: 2}
-  sharpness: 0
+  sharpness: 1
   fillColor:
     fillStyle: 0
     color: {r: 1, g: 1, b: 1, a: 1}
@@ -358,93 +358,43 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 337092347}
   m_CullTransparentMesh: 1
---- !u!21 &353405022
-Material:
-  serializedVersion: 8
+--- !u!84 &357750522
+RenderTexture:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: UIAB_Rectangle
-  m_Shader: {fileID: 4800000, guid: 7e9157af1fcfac14891b6d2bbee8f932, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints:
-    - _Effect_InnerGlow_Use: 0
-    - _Effect_InnerShadow_Use: 0
-    m_Floats:
-    - _ColorMask: 15
-    - _CornerType: 1
-    - _Effect_DropShadow_Use: 0
-    - _Effect_Falloff: 39.3
-    - _Effect_InnerGlow_Use: 0
-    - _Effect_InnerShadow_Choke: 0
-    - _Effect_InnerShadow_Size: 0
-    - _Effect_InnerShadow_Use: 0
-    - _Effect_OuterGlow_Use: 0
-    - _FillMidCoordinates: 0.5
-    - _FillStyle: 0
-    - _Outline_Edge: 4
-    - _Outline_Thickness: 4
-    - _Rectangle_Height: 100
-    - _Rectangle_Width: 200
-    - _Sharpness: 0
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseComputeShader: 1
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Debug_Vector: {r: 1, g: 1, b: 2, a: 0.5}
-    - _Dimension: {r: 2, g: 9.67, b: 0, a: 0}
-    - _Effect_Color: {r: 0, g: 0, b: 0, a: 1}
-    - _Effect_Distance: {r: 20, g: 20, b: 0, a: 0}
-    - _Effect_DropShadow_Color: {r: 0, g: 0, b: 0, a: 1}
-    - _Effect_DropShadow_Distance_Blur_Spread: {r: 3.9363537, g: -4.528258, b: 4, a: 0}
-    - _Effect_InnerGlow_Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Effect_InnerGlow_IsCenter_Choke_Size: {r: 0, g: 0.165, b: 16, a: 0}
-    - _Effect_InnerGlow_IsLinear_IsCenter_Choke_Size: {r: 0, g: 0, b: 0.476, a: 10}
-    - _Effect_InnerShadow_Color: {r: 0, g: 0, b: 0, a: 1}
-    - _Effect_InnerShadow_Distance: {r: 30, g: 30, b: 0, a: 0}
-    - _Effect_InnerShadow_Distance_Blur_Spread: {r: 17.552488, g: -16.36796, b: 16.8, a: 0}
-    - _Effect_InnerShadow_Distance_Choke_Size: {r: 0, g: 0, b: 0, a: 0}
-    - _Effect_OuterGlow_Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Effect_OuterGlow_IsLinear_Choke_Size: {r: 0, g: 0, b: 4, a: 0}
-    - _Effect_Use: {r: 0, g: 0, b: 0, a: 0}
-    - _Extra_Tint: {r: 1, g: 1, b: 1, a: 1}
-    - _FillColor: {r: 1, g: 1, b: 1, a: 1}
-    - _FillColorEnd: {r: 1, g: 1, b: 1, a: 1}
-    - _FillColorMid: {r: 1, g: 1, b: 1, a: 1}
-    - _FillCoordinates: {r: 0, g: 0, b: 1, a: 1}
-    - _Outline_Edges_Type_Has: {r: 0, g: 5, b: 1, a: 0}
-    - _Outline_FillColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Outline_IsDashed_DashRatio_GapRatio_DashOffset: {r: 0, g: 0.1, b: 0, a: 0}
-    - _RectangleDimension: {r: 50, g: 50, b: 0, a: 0}
-    - _Rectangle_Corners: {r: 48.04, g: 38.85, b: 0, a: 0}
-    - _ResultTexture_Dimension: {r: 223, g: 123, b: 0, a: 0}
-    - _TextureDimension: {r: 100, g: 100, b: 0, a: 0}
-    - fillColor: {r: 1, g: 0, b: 0, a: 1}
-  m_BuildTextureStacks: []
-  m_AllowLocking: 1
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 6
+  m_Width: 42
+  m_Height: 42
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 0
+  m_ColorFormat: 4
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 1
+  m_UseDynamicScale: 0
+  m_UseDynamicScaleExplicit: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_EnableRandomWrite: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 0
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
+  m_ShadowSamplingMode: 2
 --- !u!1 &630567913
 GameObject:
   m_ObjectHideFlags: 0
@@ -540,6 +490,9 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 337092348}
+  - {fileID: 666883174}
+  - {fileID: 830496355}
+  - {fileID: 1440979197}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -547,7 +500,866 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!84 &1736852306
+--- !u!1 &666883173
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 666883174}
+  - component: {fileID: 666883176}
+  - component: {fileID: 666883175}
+  m_Layer: 5
+  m_Name: HealthBarFrame
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &666883174
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 666883173}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 630567917}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 300, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &666883175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 666883173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4805af001109ac94caf3a2860c778b35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 1693765388}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  resolution: 0.2
+  useCustomDimensions: 0
+  dimension: {x: 300, y: 100}
+  renderTexture: {fileID: 774024574}
+  useComputeShader: 1
+  shader: {fileID: 7200000, guid: b605ddcba803f0d40856db9bba19848d, type: 3}
+  shapeMaterial: {fileID: 2100000, guid: 16b40b4387c38f045b42bea509eb7508, type: 2}
+  sharpness: 1
+  fillColor:
+    fillStyle: 0
+    color: {r: 1, g: 1, b: 1, a: 0}
+    colorEnd: {r: 0, g: 0, b: 0, a: 1}
+    colorMid: {r: 1, g: 0, b: 0, a: 1}
+    gradientStart: {x: -0.5, y: 0}
+    gradientEnd: {x: 0.5, y: 0}
+    gradientMid: 0.5
+  outline:
+    useOutline: 1
+    color:
+      fillStyle: 0
+      color: {r: 0, g: 0, b: 0, a: 1}
+      colorEnd: {r: 0, g: 0, b: 0, a: 0}
+      colorMid: {r: 0, g: 0, b: 0, a: 0}
+      gradientStart: {x: 0, y: 0}
+      gradientEnd: {x: 0, y: 0}
+      gradientMid: 0
+    orientation: 0
+    edgeType: 1
+    outlineStyle: 0
+    thickness: 10
+    offset: 0
+    dashLength: 8
+    gapLength: 4
+    dashOffset: 0
+  effects:
+    useEffects: 1
+    innerShadow:
+      useEffect: 0
+      color: {r: 0, g: 0, b: 0, a: 0.5}
+      distance:
+        useAngle: 0
+        offset: {x: 5, y: -5}
+        angle: -45
+        distance: 5
+      blur: 0
+      spread: 0
+      showEffectSection: 0
+    dropShadow:
+      useEffect: 0
+      color: {r: 0, g: 0, b: 0, a: 0.5}
+      distance:
+        useAngle: 0
+        offset: {x: 5, y: -5}
+        angle: -45
+        distance: 5
+      blur: 0
+      spread: 0
+      showEffectSection: 0
+    innerGlow:
+      useEffect: 1
+      color: {r: 0, g: 0, b: 0, a: 1}
+      isLinear: 1
+      isCenter: 0
+      exponentialDecrease: 2
+      choke: 1
+      size: 11.57
+      showEffectSection: 1
+    outerGlow:
+      useEffect: 0
+      color: {r: 0, g: 0, b: 0, a: 1}
+      isLinear: 1
+      exponentialDecrease: 2.64
+      choke: 1
+      size: 5
+      showEffectSection: 1
+  extraSettings:
+    centerOffset: {x: 0, y: 0}
+    tint: {r: 1, g: 1, b: 1, a: 1}
+  stylePreset: {fileID: 0}
+  corners: 25
+  useIndependentCorners: 0
+  independentCorners: {x: 25, y: 25, z: 25, w: 25}
+--- !u!222 &666883176
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 666883173}
+  m_CullTransparentMesh: 1
+--- !u!84 &749496684
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 6
+  m_Width: 512
+  m_Height: 512
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 0
+  m_ColorFormat: 4
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 1
+  m_UseDynamicScale: 0
+  m_UseDynamicScaleExplicit: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_EnableRandomWrite: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 0
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
+  m_ShadowSamplingMode: 2
+--- !u!84 &774024574
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 6
+  m_Width: 62
+  m_Height: 22
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 0
+  m_ColorFormat: 4
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 1
+  m_UseDynamicScale: 0
+  m_UseDynamicScaleExplicit: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_EnableRandomWrite: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 0
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
+  m_ShadowSamplingMode: 2
+--- !u!21 &796641373
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UIAB_Circle
+  m_Shader: {fileID: 4800000, guid: f677ff09b611069428820a53afdde3f0, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints:
+    - _Effect_InnerGlow_Use: 0
+    - _Effect_InnerShadow_Use: 0
+    m_Floats:
+    - _ColorMask: 15
+    - _CornerType: 1
+    - _Effect_DropShadow_Use: 0
+    - _Effect_Falloff: 39.3
+    - _Effect_InnerGlow_Use: 0
+    - _Effect_InnerShadow_Choke: 0
+    - _Effect_InnerShadow_Size: 0
+    - _Effect_InnerShadow_Use: 0
+    - _Effect_OuterGlow_Use: 0
+    - _FillMidCoordinates: 0.5
+    - _FillStyle: 0
+    - _Outline_Edge: 4
+    - _Outline_Thickness: 4
+    - _Rectangle_Height: 100
+    - _Rectangle_Width: 200
+    - _Sharpness: 0
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseComputeShader: 1
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _Circle_Dimension_Type: {r: 1, g: 1, b: 1, a: 0}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Debug_Vector: {r: 1, g: 1, b: 2, a: 0.5}
+    - _Dimension: {r: 2, g: 9.67, b: 0, a: 0}
+    - _Effect_Color: {r: 0, g: 0, b: 0, a: 1}
+    - _Effect_Distance: {r: 20, g: 20, b: 0, a: 0}
+    - _Effect_DropShadow_Color: {r: 0, g: 0, b: 0, a: 1}
+    - _Effect_DropShadow_Distance_Blur_Spread: {r: 3.9363537, g: -4.528258, b: 4, a: 0}
+    - _Effect_InnerGlow_Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Effect_InnerGlow_IsCenter_Choke_Size: {r: 0, g: 0.165, b: 16, a: 0}
+    - _Effect_InnerGlow_IsLinear_IsCenter_Choke_Size: {r: 0, g: 0, b: 0.476, a: 10}
+    - _Effect_InnerShadow_Color: {r: 0, g: 0, b: 0, a: 1}
+    - _Effect_InnerShadow_Distance: {r: 30, g: 30, b: 0, a: 0}
+    - _Effect_InnerShadow_Distance_Blur_Spread: {r: 17.552488, g: -16.36796, b: 16.8, a: 0}
+    - _Effect_InnerShadow_Distance_Choke_Size: {r: 0, g: 0, b: 0, a: 0}
+    - _Effect_OuterGlow_Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Effect_OuterGlow_IsLinear_Choke_Size: {r: 0, g: 0, b: 4, a: 0}
+    - _Effect_Use: {r: 0, g: 0, b: 0, a: 0}
+    - _Extra_Tint: {r: 1, g: 1, b: 1, a: 1}
+    - _FillColor: {r: 1, g: 1, b: 1, a: 1}
+    - _FillColorEnd: {r: 1, g: 1, b: 1, a: 1}
+    - _FillColorMid: {r: 1, g: 1, b: 1, a: 1}
+    - _FillCoordinates: {r: 0, g: 0, b: 1, a: 1}
+    - _Outline_Edges_Type_Has: {r: 0, g: 5, b: 1, a: 0}
+    - _Outline_FillColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Outline_IsDashed_DashRatio_GapRatio_DashOffset: {r: 0, g: 0.1, b: 0, a: 0}
+    - _RectangleDimension: {r: 50, g: 50, b: 0, a: 0}
+    - _Rectangle_Corners: {r: 48.04, g: 38.85, b: 0, a: 0}
+    - _ResultTexture_Dimension: {r: 223, g: 123, b: 0, a: 0}
+    - _TextureDimension: {r: 100, g: 100, b: 0, a: 0}
+    - fillColor: {r: 1, g: 0, b: 0, a: 1}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!1 &830496354
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 830496355}
+  - component: {fileID: 830496357}
+  - component: {fileID: 830496356}
+  m_Layer: 5
+  m_Name: IconFrame
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &830496355
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830496354}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 630567917}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -269.97223, y: 0}
+  m_SizeDelta: {x: 200, y: 200}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &830496356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830496354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a966b2026a5acf641a6133d6ffce4cc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 796641373}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  resolution: 0.2
+  useCustomDimensions: 0
+  dimension: {x: 200, y: 200}
+  renderTexture: {fileID: 357750522}
+  useComputeShader: 1
+  shader: {fileID: 7200000, guid: 3b6b80c276e48f14c99b6f05d5962110, type: 3}
+  shapeMaterial: {fileID: 2100000, guid: 6f0e143002abfd84895da4f27339285e, type: 2}
+  sharpness: 1
+  fillColor:
+    fillStyle: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    colorEnd: {r: 0, g: 0, b: 0, a: 1}
+    colorMid: {r: 1, g: 0, b: 0, a: 1}
+    gradientStart: {x: -0.5, y: 0}
+    gradientEnd: {x: 0.5, y: 0}
+    gradientMid: 0.5
+  outline:
+    useOutline: 1
+    color:
+      fillStyle: 0
+      color: {r: 0, g: 0, b: 0, a: 1}
+      colorEnd: {r: 0, g: 0, b: 0, a: 0}
+      colorMid: {r: 0, g: 0, b: 0, a: 0}
+      gradientStart: {x: 0, y: 0}
+      gradientEnd: {x: 0, y: 0}
+      gradientMid: 0
+    orientation: 0
+    edgeType: 0
+    outlineStyle: 0
+    thickness: 10
+    offset: 0
+    dashLength: 8
+    gapLength: 8
+    dashOffset: 0
+  effects:
+    useEffects: 1
+    innerShadow:
+      useEffect: 0
+      color: {r: 0, g: 0, b: 0, a: 0.5}
+      distance:
+        useAngle: 0
+        offset: {x: 5, y: -5}
+        angle: -45
+        distance: 5
+      blur: 0
+      spread: 0
+      showEffectSection: 0
+    dropShadow:
+      useEffect: 0
+      color: {r: 0, g: 0, b: 0, a: 0.5}
+      distance:
+        useAngle: 0
+        offset: {x: 5, y: -5}
+        angle: -45
+        distance: 5
+      blur: 0
+      spread: 0
+      showEffectSection: 0
+    innerGlow:
+      useEffect: 1
+      color: {r: 0, g: 0, b: 0, a: 1}
+      isLinear: 1
+      isCenter: 0
+      exponentialDecrease: 2
+      choke: 1
+      size: 10
+      showEffectSection: 1
+    outerGlow:
+      useEffect: 0
+      color: {r: 1, g: 1, b: 1, a: 1}
+      isLinear: 1
+      exponentialDecrease: 2
+      choke: 0
+      size: 5
+      showEffectSection: 0
+  extraSettings:
+    centerOffset: {x: 0, y: 0}
+    tint: {r: 1, g: 1, b: 1, a: 1}
+  stylePreset: {fileID: 0}
+--- !u!222 &830496357
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830496354}
+  m_CullTransparentMesh: 1
+--- !u!21 &908104391
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UIAB_Circle
+  m_Shader: {fileID: 4800000, guid: f677ff09b611069428820a53afdde3f0, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints:
+    - _Effect_InnerGlow_Use: 0
+    - _Effect_InnerShadow_Use: 0
+    m_Floats:
+    - _ColorMask: 15
+    - _CornerType: 1
+    - _Effect_DropShadow_Use: 0
+    - _Effect_Falloff: 39.3
+    - _Effect_InnerGlow_Use: 0
+    - _Effect_InnerShadow_Choke: 0
+    - _Effect_InnerShadow_Size: 0
+    - _Effect_InnerShadow_Use: 0
+    - _Effect_OuterGlow_Use: 0
+    - _FillMidCoordinates: 0.5
+    - _FillStyle: 0
+    - _Outline_Edge: 4
+    - _Outline_Thickness: 4
+    - _Rectangle_Height: 100
+    - _Rectangle_Width: 200
+    - _Sharpness: 0
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseComputeShader: 1
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _Circle_Dimension_Type: {r: 100, g: 100, b: 1, a: 0}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Debug_Vector: {r: 1, g: 1, b: 2, a: 0.5}
+    - _Dimension: {r: 2, g: 9.67, b: 0, a: 0}
+    - _Effect_Color: {r: 0, g: 0, b: 0, a: 1}
+    - _Effect_Distance: {r: 20, g: 20, b: 0, a: 0}
+    - _Effect_DropShadow_Color: {r: 0, g: 0, b: 0, a: 1}
+    - _Effect_DropShadow_Distance_Blur_Spread: {r: 3.9363537, g: -4.528258, b: 4, a: 0}
+    - _Effect_InnerGlow_Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Effect_InnerGlow_IsCenter_Choke_Size: {r: 0, g: 0.165, b: 16, a: 0}
+    - _Effect_InnerGlow_IsLinear_IsCenter_Choke_Size: {r: 0, g: 0, b: 0.476, a: 10}
+    - _Effect_InnerShadow_Color: {r: 0, g: 0, b: 0, a: 1}
+    - _Effect_InnerShadow_Distance: {r: 30, g: 30, b: 0, a: 0}
+    - _Effect_InnerShadow_Distance_Blur_Spread: {r: 17.552488, g: -16.36796, b: 16.8, a: 0}
+    - _Effect_InnerShadow_Distance_Choke_Size: {r: 0, g: 0, b: 0, a: 0}
+    - _Effect_OuterGlow_Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Effect_OuterGlow_IsLinear_Choke_Size: {r: 0, g: 0, b: 4, a: 0}
+    - _Effect_Use: {r: 0, g: 0, b: 0, a: 0}
+    - _Extra_Tint: {r: 1, g: 1, b: 1, a: 1}
+    - _FillColor: {r: 1, g: 1, b: 1, a: 1}
+    - _FillColorEnd: {r: 1, g: 1, b: 1, a: 1}
+    - _FillColorMid: {r: 1, g: 1, b: 1, a: 1}
+    - _FillCoordinates: {r: 0, g: 0, b: 1, a: 1}
+    - _Outline_Edges_Type_Has: {r: 0, g: 0, b: 0, a: 0}
+    - _Outline_FillColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Outline_IsDashed_DashRatio_GapRatio_DashOffset: {r: 0, g: 0.1, b: 0, a: 0}
+    - _RectangleDimension: {r: 50, g: 50, b: 0, a: 0}
+    - _Rectangle_Corners: {r: 48.04, g: 38.85, b: 0, a: 0}
+    - _ResultTexture_Dimension: {r: 100, g: 100, b: 0, a: 0}
+    - _TextureDimension: {r: 100, g: 100, b: 0, a: 0}
+    - fillColor: {r: 1, g: 0, b: 0, a: 1}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!1 &1440979196
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1440979197}
+  - component: {fileID: 1440979199}
+  - component: {fileID: 1440979198}
+  m_Layer: 5
+  m_Name: Circle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1440979197
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440979196}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 630567917}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1440979198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440979196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a966b2026a5acf641a6133d6ffce4cc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 908104391}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  resolution: 10
+  useCustomDimensions: 1
+  dimension: {x: 51.2, y: 51.2}
+  renderTexture: {fileID: 749496684}
+  useComputeShader: 1
+  shader: {fileID: 7200000, guid: 3b6b80c276e48f14c99b6f05d5962110, type: 3}
+  shapeMaterial: {fileID: 2100000, guid: 6f0e143002abfd84895da4f27339285e, type: 2}
+  sharpness: 0
+  fillColor:
+    fillStyle: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    colorEnd: {r: 0, g: 0, b: 0, a: 1}
+    colorMid: {r: 1, g: 0, b: 0, a: 1}
+    gradientStart: {x: -0.5, y: 0}
+    gradientEnd: {x: 0.5, y: 0}
+    gradientMid: 0.5
+  outline:
+    useOutline: 0
+    color:
+      fillStyle: 0
+      color: {r: 0, g: 0, b: 0, a: 1}
+      colorEnd: {r: 0, g: 0, b: 0, a: 0}
+      colorMid: {r: 0, g: 0, b: 0, a: 0}
+      gradientStart: {x: 0, y: 0}
+      gradientEnd: {x: 0, y: 0}
+      gradientMid: 0
+    orientation: 0
+    edgeType: 0
+    outlineStyle: 0
+    thickness: 4
+    offset: 0
+    dashLength: 8
+    gapLength: 8
+    dashOffset: 0
+  effects:
+    useEffects: 0
+    innerShadow:
+      useEffect: 0
+      color: {r: 0, g: 0, b: 0, a: 0.5}
+      distance:
+        useAngle: 0
+        offset: {x: 5, y: -5}
+        angle: -45
+        distance: 5
+      blur: 0
+      spread: 0
+      showEffectSection: 0
+    dropShadow:
+      useEffect: 0
+      color: {r: 0, g: 0, b: 0, a: 0.5}
+      distance:
+        useAngle: 0
+        offset: {x: 5, y: -5}
+        angle: -45
+        distance: 5
+      blur: 0
+      spread: 0
+      showEffectSection: 0
+    innerGlow:
+      useEffect: 0
+      color: {r: 1, g: 1, b: 1, a: 1}
+      isLinear: 1
+      isCenter: 0
+      exponentialDecrease: 2
+      choke: 0
+      size: 5
+      showEffectSection: 0
+    outerGlow:
+      useEffect: 0
+      color: {r: 1, g: 1, b: 1, a: 1}
+      isLinear: 1
+      exponentialDecrease: 2
+      choke: 0
+      size: 5
+      showEffectSection: 0
+  extraSettings:
+    centerOffset: {x: 0, y: 0}
+    tint: {r: 1, g: 1, b: 1, a: 1}
+  stylePreset: {fileID: 0}
+--- !u!222 &1440979199
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440979196}
+  m_CullTransparentMesh: 1
+--- !u!21 &1681767964
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UIAB_Rectangle
+  m_Shader: {fileID: 4800000, guid: 7e9157af1fcfac14891b6d2bbee8f932, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints:
+    - _Effect_InnerGlow_Use: 0
+    - _Effect_InnerShadow_Use: 0
+    m_Floats:
+    - _ColorMask: 15
+    - _CornerType: 1
+    - _Effect_DropShadow_Use: 0
+    - _Effect_Falloff: 39.3
+    - _Effect_InnerGlow_Use: 0
+    - _Effect_InnerShadow_Choke: 0
+    - _Effect_InnerShadow_Size: 0
+    - _Effect_InnerShadow_Use: 0
+    - _Effect_OuterGlow_Use: 0
+    - _FillMidCoordinates: 0.5
+    - _FillStyle: 0
+    - _Outline_Edge: 4
+    - _Outline_Thickness: 4
+    - _Rectangle_Height: 100
+    - _Rectangle_Width: 200
+    - _Sharpness: 0
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseComputeShader: 1
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Debug_Vector: {r: 1, g: 1, b: 2, a: 0.5}
+    - _Dimension: {r: 2, g: 9.67, b: 0, a: 0}
+    - _Effect_Color: {r: 0, g: 0, b: 0, a: 1}
+    - _Effect_Distance: {r: 20, g: 20, b: 0, a: 0}
+    - _Effect_DropShadow_Color: {r: 0, g: 0, b: 0, a: 1}
+    - _Effect_DropShadow_Distance_Blur_Spread: {r: 3.9363537, g: -4.528258, b: 4, a: 0}
+    - _Effect_InnerGlow_Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Effect_InnerGlow_IsCenter_Choke_Size: {r: 0, g: 0.165, b: 16, a: 0}
+    - _Effect_InnerGlow_IsLinear_IsCenter_Choke_Size: {r: 0, g: 0, b: 0.476, a: 10}
+    - _Effect_InnerShadow_Color: {r: 0, g: 0, b: 0, a: 1}
+    - _Effect_InnerShadow_Distance: {r: 30, g: 30, b: 0, a: 0}
+    - _Effect_InnerShadow_Distance_Blur_Spread: {r: 17.552488, g: -16.36796, b: 16.8, a: 0}
+    - _Effect_InnerShadow_Distance_Choke_Size: {r: 0, g: 0, b: 0, a: 0}
+    - _Effect_OuterGlow_Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Effect_OuterGlow_IsLinear_Choke_Size: {r: 0, g: 0, b: 4, a: 0}
+    - _Effect_Use: {r: 0, g: 0, b: 0, a: 0}
+    - _Extra_Tint: {r: 1, g: 1, b: 1, a: 1}
+    - _FillColor: {r: 1, g: 1, b: 1, a: 1}
+    - _FillColorEnd: {r: 1, g: 1, b: 1, a: 1}
+    - _FillColorMid: {r: 1, g: 1, b: 1, a: 1}
+    - _FillCoordinates: {r: 0, g: 0, b: 1, a: 1}
+    - _Outline_Edges_Type_Has: {r: 0, g: 5, b: 1, a: 0}
+    - _Outline_FillColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Outline_IsDashed_DashRatio_GapRatio_DashOffset: {r: 0, g: 0.1, b: 0, a: 0}
+    - _RectangleDimension: {r: 50, g: 50, b: 0, a: 0}
+    - _Rectangle_Corners: {r: 48.04, g: 38.85, b: 0, a: 0}
+    - _ResultTexture_Dimension: {r: 223, g: 123, b: 0, a: 0}
+    - _TextureDimension: {r: 100, g: 100, b: 0, a: 0}
+    - fillColor: {r: 1, g: 0, b: 0, a: 1}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!21 &1693765388
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UIAB_Rectangle
+  m_Shader: {fileID: 4800000, guid: 7e9157af1fcfac14891b6d2bbee8f932, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints:
+    - _Effect_InnerGlow_Use: 0
+    - _Effect_InnerShadow_Use: 0
+    m_Floats:
+    - _ColorMask: 15
+    - _CornerType: 1
+    - _Effect_DropShadow_Use: 0
+    - _Effect_Falloff: 39.3
+    - _Effect_InnerGlow_Use: 0
+    - _Effect_InnerShadow_Choke: 0
+    - _Effect_InnerShadow_Size: 0
+    - _Effect_InnerShadow_Use: 0
+    - _Effect_OuterGlow_Use: 0
+    - _FillMidCoordinates: 0.5
+    - _FillStyle: 0
+    - _Outline_Edge: 4
+    - _Outline_Thickness: 4
+    - _Rectangle_Height: 100
+    - _Rectangle_Width: 200
+    - _Sharpness: 0
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseComputeShader: 1
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Debug_Vector: {r: 1, g: 1, b: 2, a: 0.5}
+    - _Dimension: {r: 2, g: 9.67, b: 0, a: 0}
+    - _Effect_Color: {r: 0, g: 0, b: 0, a: 1}
+    - _Effect_Distance: {r: 20, g: 20, b: 0, a: 0}
+    - _Effect_DropShadow_Color: {r: 0, g: 0, b: 0, a: 1}
+    - _Effect_DropShadow_Distance_Blur_Spread: {r: 3.9363537, g: -4.528258, b: 4, a: 0}
+    - _Effect_InnerGlow_Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Effect_InnerGlow_IsCenter_Choke_Size: {r: 0, g: 0.165, b: 16, a: 0}
+    - _Effect_InnerGlow_IsLinear_IsCenter_Choke_Size: {r: 0, g: 0, b: 0.476, a: 10}
+    - _Effect_InnerShadow_Color: {r: 0, g: 0, b: 0, a: 1}
+    - _Effect_InnerShadow_Distance: {r: 30, g: 30, b: 0, a: 0}
+    - _Effect_InnerShadow_Distance_Blur_Spread: {r: 17.552488, g: -16.36796, b: 16.8, a: 0}
+    - _Effect_InnerShadow_Distance_Choke_Size: {r: 0, g: 0, b: 0, a: 0}
+    - _Effect_OuterGlow_Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Effect_OuterGlow_IsLinear_Choke_Size: {r: 0, g: 0, b: 4, a: 0}
+    - _Effect_Use: {r: 0, g: 0, b: 0, a: 0}
+    - _Extra_Tint: {r: 1, g: 1, b: 1, a: 1}
+    - _FillColor: {r: 1, g: 1, b: 1, a: 1}
+    - _FillColorEnd: {r: 1, g: 1, b: 1, a: 1}
+    - _FillColorMid: {r: 1, g: 1, b: 1, a: 1}
+    - _FillCoordinates: {r: 0, g: 0, b: 1, a: 1}
+    - _Outline_Edges_Type_Has: {r: 0, g: 5, b: 1, a: 0}
+    - _Outline_FillColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Outline_IsDashed_DashRatio_GapRatio_DashOffset: {r: 0, g: 0.1, b: 0, a: 0}
+    - _RectangleDimension: {r: 50, g: 50, b: 0, a: 0}
+    - _Rectangle_Corners: {r: 48.04, g: 38.85, b: 0, a: 0}
+    - _ResultTexture_Dimension: {r: 223, g: 123, b: 0, a: 0}
+    - _TextureDimension: {r: 100, g: 100, b: 0, a: 0}
+    - fillColor: {r: 1, g: 0, b: 0, a: 1}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!84 &1695424300
 RenderTexture:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

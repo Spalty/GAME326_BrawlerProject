@@ -1,14 +1,8 @@
 ﻿<Solution>
   <Project Path="NaughtyAttributes.Test.csproj" />
   <Project Path="NaughtyAttributes.Core.csproj" />
-<<<<<<< Updated upstream
-  <Project Path="Assembly-CSharp-firstpass.csproj" />
-  <Project Path="Assembly-CSharp.csproj" />
-  <Project Path="NaughtyAttributes.Editor.csproj" />
-=======
   <Project Path="NaughtyAttributes.Editor.csproj" />
   <Project Path="Assembly-CSharp.csproj" />
   <Project Path="Assembly-CSharp-firstpass.csproj" />
->>>>>>> Stashed changes
   <Project Path="Assembly-CSharp-Editor-firstpass.csproj" />
 </Solution>

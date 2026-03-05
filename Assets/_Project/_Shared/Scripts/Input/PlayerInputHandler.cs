@@ -18,7 +18,7 @@ namespace Brawler.Input
     {
         [Header("Player Settings")]
         [Tooltip("Which player this handler is for (0 = Player 1, 1 = Player 2)")]
-        [SerializeField] private int playerIndex = 0;
+        private int playerIndex = 0;
 
         [Header("Input Asset")]
         [Tooltip("The InputActionAsset containing the Player action map.")]
