@@ -4,12 +4,15 @@ using System.Collections;
 public class PlayerMediumAttackState : PlayerBaseState
 {
     public PlayerMediumAttackState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) : base(currentContext, playerStateFactory){}
+   
     private Rigidbody2D PlayerRB => Context.PlayerRB;
+    
     public override void EnterState()
     {
-        Debug.Log("Entering Medium Attack State");
+        //Debug
         Context.CurrentSubSubState = SubSubStates.Stand_MediumAtk;
         
+        //Logic
         PlayerRB.linearVelocity = Vector2.zero; // Stop player movement during attack
         Context.IsActionable = false;
         Context.StartCoroutine(WaitForFrames(20)); // Assuming 20 frames for the attack
@@ -20,12 +23,10 @@ public class PlayerMediumAttackState : PlayerBaseState
 
     public override void InitializeSubState() { }
     
-    
     public override void UpdateState()
     {
         CheckSwitchState();
     }
-
 
     public override void CheckSwitchState()
     {

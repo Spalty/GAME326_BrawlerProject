@@ -9,7 +9,7 @@ public class PlayerJumpState : PlayerBaseState
     private Rigidbody2D PlayerRB => Context.PlayerRB;
     private FighterData FighterData => Context.FightData;
     private InputHandler InputHandler => Context.InputHandler;
-    private int _jumpCount = 0;
+    //private int _jumpCount = 0;
     
 
     public override void EnterState()

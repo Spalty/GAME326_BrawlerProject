@@ -1,6 +1,4 @@
 using System;
-using UnityEngine;
-using Brawler.Core;
 
 public enum RoundResults
 {
@@ -13,17 +11,17 @@ public enum RoundResults
 public static class FighterGameEvents
 {
     //Game State Events
-    public static event Action OnGameStateChange;
+    public static Action OnGameStateChange;
 
     //Match Events
-    public static event Action<MatchEvent> OnMatchEvent;
+    public static Action<MatchEvent> OnMatchEvent;
 
     //Round Events
-    public static event Action<PlayerHitEvent> OnPlayerHit;
-    public static event Action<PlayerKOEvent> OnPlayerKO;
+    public static Action<PlayerHitEvent> OnPlayerHit;
+    public static Action<PlayerKOEvent> OnPlayerKO;
 
     //UI
-    public static event Action<TimerChangedEvent> OnTimerChanged;
+    public static Action<TimerChangedEvent> OnTimerChanged;
    
     public static void ClearAll()
     {

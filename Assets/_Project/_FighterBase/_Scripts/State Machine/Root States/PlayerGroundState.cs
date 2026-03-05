@@ -1,4 +1,3 @@
-using NUnit.Framework;
 using UnityEngine;
 
 public class PlayerGroundState : PlayerBaseState
@@ -7,6 +6,7 @@ public class PlayerGroundState : PlayerBaseState
     {
         IsRootState = true;
     }
+
     FighterData FighterData => Context.FightData;
 
     public override void EnterState()
@@ -47,6 +47,7 @@ public class PlayerGroundState : PlayerBaseState
     {
         Context.AnimController.SetGroundedBool(false);
         Context.IsGrounded();
+
         Context.JumpCount = FighterData.MaxJumpCount; //Reset jump count when exiting grounded state
     }
 }

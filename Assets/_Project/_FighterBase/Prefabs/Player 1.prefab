@@ -139,7 +139,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd439d753d21a4644bd1dd0db16f4967, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerIndex: 0
   groundCheck: {fileID: 6182905684279043485}
   groundLayer:
     serializedVersion: 2
@@ -192,7 +191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 2a330ddb27a9fe7439b946391f65d963, type: 3}
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 3
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:

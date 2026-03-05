@@ -4,12 +4,15 @@ using System.Collections;
 public class PlayerHeavyAttackState : PlayerBaseState
 {
     public PlayerHeavyAttackState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) : base(currentContext, playerStateFactory){}
+    
     private Rigidbody2D PlayerRB => Context.PlayerRB;
     
     public override void EnterState()
     {
-        Debug.Log("Entering Heavy Attack State");
+        //Debug
         Context.CurrentSubSubState = SubSubStates.Stand_HeavyAtk;
+
+        //Logic
         PlayerRB.linearVelocity = Vector2.zero; // Stop player movement during attack
         Context.IsActionable = false;
         Context.StartCoroutine(WaitForFrames(20)); // Assuming 20 frames for the attack
@@ -24,7 +27,6 @@ public class PlayerHeavyAttackState : PlayerBaseState
         CheckSwitchState();
     }
 
-
     public override void CheckSwitchState()
     {
         if (Context.IsActionable)
@@ -32,7 +34,6 @@ public class PlayerHeavyAttackState : PlayerBaseState
             SwitchState(Factory.Idle());
         }
     }
-
     
     public override void ExitState()
     {

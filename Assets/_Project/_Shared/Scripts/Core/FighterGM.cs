@@ -19,7 +19,7 @@ public class FighterGM : Singleton<FighterGM>
     {
         base.Awake();
 
-        //Instantiate(player1, spawnPoint1.position, spawnPoint1.rotation);
-        //Instantiate(player2, spawnPoint2.position, spawnPoint2.rotation);
+        Instantiate(player1, spawnPoint1.position, spawnPoint1.rotation);
+        Instantiate(player2, spawnPoint2.position, spawnPoint2.rotation);
     }
 }
