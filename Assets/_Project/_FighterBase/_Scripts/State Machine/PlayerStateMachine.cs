@@ -1,7 +1,6 @@
 using UnityEngine;
 using Brawler.Combat;
 using NaughtyAttributes;
-using UnityEngine.XR;
 
 public enum RootStates
 {
@@ -71,13 +70,15 @@ public class PlayerStateMachine : MonoBehaviour
     private InputHandler _inputHandler;
     private FighterAnimController _animController;
 
-    private bool _isGrounded = true;
     private bool _isActionable = true;
     private bool _touchingBlockBox;
+
     [Header("---Ground Check---")]
     [SerializeField] private Transform groundCheck;
+    [Space(10)]
     [SerializeField] private LayerMask groundLayer;
     private float groundCheckRadius = 0.2f;
+    private bool _isGrounded = true;
 
     [Header("---Fighter Data---")]
     [Expandable][SerializeField] private FighterData fighterData;
@@ -124,7 +125,10 @@ public class PlayerStateMachine : MonoBehaviour
         _playerRB = GetComponent<Rigidbody2D>();
         _inputHandler = GetComponent<InputHandler>();
         _animController = GetComponent<FighterAnimController>();
+    }
 
+    private void Start()
+    {
         _states = new PlayerStateFactory(this);
         _currentState = _states.Grounded();
         _currentState.EnterState();
