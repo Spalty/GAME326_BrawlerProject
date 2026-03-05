@@ -21,7 +21,7 @@ public class PlayerJumpState : PlayerBaseState
         //HANDLE JUMP LOGIC
         if(Context.JumpCount > 0 && Context.InputHandler.HorizontalInput != 0)
         {
-            PlayerRB.AddForce(new Vector2(Context.InputHandler.HorizontalInput * FighterData.HorizontalJumpForce, 0));
+          PlayerRB.linearVelocity = new Vector2(Context.InputHandler.HorizontalInput * FighterData.HorizontalJumpForce, FighterData.VerticalJumpForce);
             Context.JumpCount--;
         }
         else if (Context.JumpCount > 0 && InputHandler.HorizontalInput == 0)
