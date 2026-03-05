@@ -26,19 +26,19 @@ public class PlayerBackWalkState : PlayerBaseState
 
     public override void CheckSwitchState()
     {
-        if (Context.InputHandler.moveDirection == 0)
+        if (Context.InputHandler.HorizontalInput == 0)
         {
             SwitchState(Factory.Idle());
         }
-        else if (Context.InputHandler.IsLightAttackPressed)
+        else if (Context.InputHandler.WasLightAttackPressed)
         {
             SwitchState(Factory.LightAttack());
         }
-        else if (Context.InputHandler.IsMediumAttackPressed)
+        else if (Context.InputHandler.WasMediumAttackPressed)
         {
             SwitchState(Factory.MediumAttack());
         }
-        else if (Context.InputHandler.IsHeavyAttackPressed)
+        else if (Context.InputHandler.WasHeavyAttackPressed)
         {
             SwitchState(Factory.HeavyAttack());
         }
@@ -56,7 +56,7 @@ public class PlayerBackWalkState : PlayerBaseState
 
     private void HandleWalkingBackwards()
     {
-        float xVelocity = InputHandler.moveDirection * FighterData.WalkSpeed;
+        float xVelocity = InputHandler.HorizontalInput * FighterData.WalkSpeed;
         Vector2 moveVelocity = new(xVelocity, PlayerRB.linearVelocity.y);
         PlayerRB.linearVelocity = moveVelocity;
     }

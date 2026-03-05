@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1000
   walkSpeed: 5
-  jumpForce: 10
+  verticalJumpForce: 5
+  horizontalJumpForce: 5
   dashSpeed: 8

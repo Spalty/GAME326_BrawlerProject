@@ -8,8 +8,8 @@ public class PlayerHeavyAttackState : PlayerBaseState
     
     public override void EnterState()
     {
-        // Implementation for entering heavy attack state
         Debug.Log("Entering Heavy Attack State");
+        Context.CurrentSubSubState = SubSubStates.Stand_HeavyAtk;
         PlayerRB.linearVelocity = Vector2.zero; // Stop player movement during attack
         Context.IsActionable = false;
         Context.StartCoroutine(WaitForFrames(20)); // Assuming 20 frames for the attack
@@ -17,31 +17,28 @@ public class PlayerHeavyAttackState : PlayerBaseState
         //Animation
         Context.AnimController.TriggerAttack(Context.AnimController.HeavyAtkHash);
     }
+    public override void InitializeSubState() { }
 
     public override void UpdateState()
     {
-        // Implementation for updating heavy attack state
         CheckSwitchState();
     }
 
-    public override void ExitState()
-    {
-        // Implementation for exiting heavy attack state
-    }
 
     public override void CheckSwitchState()
     {
-        // Implementation for checking state switches
         if (Context.IsActionable)
         {
             SwitchState(Factory.Idle());
         }
     }
 
-    public override void InitializeSubState()
+    
+    public override void ExitState()
     {
-        // Implementation for initializing sub states
+        Context.InputHandler.WasHeavyAttackPressed = false; // Reset the input flag
     }
+    
     IEnumerator WaitForFrames(int frameCount)//Timer for how many frames the attack should last
     {
 

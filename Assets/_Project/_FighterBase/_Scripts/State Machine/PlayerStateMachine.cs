@@ -7,6 +7,7 @@ public enum RootStates
 {
     Grounded,
     Airborne,
+    Jump,
 }
 
 public enum SubStates
@@ -70,8 +71,9 @@ public class PlayerStateMachine : MonoBehaviour
     private Rigidbody2D _playerRB;
     private InputHandler _inputHandler;
     private FighterAnimController _animController;
+    private int _jumpCount;
 
-    private bool _isGrounded = true;
+    
     private bool _isActionable = true;
     private bool _touchingBlockBox;
     [Header("---Ground Check---")]
@@ -100,9 +102,10 @@ public class PlayerStateMachine : MonoBehaviour
     public InputHandler InputHandler { get { return _inputHandler; } set { _inputHandler = value; } }
     public FighterAnimController AnimController { get { return _animController; } set { _animController = value; } }
 
-    public bool IsGrounded { get { return _isGrounded; } set { _isGrounded = value; } }
+    //public bool IsGrounded { get { return _isGrounded; } set { _isGrounded = value; } }
     public bool TouchingBlockBox { get { return _touchingBlockBox; } set { _touchingBlockBox = value; } }
     public bool IsActionable { get { return _isActionable; } set { _isActionable = value; } }
+    public int JumpCount { get { return _jumpCount; } set { _jumpCount = value; } }
 
     //Fighter Data
     public FighterData FightData => fighterData;
@@ -138,6 +141,18 @@ public class PlayerStateMachine : MonoBehaviour
 
     public void HandleGroundCheck()
     {
-        IsGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer) != null;
+       if (IsGrounded())
+        {
+            _animController.SetGroundedBool(true);
+        }
+        else
+        {
+            _animController.SetGroundedBool(false);
+        }
+    }
+
+    public bool IsGrounded()
+    {
+        return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer) != null;
     }
 }

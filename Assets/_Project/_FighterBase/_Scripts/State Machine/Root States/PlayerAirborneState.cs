@@ -11,11 +11,30 @@ public class PlayerAirborneState : PlayerBaseState
     {
         InitializeSubState();
         Debug.Log("Entering Airborne State");
+        Context.CurrentRootState = RootStates.Airborne;
 
         Context.AnimController.SetGroundedBool(false);
     }
 
-    public override void InitializeSubState() { }
+    public override void InitializeSubState()
+    {
+            if (Context.InputHandler.WasLightAttackPressed)
+            {
+                SetSubState(Factory.JLightAttack());
+            }
+            else if (Context.InputHandler.WasMediumAttackPressed)
+            {
+                SetSubState(Factory.JMediumAttack());
+            }
+            else if (Context.InputHandler.WasHeavyAttackPressed)
+            {
+                SetSubState(Factory.JHeavyAttack());
+            }
+            else
+            {
+                SetSubState(Factory.Standing()); //MAKE FALLING SUBSTATE LATER
+            }
+    }
 
     public override void UpdateState()
     {
@@ -24,9 +43,13 @@ public class PlayerAirborneState : PlayerBaseState
 
     public override void CheckSwitchState()
     {
-        if (Context.IsGrounded)
+        if (Context.IsGrounded())
         {
             SwitchState(Factory.Grounded());
+        }
+        else if (Context.InputHandler.WasJumpPressed)
+        {
+            SwitchState(Factory.Jump());
         }
     }
 

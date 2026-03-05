@@ -8,6 +8,7 @@ public class PlayerStateFactory
         //Root States
         Airborne,
         Ground,
+        Jump,
         
         //Ground Sub States
         Standing,
@@ -49,6 +50,7 @@ public class PlayerStateFactory
         //root states
         _stateCache[PlayerStates.Airborne] = new PlayerAirborneState(_context, this);
         _stateCache[PlayerStates.Ground] = new PlayerGroundState(_context, this);
+        _stateCache[PlayerStates.Jump] = new PlayerJumpState(_context, this);
         
         //Ground sub states
         _stateCache[PlayerStates.Standing] = new PlayerStandingState(_context, this);
@@ -81,9 +83,13 @@ public class PlayerStateFactory
         _stateCache[PlayerStates.WasHitAirborne] = new PlayerWasHitAirborneState(_context, this);
     }
 
-    public PlayerBaseState Grounded()
+    public PlayerBaseState Grounded()//ROOT STATE
     {
         return _stateCache[PlayerStates.Ground];
+    }
+    public PlayerBaseState Jump()//ROOT STATE
+    {
+        return _stateCache[PlayerStates.Jump];
     }
     public PlayerBaseState Standing()
     {
@@ -133,7 +139,7 @@ public class PlayerStateFactory
 
     
     #endregion
-    public PlayerBaseState Crouch()//Crouch is the default sub state of Ground when the player is holding down, so it will be the first state to enter when we switch to Ground while holding down
+    public PlayerBaseState Crouch()
     {
         return _stateCache[PlayerStates.Crouch];
     }
@@ -159,7 +165,7 @@ public class PlayerStateFactory
         return _stateCache[PlayerStates.WasHitCrouching];
     }
     #endregion
-    public PlayerBaseState Airborne()
+    public PlayerBaseState Airborne()//ROOT STATE
     {
         return _stateCache[PlayerStates.Airborne];
     }

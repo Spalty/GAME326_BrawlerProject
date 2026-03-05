@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using UnityEngine;
 
 public class PlayerGroundState : PlayerBaseState
@@ -6,18 +7,20 @@ public class PlayerGroundState : PlayerBaseState
     {
         IsRootState = true;
     }
+    FighterData FighterData => Context.FightData;
 
     public override void EnterState()
     {
         InitializeSubState();
         Context.CurrentRootState = RootStates.Grounded;
+        Context.PlayerRB.linearVelocity = Vector2.zero; // Stop player movement when entering grounded state
 
-        Context.AnimController.SetGroundedBool(true);
+        Context.AnimController.SetGroundedBool(Context.IsGrounded());
     }
 
     public override void InitializeSubState()
     {
-        if (Context.InputHandler.verticalInput < 0)
+        if (Context.InputHandler.VerticalInput < 0)
         {
             SetSubState(Factory.Crouch());
         }
@@ -34,11 +37,16 @@ public class PlayerGroundState : PlayerBaseState
 
     public override void CheckSwitchState()
     {
-        if (!Context.IsGrounded)
+        if (Context.InputHandler.WasJumpPressed)
         {
-            SwitchState(Factory.Airborne());
+            SwitchState(Factory.Jump());
         }
     }
 
-    public override void ExitState() { }
+    public override void ExitState()
+    {
+        Context.AnimController.SetGroundedBool(false);
+        Context.IsGrounded();
+        Context.JumpCount = FighterData.MaxJumpCount; //Reset jump count when exiting grounded state
+    }
 }

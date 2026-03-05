@@ -5,10 +5,12 @@ public class PlayerLightAttackState : PlayerBaseState
 {   
     public PlayerLightAttackState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) : base(currentContext, playerStateFactory) { }
     private Rigidbody2D PlayerRB => Context.PlayerRB;
+    private InputHandler InputHandler => Context.InputHandler;
 
     public override void EnterState()
     {
         Debug.Log("Entering Light Attack State");
+        Context.CurrentSubSubState = SubSubStates.Stand_LightAtk;
 
         PlayerRB.linearVelocity = Vector2.zero; // Stop player movement during attack
         Context.IsActionable = false;
@@ -36,6 +38,7 @@ public class PlayerLightAttackState : PlayerBaseState
     public override void ExitState()
     {
         Debug.Log("Exiting Light Attack State");
+        InputHandler.WasLightAttackPressed = false; // Reset the input flag
     }
 
     IEnumerator WaitForFrames(int frameCount)//Timer for how many frames the attack should last

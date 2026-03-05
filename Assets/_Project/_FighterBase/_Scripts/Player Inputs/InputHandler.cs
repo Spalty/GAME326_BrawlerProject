@@ -7,21 +7,21 @@ public class InputHandler : MonoBehaviour
     private bool _wasDashPressed;
     private bool _wasJumpPressed;
 
-    private bool _isLightAttackPressed;
-    private bool _isMediumAttackPressed;
-    private bool _isHeavyAttackPressed;
+    private bool _wasLightAttackPressed;
+    private bool _wasMediumAttackPressed;
+    private bool _wasHeavyAttackPressed;
     
     private float _horizontalInput;
     private float _verticalInput;
 
     #region ---Getter/Setters---
-    public bool IsLightAttackPressed { get { return _isLightAttackPressed; } set { _isLightAttackPressed = value; } }
-    public bool IsMediumAttackPressed { get { return _isMediumAttackPressed; } set { _isMediumAttackPressed = value; } }
-    public bool IsHeavyAttackPressed { get { return _isHeavyAttackPressed; } set { _isHeavyAttackPressed = value; } }
+    public bool WasLightAttackPressed { get { return _wasLightAttackPressed; } set { _wasLightAttackPressed = value; } }
+    public bool WasMediumAttackPressed { get { return _wasMediumAttackPressed; } set { _wasMediumAttackPressed = value; } }
+    public bool WasHeavyAttackPressed { get { return _wasHeavyAttackPressed; } set { _wasHeavyAttackPressed = value; } }
     public bool WasJumpPressed { get { return _wasJumpPressed; } set { _wasJumpPressed = value; } }
     public bool WasDashPressed { get { return _wasDashPressed; } set { _wasDashPressed = value; } }
-    public float moveDirection { get { return _horizontalInput; } set { _horizontalInput = value; } }
-    public float verticalInput { get { return _verticalInput; } set { _verticalInput = value; } }
+    public float HorizontalInput { get { return _horizontalInput; } set { _horizontalInput = value; } }
+    public float VerticalInput { get { return _verticalInput; } set { _verticalInput = value; } }
     #endregion
     
     void Awake()
@@ -33,18 +33,18 @@ public class InputHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    
+        // Reset WasJumpPressed so it only lasts one frame
     }
 
     public void OnHorizontal(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            moveDirection = context.ReadValue<Vector2>().x;
+            HorizontalInput = context.ReadValue<Vector2>().x;
         }
         else if (context.canceled)
         {
-            moveDirection = 0f;
+            HorizontalInput = 0f;
         }
     }
 
@@ -52,11 +52,11 @@ public class InputHandler : MonoBehaviour
     {
         if (context.performed)
         {
-            verticalInput = context.ReadValue<Vector2>().y;
+            VerticalInput = context.ReadValue<Vector2>().y;
         }
         else if (context.canceled)
         {
-            verticalInput = 0f;
+            VerticalInput = 0f;
         }
     }
 
@@ -66,7 +66,7 @@ public class InputHandler : MonoBehaviour
         {
             WasDashPressed = true;
         }
-        else if (context.canceled)
+        else
         {
             WasDashPressed = false;
         }
@@ -74,46 +74,31 @@ public class InputHandler : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.started)
         {
-            WasJumpPressed = true;   
-        }
-        else if (context.canceled)
-        {
-            WasJumpPressed = false;
+            WasJumpPressed = true;
         }
     }
     public void OnLight(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.started)
         {
-            IsLightAttackPressed = true;
+            WasLightAttackPressed = true;
         }
-        else if (context.canceled)
-        {
-            IsLightAttackPressed = false;
-        }
+        
     }
     public void OnMedium(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.started)
         {
-            IsMediumAttackPressed = true;
-        }
-        else if (context.canceled)
-        {
-            IsMediumAttackPressed = false;
+            WasMediumAttackPressed = true;
         }
     }
     public void OnHeavy(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.started)
         {
-            IsHeavyAttackPressed = true;
-        }
-        else if (context.canceled)
-        {
-            IsHeavyAttackPressed = false;
+            WasHeavyAttackPressed = true;
         }
     }
 
@@ -128,18 +113,21 @@ public class InputHandler : MonoBehaviour
         _fighterController.StandingActions.Horizontal.canceled += OnHorizontal;
         _fighterController.StandingActions.Vertical.performed += OnVertical;
         _fighterController.StandingActions.Vertical.canceled += OnVertical;
+
+        _fighterController.StandingActions.Jump.started += OnJump;
+        _fighterController.StandingActions.Jump.canceled += OnJump;
         
         
         _fighterController.StandingActions.Dash.performed += OnDash;
         _fighterController.StandingActions.Dash.canceled += OnDash;
         
-        _fighterController.StandingActions.Light.performed += OnLight;
+        _fighterController.StandingActions.Light.started += OnLight;
         _fighterController.StandingActions.Light.canceled += OnLight;
         
-        _fighterController.StandingActions.Medium.performed += OnMedium;
+        _fighterController.StandingActions.Medium.started += OnMedium;
         _fighterController.StandingActions.Medium.canceled += OnMedium;
         
-        _fighterController.StandingActions.Heavy.performed += OnHeavy;
+        _fighterController.StandingActions.Heavy.started += OnHeavy;
         _fighterController.StandingActions.Heavy.canceled += OnHeavy;
         
         //--CROUCHING ACTIONS--    
@@ -163,18 +151,21 @@ public class InputHandler : MonoBehaviour
         _fighterController.StandingActions.Horizontal.canceled -= OnHorizontal;
         _fighterController.StandingActions.Vertical.performed -= OnVertical;
         _fighterController.StandingActions.Vertical.canceled -= OnVertical;
+
+        _fighterController.StandingActions.Jump.started -= OnJump;
+        _fighterController.StandingActions.Jump.canceled -= OnJump;
         
         
         _fighterController.StandingActions.Dash.performed -= OnDash;
         _fighterController.StandingActions.Dash.canceled -= OnDash;
         
-        _fighterController.StandingActions.Light.performed -= OnLight;
+        _fighterController.StandingActions.Light.started -= OnLight;
         _fighterController.StandingActions.Light.canceled -= OnLight;
         
-        _fighterController.StandingActions.Medium.performed -= OnMedium;
+        _fighterController.StandingActions.Medium.started -= OnMedium;
         _fighterController.StandingActions.Medium.canceled -= OnMedium;
         
-        _fighterController.StandingActions.Heavy.performed -= OnHeavy;
+        _fighterController.StandingActions.Heavy.started -= OnHeavy;
         _fighterController.StandingActions.Heavy.canceled -= OnHeavy;
 
         //--CROUNCHING ACTIONS--      
