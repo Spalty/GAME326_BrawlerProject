@@ -31,7 +31,7 @@ public class PlayerStateMachine : MonoBehaviour
     [Space(10)]
     [SerializeField] private LayerMask groundLayer;
     private const float groundCheckRadius = 0.2f;
-    //private bool _isGrounded = true;
+    private int _airDashCount;
     private int _jumpCount;
 
     private bool _isActionable = true;
@@ -49,6 +49,7 @@ public class PlayerStateMachine : MonoBehaviour
     public bool TouchingBlockBox { get { return _touchingBlockBox; } set { _touchingBlockBox = value; } }
     public bool IsActionable { get { return _isActionable; } set { _isActionable = value; } }
     public int JumpCount { get { return _jumpCount; } set { _jumpCount = value; } }
+    public int AirDashCount { get { return _airDashCount; } set { _airDashCount = value; } }
 
     //Fighter Data
     public FighterData FightData => fighterData;
@@ -104,11 +105,7 @@ public enum SubStates
     Crouching,
 
     //Airborne SubStates
-    Air_LightAtk,
-    Air_MediumAtk,
-    Air_HeavyAtk,
-    Air_Block,
-    Air_Hit,
+    Falling,
 }
 
 public enum SubSubStates
@@ -134,4 +131,13 @@ public enum SubSubStates
     Crouch_HeavyAtk,
     Crouch_Block,
     Crouch_Hit,
+
+    //Falling SubSubStates
+    FallingIdle,
+    AirDash,
+    Air_LightAtk,
+    Air_MediumAtk,
+    Air_HeavyAtk,
+    Air_Block,
+    Air_Hit,
 }

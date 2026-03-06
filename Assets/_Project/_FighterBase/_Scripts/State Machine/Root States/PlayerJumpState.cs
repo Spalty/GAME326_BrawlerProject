@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using Unity.VisualScripting;
 
 public class PlayerJumpState : PlayerBaseState
 {
@@ -9,8 +11,7 @@ public class PlayerJumpState : PlayerBaseState
     private Rigidbody2D PlayerRB => Context.PlayerRB;
     private FighterData FighterData => Context.FightData;
     private InputHandler InputHandler => Context.InputHandler;
-    //private int _jumpCount = 0;
-    
+    private int JumpCount => Context.JumpCount;
 
     public override void EnterState()
     {
@@ -18,15 +19,15 @@ public class PlayerJumpState : PlayerBaseState
         Context.CurrentRootState = RootStates.Jump;
         
 
-        //HANDLE JUMP LOGIC
-        if(Context.JumpCount > 0 && Context.InputHandler.HorizontalInput != 0)
+        
+        if(JumpCount > 0 && !Context.IsGrounded()) // AIR JUMP
         {
-          PlayerRB.linearVelocity = new Vector2(Context.InputHandler.HorizontalInput * FighterData.HorizontalJumpForce, FighterData.VerticalJumpForce);
+          PlayerRB.linearVelocity = new Vector2(Context.InputHandler.HorizontalInput * FighterData.HorizontalJumpForce/2, FighterData.VerticalJumpForce/2);
             Context.JumpCount--;
         }
-        else if (Context.JumpCount > 0 && InputHandler.HorizontalInput == 0)
+        else if (Context.IsGrounded()) // GROUND JUMP
         {
-            PlayerRB.linearVelocity = new Vector2(0, FighterData.VerticalJumpForce); // Reset vertical velocity before applying jump force
+            PlayerRB.linearVelocity = new Vector2(Context.InputHandler.HorizontalInput * FighterData.HorizontalJumpForce, FighterData.VerticalJumpForce);
             Context.JumpCount--;
         }
     }

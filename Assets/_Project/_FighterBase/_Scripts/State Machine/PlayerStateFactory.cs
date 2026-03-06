@@ -34,6 +34,9 @@ public class PlayerStateFactory
         WasHitCrouching,
        
         //Air Sub States
+        Falling,
+        FallingIdle,
+        AirDash,
         AirBlock,
         JLightAttack,
         JMediumAttack,
@@ -76,6 +79,9 @@ public class PlayerStateFactory
         _stateCache[PlayerStates.WasHitCrouching] = new PlayerWasHitCrouchingState(_context, this);
         
         //Airborne sub states
+        _stateCache[PlayerStates.Falling] = new PlayerFallingState(_context, this);
+        _stateCache[PlayerStates.FallingIdle] = new PlayerFallingIdleState(_context, this);
+        _stateCache[PlayerStates.AirDash] = new PlayerAirDashState(_context, this);
         _stateCache[PlayerStates.AirBlock] = new PlayerAirBlockState(_context, this);
         _stateCache[PlayerStates.JLightAttack] = new PlayerJLightAttackState(_context, this);
         _stateCache[PlayerStates.JMediumAttack] = new PlayerJMediumAttackState(_context, this);
@@ -173,6 +179,18 @@ public class PlayerStateFactory
     public PlayerBaseState AirBlock()
     {
         return _stateCache[PlayerStates.AirBlock];
+    }
+    public PlayerBaseState Falling()
+    {
+        return _stateCache[PlayerStates.Falling];
+    }
+    public PlayerBaseState FallingIdle()
+    {
+        return _stateCache[PlayerStates.FallingIdle];
+    }
+    public PlayerBaseState AirDash()
+    {
+        return _stateCache[PlayerStates.AirDash];
     }
     public PlayerBaseState JLightAttack()
     {

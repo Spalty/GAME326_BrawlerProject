@@ -18,22 +18,10 @@ public class PlayerAirborneState : PlayerBaseState
 
     public override void InitializeSubState()
     {
-            if (Context.InputHandler.WasLightAttackPressed)
-            {
-                SetSubState(Factory.JLightAttack());
-            }
-            else if (Context.InputHandler.WasMediumAttackPressed)
-            {
-                SetSubState(Factory.JMediumAttack());
-            }
-            else if (Context.InputHandler.WasHeavyAttackPressed)
-            {
-                SetSubState(Factory.JHeavyAttack());
-            }
-            else
-            {
-                SetSubState(Factory.Standing()); //MAKE FALLING SUBSTATE LATER
-            }
+            
+           
+        SetSubState(Factory.Falling()); //MAKE FALLING SUBSTATE LATER
+            
     }
 
     public override void UpdateState()
