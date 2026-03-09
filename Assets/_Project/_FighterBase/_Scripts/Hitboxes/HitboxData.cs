@@ -17,43 +17,38 @@ public class HitboxData : ScriptableObject
         [Range(1f, 30f)]
         public float baseKnockback = 5f;
 
-        [Tooltip("Direction of knockback. X is horizontal (1=forward, -1=backward), Y is vertical. " +
-                 "Will be flipped based on attacker facing direction.")]
+        [Tooltip("Direction of knockback. X is horizontal (1=forward, -1=backward), Y is vertical. " + "Will be flipped based on attacker facing direction.")]
         public Vector2 knockbackAngle = new Vector2(1f, 0.5f);
 
-        [Header("Timing (in frames at 60fps)")]
-        [Tooltip("Frames before the hitbox becomes active. Higher = slower startup.")]
-        [Range(1, 60)]
-        public int startupFrames = 3;
-
-        [Tooltip("Frames the hitbox is active. Higher = easier to land.")]
-        [Range(1, 30)]
-        public int activeFrames = 5;
-
-        [Tooltip("Frames after active before the fighter can act again. Higher = more punishable.")]
-        [Range(1, 60)]
-        public int recoveryFrames = 10;
+        
 
         [Header("Hitstun")]
         [Tooltip("How long the opponent can't act after being hit. 0 = auto-calculate from knockback.")]
         [Range(0f, 1f)]
         public float hitstunDuration = 5f;
 
+        [Header("Hitstun")]
+        [Tooltip("How long the opponent can't act after blocking a hit. 0 = auto-calculate from knockback.")]
+        [Range(0f, 1f)]
+        public float blockstunDuration = 5f;
+
+
         [Header("Hitstop")]
         [Tooltip("Freeze frame duration on hit. Creates impact feel.")]
         [Range(0f, 0.2f)]
         public float hitstopDuration = 0.05f;
 
-        [Header("Hitbox")]
-        [Tooltip("Offset from fighter center to hitbox center.")]
-        public Vector2 hitboxOffset = new Vector2(0.5f, 0f);
-
+        [Header("Hitbox Size")]
         [Tooltip("Size of the hitbox.")]
         public Vector2 hitboxSize = new Vector2(1f, 1f);
 
+        [Header("Hitbox Offset")]
+        [Tooltip("Offset of the hitbox from the fighter's position. X is horizontal (positive = forward), Y is vertical.")]
+        public Vector2 hitboxOffset = new Vector2(0.5f, 0f);
+
         [Header("Attack Type")]
         [Tooltip("What type of attack this is. Controls how opponent must block the attack.")]
-        public AttackType context = AttackType.Mid;
+        public AttackType attackContext = AttackType.Mid;
 
         [Header("Audio/Visual (Optional)")]
         [Tooltip("Sound effect to play on attack start.")]
@@ -62,8 +57,6 @@ public class HitboxData : ScriptableObject
         [Tooltip("Sound effect to play on hit.")]
         public AudioClip hitSound;
 
-        [Tooltip("Animation trigger name for this attack.")]
-        public string animationTrigger = "Attack";
 
         
         // Convenience properties for timing in seconds (at 60fps)

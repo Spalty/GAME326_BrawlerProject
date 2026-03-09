@@ -37,9 +37,9 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2862667816057766190}
-  - {fileID: 6182905684279043485}
-  - {fileID: 8068415453823241140}
   - {fileID: 4561169794983884666}
+  - {fileID: 8068415453823241140}
+  - {fileID: 6182905684279043485}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &6596206924470055645
@@ -296,7 +296,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4561169794983884666}
   - component: {fileID: 6377895999283724446}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hurtbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -331,10 +331,10 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1536
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 392
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
