@@ -45,6 +45,10 @@ public class PlayerJumpState : PlayerBaseState
         {
             SwitchState(Factory.Airborne());
         }
+        else
+        {
+            SwitchState(Factory.Grounded());
+        }
     }
 
     public override void ExitState()
