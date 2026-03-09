@@ -1,6 +1,4 @@
 using UnityEngine;
-using System.Collections;
-using Unity.VisualScripting;
 
 public class PlayerJumpState : PlayerBaseState
 {
@@ -17,8 +15,6 @@ public class PlayerJumpState : PlayerBaseState
     {
         InitializeSubState();
         Context.CurrentRootState = RootStates.Jump;
-        
-
         
         if(JumpCount > 0 && !Context.IsGrounded()) // AIR JUMP
         {

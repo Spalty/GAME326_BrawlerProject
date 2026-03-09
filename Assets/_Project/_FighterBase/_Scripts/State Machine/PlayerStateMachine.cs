@@ -2,7 +2,6 @@ using UnityEngine;
 using Brawler.Combat;
 using NaughtyAttributes;
 
-
 public class PlayerStateMachine : MonoBehaviour
 {
     //THE GAME IS HARD CAPPED TO 60 FPS,
@@ -31,10 +30,7 @@ public class PlayerStateMachine : MonoBehaviour
     [Space(10)]
     [SerializeField] private LayerMask groundLayer;
     private const float groundCheckRadius = 0.2f;
-<<<<<<< Updated upstream
     private int _airDashCount;
-=======
->>>>>>> Stashed changes
     private int _jumpCount;
 
     private bool _isActionable = true;
