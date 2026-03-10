@@ -36,6 +36,8 @@ public class PlayerStateMachine : MonoBehaviour
     private bool _isActionable = true;
     private bool _touchingBlockBox;
 
+    public Transform Opponent { get; set; }
+
     [Header("---Fighter Data---")]
     [Expandable][SerializeField] private FighterData fighterData;
      
@@ -81,12 +83,24 @@ public class PlayerStateMachine : MonoBehaviour
 
     void Update()
     {
+        HandleSpriteFlipping();
+
         _currentState.UpdateAllStates();
     }
 
     public bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer) != null;
+    }
+
+    /// <summary>
+    /// Ensures the player is always facing their opponent by by flipping the transform's local scale X
+    /// </summary>
+    private void HandleSpriteFlipping()
+    {
+        Vector2 directionToOpponent = Opponent.position - transform.position;
+        float flippedScaleX = directionToOpponent.x < 0 ? -1 : 1;
+        transform.localScale = new(Mathf.Abs(transform.localScale.x) * flippedScaleX, transform.localScale.y, transform.localScale.z);
     }
 }
 

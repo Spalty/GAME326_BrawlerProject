@@ -143,6 +143,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 128
+  playerSprite: {fileID: 3372161187490856652}
   fighterData: {fileID: 11400000, guid: 9b94ca8b441ec7f4da78092fba58dc2e, type: 2}
 --- !u!114 &9087323902627741683
 MonoBehaviour:
@@ -191,7 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 2a330ddb27a9fe7439b946391f65d963, type: 3}
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 3
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
