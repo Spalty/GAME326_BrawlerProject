@@ -115,12 +115,12 @@ TextureImporter:
       name: chara_ice_idle-Sheet_0
       rect:
         serializedVersion: 2
-        x: 6
+        x: 3
         y: 0
-        width: 42
+        width: 45
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.64444447, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -139,10 +139,10 @@ TextureImporter:
         serializedVersion: 2
         x: 65
         y: 0
-        width: 44
+        width: 45
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.6888889, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -163,8 +163,8 @@ TextureImporter:
         y: 0
         width: 45
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.73333335, y: -0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -185,8 +185,8 @@ TextureImporter:
         y: 0
         width: 45
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.7111111, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -203,12 +203,12 @@ TextureImporter:
       name: chara_ice_idle-Sheet_4
       rect:
         serializedVersion: 2
-        x: 259
+        x: 256
         y: 0
-        width: 42
+        width: 45
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.7111111, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
