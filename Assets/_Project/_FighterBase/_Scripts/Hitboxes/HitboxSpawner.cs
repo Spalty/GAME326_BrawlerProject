@@ -20,8 +20,7 @@ public class HitboxSpawner : MonoBehaviour
         
         Hitbox hitbox = hitboxObj.GetComponent<Hitbox>();
         
-        hitbox.data = currentAttackData; // Assign the data asset
-        hitbox.owner = owner; // Set the owner to prevent self-hits
+        hitbox.Data = currentAttackData; // Assign the data asset
     } 
 
     public void DestoyHitbox(GameObject hitboxObj)

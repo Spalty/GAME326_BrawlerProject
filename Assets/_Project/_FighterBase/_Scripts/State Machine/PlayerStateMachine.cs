@@ -25,6 +25,9 @@ public class PlayerStateMachine : MonoBehaviour
     private InputHandler _inputHandler;
     private FighterAnimController _animController;
 
+    private int playerIndex;
+    public int PlayerIndex { get { return playerIndex; } set { playerIndex = value; } }
+
     [Header("---Ground Check---")]
     [SerializeField] private Transform groundCheck;
     [Space(10)]
@@ -40,7 +43,11 @@ public class PlayerStateMachine : MonoBehaviour
 
     [Header("---Fighter Data---")]
     [Expandable][SerializeField] private FighterData fighterData;
-     
+
+    [Header("---Hit / Hurt Boxes---")]
+    [SerializeField] private Hitbox hitBox;
+    [SerializeField] private Hurtbox hurtBox;
+
     #region ---Getter/Setters---
     public Rigidbody2D PlayerRB { get { return _playerRB; } set { _playerRB = value; } }
     public InputHandler InputHandler { get { return _inputHandler; } set { _inputHandler = value; } }
@@ -72,6 +79,16 @@ public class PlayerStateMachine : MonoBehaviour
         _playerRB = GetComponent<Rigidbody2D>();
         _inputHandler = GetComponent<InputHandler>();
         _animController = GetComponent<FighterAnimController>();
+
+        if (hitBox != null)
+        {
+            hitBox.PlayerIndex = PlayerIndex;
+        }
+
+        if (hurtBox != null)
+        {
+            hurtBox.PlayerIndex = PlayerIndex;
+        }
     }
 
     private void Start()

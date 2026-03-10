@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TestHealthBar : MonoBehaviour
+public class HealthBar : MonoBehaviour
 {
     [Header("---Player Index---")]
     [SerializeField] private int playerIndex; //This can be handled by a manager
@@ -11,16 +11,18 @@ public class TestHealthBar : MonoBehaviour
 
     private void OnEnable()
     {
-        TestGameManager.OnHealthChanged += UpdateHealthBar;
+        FighterGameEvents.OnPlayerHit += UpdateHealthBar;
     }
 
     private void OnDisable()
     {
-        TestGameManager.OnHealthChanged -= UpdateHealthBar;
+        FighterGameEvents.OnPlayerHit -= UpdateHealthBar;
     }
 
     private void UpdateHealthBar(PlayerHitEvent playerHitEvent)
     {
+        Debug.Log($"Player {playerHitEvent.PlayerIndex} was hit for {playerHitEvent.DamagePercent} damage.");
+
         if (playerHitEvent.PlayerIndex == playerIndex)
         {
             float healthPercent = playerHitEvent.DamagePercent;
