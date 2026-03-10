@@ -798,8 +798,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   matchConfig: {fileID: 11400000, guid: 0009b645aa70dc247bf3c93e1a2b6213, type: 2}
-  player1: {fileID: 435476363326563248, guid: c9f52e2a568a9f542b1f503e0d4a02ed, type: 3}
-  player2: {fileID: 1476803871600150082, guid: 7229f87ed655b2445a4d6f6b920e7ccf, type: 3}
+  player1Prefab: {fileID: 435476363326563248, guid: c9f52e2a568a9f542b1f503e0d4a02ed, type: 3}
+  player2Prefab: {fileID: 1476803871600150082, guid: 7229f87ed655b2445a4d6f6b920e7ccf, type: 3}
   spawnPoint1: {fileID: 2127108832}
   spawnPoint2: {fileID: 1564162972}
 --- !u!4 &2091746497

@@ -25,37 +25,76 @@ public class InputHandler : MonoBehaviour
     public bool WasHeavyAttackPressed { get { return _wasHeavyAttackPressed; } set { _wasHeavyAttackPressed = value; } }
     #endregion
 
-    public void OnHorizontal(InputValue value)
+    PlayerInput _playerInput;
+
+    private void Awake()
     {
-        _horizontalInput = value.Get<Vector2>().x;
+        _playerInput = GetComponent<PlayerInput>(); 
     }
 
-    public void OnVertical(InputValue value)
+    private void OnEnable()
     {
-        _verticalInput = value.Get<Vector2>().y;
+        _playerInput.actions["Horizontal"].performed += OnHorizontal;
+        _playerInput.actions["Horizontal"].canceled += OnHorizontal;
+
+        _playerInput.actions["Vertical"].performed += OnVertical;
+        _playerInput.actions["Vertical"].canceled += OnVertical;
+
+        _playerInput.actions["Dash"].started += OnDash;
+        _playerInput.actions["Jump"].started += OnJump;
+
+        _playerInput.actions["Light"].started += OnLight;
+        _playerInput.actions["Medium"].started += OnMedium;
+        _playerInput.actions["Heavy"].started += OnHeavy;
     }
 
-    public void OnDash()
+    private void OnDisable()
+    {
+        _playerInput.actions["Horizontal"].performed -= OnHorizontal;
+        _playerInput.actions["Horizontal"].canceled -= OnHorizontal;
+
+        _playerInput.actions["Vertical"].performed -= OnVertical;
+        _playerInput.actions["Vertical"].canceled -= OnVertical;
+
+        _playerInput.actions["Dash"].started -= OnDash;
+        _playerInput.actions["Jump"].started -= OnJump;
+
+        _playerInput.actions["Light"].started -= OnLight;
+        _playerInput.actions["Medium"].started -= OnMedium;
+        _playerInput.actions["Heavy"].started -= OnHeavy;
+    }
+
+    public void OnHorizontal(InputAction.CallbackContext context)
+    {
+        _horizontalInput = context.ReadValue<Vector2>().x; 
+    }
+
+    public void OnVertical(InputAction.CallbackContext context)
+    {
+        _verticalInput = context.ReadValue<Vector2>().y;
+    }
+
+    public void OnDash(InputAction.CallbackContext context)
     {
         WasDashPressed = true;
     }
 
-    public void OnJump()
+    public void OnJump(InputAction.CallbackContext context)
     {
         WasJumpPressed = true;
     }
-    
-    public void OnLight()
+
+    public void OnLight(InputAction.CallbackContext context)
     {
         WasLightAttackPressed = true;
     }
-    
-    public void OnMedium()
+
+    public void OnMedium(InputAction.CallbackContext context)
     {
         WasMediumAttackPressed = true;
     }
 
-    public void OnHeavy()
+    public void OnHeavy(InputAction.CallbackContext context)
     {
         WasHeavyAttackPressed = true;
     }

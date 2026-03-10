@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 2a330ddb27a9fe7439b946391f65d963, type: 3}
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 3
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -286,7 +286,7 @@ SpriteRenderer:
   m_SortingOrder: 1
   m_Sprite: {fileID: 2369300811374536972, guid: 997afc1cc1a91184c9d4210b09f3a30c, type: 3}
   m_Color: {r: 0, g: 0.39215687, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1.0625, y: 2.15625}
