@@ -1,0 +1,481 @@
+fileFormatVersion: 2
+guid: a095608f785cb7a40b498de124e4203b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6012936507150362295
+    second: chara_ice_attack_heavy-Sheet_0
+  - first:
+      213: 4688878627041816515
+    second: chara_ice_attack_heavy-Sheet_1
+  - first:
+      213: -5766081282956125952
+    second: chara_ice_attack_heavy-Sheet_2
+  - first:
+      213: -8195447306124037896
+    second: chara_ice_attack_heavy-Sheet_3
+  - first:
+      213: -3336998182006293711
+    second: chara_ice_attack_heavy-Sheet_4
+  - first:
+      213: -4067173998987937450
+    second: chara_ice_attack_heavy-Sheet_5
+  - first:
+      213: 644126041137166072
+    second: chara_ice_attack_heavy-Sheet_6
+  - first:
+      213: -1452080750843155381
+    second: chara_ice_attack_heavy-Sheet_7
+  - first:
+      213: 2986565416159903066
+    second: chara_ice_attack_heavy-Sheet_8
+  - first:
+      213: 5189085521418348669
+    second: chara_ice_attack_heavy-Sheet_9
+  - first:
+      213: 3298304512462383080
+    second: chara_ice_attack_heavy-Sheet_10
+  - first:
+      213: -5960800742161528134
+    second: chara_ice_attack_heavy-Sheet_11
+  - first:
+      213: -5465364617425682968
+    second: chara_ice_attack_heavy-Sheet_12
+  - first:
+      213: -3997690408530166502
+    second: chara_ice_attack_heavy-Sheet_13
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: chara_ice_attack_heavy-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 0
+        width: 39
+        height: 60
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 949135aca12cd8ca0800000000000000
+      internalID: -6012936507150362295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_ice_attack_heavy-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 0
+        width: 43
+        height: 61
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cfafbfb44e321140800000000000000
+      internalID: 4688878627041816515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_ice_attack_heavy-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 0
+        width: 44
+        height: 62
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0091f578f93caffa0800000000000000
+      internalID: -5766081282956125952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_ice_attack_heavy-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 46
+        height: 62
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f07b0fa81ce34e80800000000000000
+      internalID: -8195447306124037896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_ice_attack_heavy-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 0
+        width: 62
+        height: 61
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13bf36965d990b1d0800000000000000
+      internalID: -3336998182006293711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_ice_attack_heavy-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 0
+        width: 65
+        height: 61
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6597e96fbce7e87c0800000000000000
+      internalID: -4067173998987937450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_ice_attack_heavy-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 0
+        width: 62
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f63f80c83560f800800000000000000
+      internalID: 644126041137166072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_ice_attack_heavy-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 0
+        width: 60
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4cafc4204c29dbe0800000000000000
+      internalID: -1452080750843155381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_ice_attack_heavy-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 0
+        width: 58
+        height: 62
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5d7da82c69627920800000000000000
+      internalID: 2986565416159903066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_ice_attack_heavy-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 0
+        width: 61
+        height: 61
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d78634de9c5530840800000000000000
+      internalID: 5189085521418348669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_ice_attack_heavy-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 644
+        y: 0
+        width: 61
+        height: 62
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e7636a9a7ee5cd20800000000000000
+      internalID: 3298304512462383080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_ice_attack_heavy-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 0
+        width: 61
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abac3928e4bf64da0800000000000000
+      internalID: -5960800742161528134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_ice_attack_heavy-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 773
+        y: 0
+        width: 60
+        height: 62
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ed7a5256df1724b0800000000000000
+      internalID: -5465364617425682968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_ice_attack_heavy-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 839
+        y: 0
+        width: 43
+        height: 60
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1db29d01c95588c0800000000000000
+      internalID: -3997690408530166502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 50393068735d0904893dfa749f06b03e
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      chara_ice_attack_heavy-Sheet_0: -6012936507150362295
+      chara_ice_attack_heavy-Sheet_1: 4688878627041816515
+      chara_ice_attack_heavy-Sheet_10: 3298304512462383080
+      chara_ice_attack_heavy-Sheet_11: -5960800742161528134
+      chara_ice_attack_heavy-Sheet_12: -5465364617425682968
+      chara_ice_attack_heavy-Sheet_13: -3997690408530166502
+      chara_ice_attack_heavy-Sheet_2: -5766081282956125952
+      chara_ice_attack_heavy-Sheet_3: -8195447306124037896
+      chara_ice_attack_heavy-Sheet_4: -3336998182006293711
+      chara_ice_attack_heavy-Sheet_5: -4067173998987937450
+      chara_ice_attack_heavy-Sheet_6: 644126041137166072
+      chara_ice_attack_heavy-Sheet_7: -1452080750843155381
+      chara_ice_attack_heavy-Sheet_8: 2986565416159903066
+      chara_ice_attack_heavy-Sheet_9: 5189085521418348669
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
