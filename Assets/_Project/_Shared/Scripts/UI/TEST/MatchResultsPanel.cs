@@ -1,4 +1,5 @@
 using UnityEngine;
+using Brawler.Core;
 using TMPro;
 
 public class MatchResultsPanel : MonoBehaviour
@@ -7,16 +8,22 @@ public class MatchResultsPanel : MonoBehaviour
     [SerializeField] private GameObject panel;
     [SerializeField] private TextMeshProUGUI matchResults;
 
+    private bool _wasPreviouslyActive;
+
     private void OnEnable()
     {
         FighterGameEvents.OnMatchStart += UpdateMatchResultsPanel;
         FighterGameEvents.OnMatchEnd += UpdateMatchResultsPanel;
+
+        FighterGameEvents.OnGameStateChange += DisableIfPaused;
     }
 
     private void OnDisable()
     {
         FighterGameEvents.OnMatchStart -= UpdateMatchResultsPanel;
         FighterGameEvents.OnMatchEnd -= UpdateMatchResultsPanel;
+
+        FighterGameEvents.OnGameStateChange -= DisableIfPaused;
     }
 
     private void Awake()
@@ -38,5 +45,21 @@ public class MatchResultsPanel : MonoBehaviour
         }
 
         panel.SetActive(matchEndEvent.IsMatchEnd);
+    }
+
+    private void DisableIfPaused(GameStateChangeEvent gameStateEvent)
+    {
+        if (_wasPreviouslyActive)
+        {
+            panel.SetActive(true);
+            _wasPreviouslyActive = false;
+            return;
+        }
+
+        if (panel.activeSelf == true)
+        {
+            panel.SetActive(gameStateEvent.NewState != GameState.Paused);
+            _wasPreviouslyActive = true;
+        }
     }
 }

@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 
 public class PlayerMediumAttackState : PlayerBaseState
 {
@@ -15,7 +14,6 @@ public class PlayerMediumAttackState : PlayerBaseState
         //Logic
         PlayerRB.linearVelocity = Vector2.zero; // Stop player movement during attack
         Context.IsActionable = false;
-        Context.StartCoroutine(WaitForFrames(20)); // Assuming 20 frames for the attack
 
         //Animation
         Context.AnimController.TriggerAttack(Context.AnimController.MediumAtkHash);
@@ -30,7 +28,6 @@ public class PlayerMediumAttackState : PlayerBaseState
 
     public override void CheckSwitchState()
     {
-        
         if (Context.IsActionable)
         {
             SwitchState(Factory.Idle());
@@ -40,15 +37,5 @@ public class PlayerMediumAttackState : PlayerBaseState
     public override void ExitState()
     {
         Context.InputHandler.WasMediumAttackPressed = false; // Reset the input flag
-    }
-    
-    IEnumerator WaitForFrames(int frameCount)//Timer for how many frames the attack should last
-    {
-
-        for (int i = 0; i < frameCount; i++)
-        {
-            yield return null;
-        }
-        Context.IsActionable = true;
     }
 }

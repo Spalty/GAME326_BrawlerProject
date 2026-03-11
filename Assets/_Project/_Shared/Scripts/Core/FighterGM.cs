@@ -1,9 +1,14 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Brawler.Core;
+using Brawler.Arena;
 using NaughtyAttributes;
 
 public class FighterGM : Singleton<FighterGM>
 {
+    private SpawnPointHandler _spawnPointHandler;
+
     [Expandable]
     [Header("---Match Configs---")]
     [SerializeField] private MatchConfig matchConfig;
@@ -15,9 +20,10 @@ public class FighterGM : Singleton<FighterGM>
     [Header("---Player Initialization---")]
     [SerializeField] private GameObject player1Prefab;
     [SerializeField] private GameObject player2Prefab;
+    private PlayerStateMachine _player1;
+    private PlayerStateMachine _player2;
     [Space(10)]
-    [SerializeField] private Transform spawnPoint1;
-    [SerializeField] private Transform spawnPoint2;
+    private SpawnPoint[] _spawnPoints;
 
     [Header("---Player Healths---")]
     private readonly float[] _playerHealths = new float[2];
@@ -40,10 +46,17 @@ public class FighterGM : Singleton<FighterGM>
     {
         base.Awake();
 
+        //Race condition here
         InitializePlayers();
-         
+
         _remainingTime = matchConfig.matchTimeLimit;
         _isRoundActive = true;
+    }
+
+    private void Start()
+    {
+        //Start the match
+        //Start the countdown
     }
 
     private void Update()
@@ -54,11 +67,14 @@ public class FighterGM : Singleton<FighterGM>
     #region Player Initialization Methods
     private void InitializePlayers()
     {
-        PlayerStateMachine player1SM = InitializePlayer(0, player1Prefab, spawnPoint1);
-        PlayerStateMachine player2SM = InitializePlayer(1, player2Prefab, spawnPoint2);
+        _spawnPointHandler = ServiceLocator.Get<SpawnPointHandler>();
+        _spawnPoints = _spawnPointHandler.SpawnPoints; 
 
-        player1SM.Opponent = player2SM.transform;
-        player2SM.Opponent = player1SM.transform;
+        _player1 = InitializePlayer(0, player1Prefab, _spawnPoints[0].transform);
+        _player2 = InitializePlayer(1, player2Prefab, _spawnPoints[1].transform);
+
+        _player1.Opponent = _player2.transform;
+        _player2.Opponent = _player1.transform;
     }
 
     private PlayerStateMachine InitializePlayer(int playerIndex, GameObject playerPrefab, Transform spawnPoint)
@@ -135,6 +151,22 @@ public class FighterGM : Singleton<FighterGM>
     }
     #endregion
 
+    #region Countdown Methods
+    private void StartRoundCountdown()
+    {
+        StartCoroutine(Countdown(matchConfig.roundStartDelay));
+    }
+
+    private IEnumerator Countdown(float duration)
+    {
+        //Display Round number
+
+        yield return new WaitForSeconds(duration);
+
+        //Begin Countdown
+    }
+    #endregion
+
     #region Player Hit Methods
     public void HitPlayer(int playerIndex, float damageAmount)
     {
@@ -149,7 +181,9 @@ public class FighterGM : Singleton<FighterGM>
         if (_playerHealths[playerIndex] <= 0)
         {
             int winnerIndex = playerIndex == 0 ? 1 : 0;
-            _playerWinCounts[winnerIndex]++;
+            _playerWinCounts[winnerIndex] += 1;
+
+            Debug.Log($"Player {winnerIndex} won {_playerWinCounts[winnerIndex]} times");
 
             _roundResult = winnerIndex == 0 ? RoundResult.Player1Wins : RoundResult.Player2Wins;
             FighterGameEvents.OnPlayerKO?.Invoke(new PlayerKOEvent(_roundResult, _playerWinCounts));
@@ -158,17 +192,37 @@ public class FighterGM : Singleton<FighterGM>
 
             if (!IsMatchOver)
             {
-                
+                //Start next round after delay
+                StartCoroutine(StartRoundAfterDelay(matchConfig.roundEndDelay));
             }
             else
             {
-                FighterGameEvents.OnMatchStart?.Invoke(new MatchEvent(_roundResult));
+                FighterGameEvents.OnMatchEnd?.Invoke(new MatchEvent(_roundResult));
             }
         }
     }
     #endregion
 
     #region Reset Methods
+    private IEnumerator StartRoundAfterDelay(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+
+        StartNewRound();
+    }
+
+    private void StartNewRound()
+    {
+        _player1.transform.position = _spawnPoints[0].transform.position;
+        _player2.transform.position = _spawnPoints[1].transform.position;
+
+        ResetPlayerHealth();
+        ResetTimer();
+        _isRoundActive = true;
+
+        FighterGameEvents.OnMatchStart?.Invoke(new MatchEvent(RoundResult.None));
+    }
+
     public void ResetMatch()
     {
         ResetRoundWins();
@@ -176,27 +230,32 @@ public class FighterGM : Singleton<FighterGM>
         ResetTimer();
 
         _isRoundActive = true;
+
+        //Unpause the game
+        _isGamePaused = false;
+        Time.timeScale = _isGamePaused ? 0 : 1;
     }
 
     private void ResetRoundWins()
-    {
-        _remainingTime = matchConfig.matchTimeLimit;
-        FighterGameEvents.OnTimerChanged?.Invoke(new TimerChangedEvent(_remainingTime));
-    }
-
-    private void ResetPlayerHealth()
     {
         _playerWinCounts[0] = 0;
         _playerWinCounts[1] = 0;
     }
 
-    private void ResetTimer()
+    private void ResetPlayerHealth()
     {
         _playerHealths[0] = matchConfig.StartingHealth;
         _playerHealths[1] = matchConfig.StartingHealth;
 
         FighterGameEvents.OnPlayerHit?.Invoke(new PlayerHitEvent(0, 1));
         FighterGameEvents.OnPlayerHit?.Invoke(new PlayerHitEvent(1, 1));
+    }
+
+    private void ResetTimer()
+    {
+        _remainingTime = matchConfig.matchTimeLimit;
+
+        FighterGameEvents.OnTimerChanged?.Invoke(new TimerChangedEvent(_remainingTime));
     }
     #endregion
 }

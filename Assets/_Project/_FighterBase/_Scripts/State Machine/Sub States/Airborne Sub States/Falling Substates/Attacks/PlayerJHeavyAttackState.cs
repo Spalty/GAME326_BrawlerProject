@@ -38,6 +38,7 @@ public class PlayerJHeavyAttackState : PlayerBaseState
     {
         InputHandler.WasHeavyAttackPressed = false; // Reset the input flag
     }
+
     IEnumerator WaitForFrames(int frameCount)//Timer for how many frames the attack should last
     {
 

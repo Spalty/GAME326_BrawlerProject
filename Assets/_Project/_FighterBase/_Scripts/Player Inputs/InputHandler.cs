@@ -67,7 +67,6 @@ public class InputHandler : MonoBehaviour
 
     public void OnPause(InputAction.CallbackContext context)
     {
-        Debug.Log("Pause Pressed");
         FighterGM.Instance.PauseGame();
     }
 

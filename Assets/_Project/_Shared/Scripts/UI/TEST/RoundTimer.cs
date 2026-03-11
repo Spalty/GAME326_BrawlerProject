@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 
-public class TestTimer: MonoBehaviour
+public class RoundTimer: MonoBehaviour
 {
     private TextMeshProUGUI timerText;
 

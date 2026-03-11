@@ -29,7 +29,7 @@ namespace Brawler.Core
 
             if (services.ContainsKey(type))
             {
-                Debug.LogWarning($"[ServiceLocator] {type.Name} is already registered. Replacing it.");
+                //Debug.LogWarning($"[ServiceLocator] {type.Name} is already registered. Replacing it.");
             }
 
             services[type] = service;
