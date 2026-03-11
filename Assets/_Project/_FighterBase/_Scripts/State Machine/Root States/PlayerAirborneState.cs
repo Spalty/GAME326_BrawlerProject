@@ -6,7 +6,8 @@ public class PlayerAirborneState : PlayerBaseState
     {
         IsRootState = true;
     }
-
+    InputHandler InputHandler => Context.InputHandler;
+    private int Jumpcount => Context.JumpCount;
    public override void EnterState()
     {
         InitializeSubState();
@@ -19,23 +20,6 @@ public class PlayerAirborneState : PlayerBaseState
     public override void InitializeSubState()
     {
         SetSubState(Factory.Falling()); //MAKE FALLING SUBSTATE LATER
-            
-        if (Context.InputHandler.WasLightAttackPressed)
-        {
-            SetSubState(Factory.JLightAttack());
-        }
-        else if (Context.InputHandler.WasMediumAttackPressed)
-        {
-            SetSubState(Factory.JMediumAttack());
-        }
-        else if (Context.InputHandler.WasHeavyAttackPressed)
-        {
-            SetSubState(Factory.JHeavyAttack());
-        }
-        else
-        {
-            SetSubState(Factory.Standing()); //MAKE FALLING SUBSTATE LATER
-        }
     }
 
     public override void UpdateState()
@@ -49,7 +33,7 @@ public class PlayerAirborneState : PlayerBaseState
         {
             SwitchState(Factory.Grounded());
         }
-        else if (Context.InputHandler.WasJumpPressed)
+        else if (InputHandler.WasJumpPressed && Jumpcount > 0)
         {
             SwitchState(Factory.Jump());
         }

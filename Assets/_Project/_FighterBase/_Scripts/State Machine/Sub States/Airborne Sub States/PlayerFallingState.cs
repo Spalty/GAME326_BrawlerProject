@@ -10,17 +10,15 @@ public class PlayerFallingState : PlayerBaseState
     
     public override void EnterState()
     {
+        InitializeSubState();
         Context.CurrentSubState = SubStates.Falling;
         //Context.AnimController.SetFallingBool(true);
     }
 
     public override void InitializeSubState()
     {
-        if (InputHandler.WasJumpPressed && Context.AirDashCount < Context.FightData.MaxAirDashCount)
-        {
-            SetSubState(Factory.AirDash());
-        }
-        else if(InputHandler.WasLightAttackPressed)
+        
+        if(InputHandler.WasLightAttackPressed)
         {
             SetSubState(Factory.JLightAttack());
         }
@@ -44,6 +42,7 @@ public class PlayerFallingState : PlayerBaseState
     }
     public override void CheckSwitchState()
     {
+        /*
         if(InputHandler.WasDashPressed && Context.AirDashCount < Context.FightData.MaxAirDashCount)
         {
             SwitchState(Factory.AirDash());
@@ -60,6 +59,7 @@ public class PlayerFallingState : PlayerBaseState
         {
             SwitchState(Factory.JHeavyAttack());
         }
+        */
     }
 
     public override void ExitState() 

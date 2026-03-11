@@ -10,20 +10,23 @@ public class PlayerJumpState : PlayerBaseState
     private FighterData FighterData => Context.FightData;
     private InputHandler InputHandler => Context.InputHandler;
     private int JumpCount => Context.JumpCount;
+    
+    
+
 
     public override void EnterState()
     {
         InitializeSubState();
         Context.CurrentRootState = RootStates.Jump;
         
-        if(JumpCount > 0 && !Context.IsGrounded()) // AIR JUMP
-        {
-          PlayerRB.linearVelocity = new Vector2(Context.InputHandler.HorizontalInput * FighterData.HorizontalJumpForce/2, FighterData.VerticalJumpForce/2);
-            Context.JumpCount--;
-        }
-        else if (Context.IsGrounded()) // GROUND JUMP
+        
+        if (Context.IsGrounded() && JumpCount > 0) // GROUND JUMP
         {
             PlayerRB.linearVelocity = new Vector2(Context.InputHandler.HorizontalInput * FighterData.HorizontalJumpForce, FighterData.VerticalJumpForce);
+        }
+        else if(!Context.IsGrounded() && JumpCount > 0) // AIR JUMP
+        {
+            PlayerRB.linearVelocity = new Vector2(Context.InputHandler.HorizontalInput * FighterData.HorizontalJumpForce/2, FighterData.VerticalJumpForce/2);
             Context.JumpCount--;
         }
     }
@@ -41,7 +44,7 @@ public class PlayerJumpState : PlayerBaseState
         {
             SwitchState(Factory.Airborne());
         }
-        else
+        else if(Context.IsGrounded())
         {
             SwitchState(Factory.Grounded());
         }
