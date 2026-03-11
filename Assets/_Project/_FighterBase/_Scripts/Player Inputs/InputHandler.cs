@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Brawler.Core;
 
 public class InputHandler : MonoBehaviour
 {
@@ -34,6 +35,11 @@ public class InputHandler : MonoBehaviour
     void Update()
     {
         // Reset WasJumpPressed so it only lasts one frame
+    }
+
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        FighterGM.Instance.PauseGame();
     }
 
     public void OnHorizontal(InputAction.CallbackContext context)

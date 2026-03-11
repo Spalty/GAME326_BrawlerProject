@@ -1,6 +1,7 @@
+using Brawler.Core;
 using System;
 
-public enum RoundResults
+public enum RoundResult
 {
     None = -1,
     Player1Wins = 0,
@@ -11,7 +12,7 @@ public enum RoundResults
 public static class FighterGameEvents
 {
     //Game State Events
-    public static Action OnGameStateChange;
+    public static Action<GameStateChangeEvent> OnGameStateChange;
 
     //Match Events
     public static Action<MatchEvent> OnMatchStart;
@@ -35,6 +36,15 @@ public static class FighterGameEvents
     }
 }
 
+public struct GameStateChangeEvent
+{
+    public GameState NewState;
+    public GameStateChangeEvent(GameState newState)
+    {
+        NewState = newState;    
+    }
+}
+
 public struct PlayerHitEvent
 {
     public int PlayerIndex;
@@ -48,9 +58,9 @@ public struct PlayerHitEvent
 
 public struct PlayerKOEvent
 {
-    public RoundResults Result;
+    public RoundResult Result;
     public int[] PlayerWinCounts;
-    public PlayerKOEvent(RoundResults result, int[] winCounts)
+    public PlayerKOEvent(RoundResult result, int[] winCounts)
     {
         Result = result;
         PlayerWinCounts = winCounts;
@@ -59,9 +69,9 @@ public struct PlayerKOEvent
 
 public struct MatchEvent
 {
-    public RoundResults Result;
-    public readonly bool IsMatchEnd => Result != RoundResults.None;
-    public MatchEvent(RoundResults result)
+    public RoundResult Result;
+    public readonly bool IsMatchEnd => Result != RoundResult.None;
+    public MatchEvent(RoundResult result)
     {
         Result = result;
     }

@@ -28,7 +28,7 @@ public class TestGameManager : Singleton<TestGameManager>
     private readonly int[] _playerWinCounts = new int[2];
     private bool _isRoundActive;
     public bool IsRoundActive { get { return _isRoundActive; } set { _isRoundActive = value; } }
-    private RoundResults _roundResult;
+    private RoundResult _roundResult;
 
     //Match State Properties
     private bool IsMatchOver => _playerWinCounts[0] >= matchConfig.roundsToWin 
@@ -74,7 +74,7 @@ public class TestGameManager : Singleton<TestGameManager>
         ResetTimer();
         _isRoundActive = true;
 
-        OnMatchStart?.Invoke(new MatchEvent(RoundResults.None));
+        OnMatchStart?.Invoke(new MatchEvent(RoundResult.None));
     }
     #endregion
 
@@ -114,14 +114,14 @@ public class TestGameManager : Singleton<TestGameManager>
             _playerWinCounts[0] += 1;
             _playerWinCounts[1] += 1;
 
-            _roundResult = RoundResults.Tie;
+            _roundResult = RoundResult.Tie;
         }
         else
         {
             winnerIndex = _playerHealths[0] > _playerHealths[1] ? 0 : 1;
             _playerWinCounts[winnerIndex] += 1;
 
-            _roundResult = winnerIndex == 0 ? RoundResults.Player1Wins : RoundResults.Player2Wins;
+            _roundResult = winnerIndex == 0 ? RoundResult.Player1Wins : RoundResult.Player2Wins;
         }
 
         _isRoundActive = false;
@@ -145,7 +145,7 @@ public class TestGameManager : Singleton<TestGameManager>
         ResetPlayerHealth();
         _isRoundActive = true;
 
-        OnMatchStart?.Invoke(new MatchEvent(RoundResults.None));
+        OnMatchStart?.Invoke(new MatchEvent(RoundResult.None));
     }
     #endregion
 
@@ -164,7 +164,7 @@ public class TestGameManager : Singleton<TestGameManager>
             int winnerIndex = 1 - playerIndex;
             _playerWinCounts[winnerIndex] += 1;
 
-            _roundResult = winnerIndex == 0 ? RoundResults.Player1Wins : RoundResults.Player2Wins;
+            _roundResult = winnerIndex == 0 ? RoundResult.Player1Wins : RoundResult.Player2Wins;
             OnPlayerKO?.Invoke(new PlayerKOEvent(_roundResult, _playerWinCounts));
 
             _isRoundActive = false;

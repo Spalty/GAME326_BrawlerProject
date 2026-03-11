@@ -26,9 +26,9 @@ public class MatchResultsPanel : MonoBehaviour
 
     private void UpdateMatchResultsPanel(MatchEvent matchEndEvent)
     {
-        if (matchEndEvent.Result == RoundResults.None) return;
+        if (matchEndEvent.Result == RoundResult.None) return;
 
-        if (matchEndEvent.Result == RoundResults.Tie)
+        if (matchEndEvent.Result == RoundResult.Tie)
         {
             matchResults.text = "DRAW";
         }
