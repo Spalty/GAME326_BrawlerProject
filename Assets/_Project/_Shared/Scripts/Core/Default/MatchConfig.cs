@@ -9,6 +9,10 @@ namespace Brawler.Core
     [CreateAssetMenu(fileName = "MatchConfig", menuName = "Brawler/Match Config")]
     public class MatchConfig : ScriptableObject
     {
+        [Header("---Player Health---")]
+        [SerializeField] private float maxHealth = 100f;
+        public float StartingHealth => maxHealth;
+
         [Header("Round Settings")]
         [Tooltip("Number of rounds needed to win the match (e.g., 2 = best of 3).")]
         [Range(1, 5)]

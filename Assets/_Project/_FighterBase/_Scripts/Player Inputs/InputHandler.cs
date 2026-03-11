@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Brawler.Core;
 
 public class InputHandler : MonoBehaviour
 {
@@ -34,6 +35,8 @@ public class InputHandler : MonoBehaviour
 
     private void OnEnable()
     {
+        _playerInput.actions["Pause"].performed += OnPause;
+
         _playerInput.actions["Horizontal"].performed += OnHorizontal;
         _playerInput.actions["Horizontal"].canceled += OnHorizontal;
 
@@ -50,6 +53,8 @@ public class InputHandler : MonoBehaviour
 
     private void OnDisable()
     {
+        _playerInput.actions["Pause"].performed -= OnPause;
+
         _playerInput.actions["Horizontal"].performed -= OnHorizontal;
         _playerInput.actions["Horizontal"].canceled -= OnHorizontal;
 
@@ -62,6 +67,11 @@ public class InputHandler : MonoBehaviour
         _playerInput.actions["Light"].started -= OnLight;
         _playerInput.actions["Medium"].started -= OnMedium;
         _playerInput.actions["Heavy"].started -= OnHeavy;
+    }
+
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        FighterGM.Instance.PauseGame();
     }
 
     public void OnHorizontal(InputAction.CallbackContext context)

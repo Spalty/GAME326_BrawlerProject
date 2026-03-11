@@ -1,13 +1,17 @@
 using UnityEngine;
 using Brawler.Core;
 using NaughtyAttributes;
+
 public class FighterGM : Singleton<FighterGM>
 {
     [Expandable]
     [Header("---Match Configs---")]
     [SerializeField] private MatchConfig matchConfig;
 
-    [Header("---Test---")]
+    [Header("---Game State---")]
+    private bool _isGamePaused;
+
+    [Header("---Player Initialization---")]
     [SerializeField] private GameObject player1Prefab;
     [SerializeField] private GameObject player2Prefab;
     [Space(10)]
@@ -15,15 +19,14 @@ public class FighterGM : Singleton<FighterGM>
     [SerializeField] private Transform spawnPoint2;
 
     [Header("---Player Healths---")]
-    [SerializeField] private float maxHealth = 100f;
     private readonly float[] _playerHealths = new float[2];
 
     [Header("---Player Round Tracker---")]
     private readonly int[] _playerWinCounts = new int[2];
-    private RoundResults _roundResults;
+    private RoundResult _roundResult;
     private bool _isRoundActive;
     private bool IsMatchOver => _playerWinCounts[0] >= matchConfig.roundsToWin
-                            || _playerWinCounts[1] >= matchConfig.roundsToWin;
+                                || _playerWinCounts[1] >= matchConfig.roundsToWin;
 
     [Header("---Timer---")]
     private float _remainingTime;
@@ -31,24 +34,20 @@ public class FighterGM : Singleton<FighterGM>
     [Header("---Debug---")]
     public bool useDebug;
     [ShowIf("useDebug")]
-    [Button] public void ResetMatch()
-    {
-        ResetRoundWins();
-        ResetPlayerHealth();
-        ResetTimer();
-
-        _isRoundActive = true;
-    }
-
 
     protected override void Awake()
     {
         base.Awake();
 
         InitializePlayers();
+         
         _remainingTime = matchConfig.matchTimeLimit;
-
         _isRoundActive = true;
+    }
+
+    private void Update()
+    {
+        UpdateTimer();
     }
 
     #region Player Initialization Methods
@@ -69,18 +68,24 @@ public class FighterGM : Singleton<FighterGM>
         playerSM.PlayerIndex = playerIndex;
         playerSM.InitializePlayerHitbox();
 
-        _playerHealths[playerIndex] = maxHealth;
+        _playerHealths[playerIndex] = matchConfig.StartingHealth;
 
         return playerSM;
     }
     #endregion
 
-    private void Update()
+    #region Game State Methods
+    public void PauseGame()
     {
-        UpdateTimer();
-    }
+        _isGamePaused = !_isGamePaused;
+        Time.timeScale = _isGamePaused ? 0 : 1;
 
-    public void UpdateTimer()
+        FighterGameEvents.OnGameStateChange?.Invoke(new GameStateChangeEvent(GameState.Paused));
+    }
+    #endregion
+
+    #region Timer Methods
+    private void UpdateTimer()
     {
         if (!_isRoundActive || IsMatchOver) return;
 
@@ -104,18 +109,18 @@ public class FighterGM : Singleton<FighterGM>
             _playerWinCounts[0]++;
             _playerWinCounts[1]++;
 
-            _roundResults = RoundResults.Tie;
+            _roundResult = RoundResult.Tie;
         }
         else
         {
             winnerIndex = _playerHealths[0] > _playerHealths[1] ? 0 : 1;
             _playerWinCounts[winnerIndex] += 1;
 
-            _roundResults = winnerIndex == 0 ? RoundResults.Player1Wins : RoundResults.Player2Wins;
+            _roundResult = winnerIndex == 0 ? RoundResult.Player1Wins : RoundResult.Player2Wins;
         }
 
         _isRoundActive = false;
-        FighterGameEvents.OnPlayerKO.Invoke(new PlayerKOEvent(_roundResults, _playerWinCounts));
+        FighterGameEvents.OnPlayerKO.Invoke(new PlayerKOEvent(_roundResult, _playerWinCounts));
 
         if (!IsMatchOver)
         {
@@ -123,18 +128,20 @@ public class FighterGM : Singleton<FighterGM>
         }
         else
         {
-            FighterGameEvents.OnMatchStart.Invoke(new MatchEvent(_roundResults));
+            FighterGameEvents.OnMatchStart.Invoke(new MatchEvent(_roundResult));
         }
     }
+    #endregion
 
-    public void FireHitEvent(int playerIndex, float damageAmount)
+    #region Player Hit Methods
+    public void HitPlayer(int playerIndex, float damageAmount)
     {
         if (!_isRoundActive) return;
         if (_playerHealths[playerIndex] <= 0) return;
 
         _playerHealths[playerIndex] -= damageAmount;
 
-        float damagePercent = _playerHealths[playerIndex] / maxHealth;
+        float damagePercent = _playerHealths[playerIndex] / matchConfig.StartingHealth;
         FighterGameEvents.OnPlayerHit?.Invoke(new PlayerHitEvent(playerIndex, damagePercent));
 
         if (_playerHealths[playerIndex] <= 0)
@@ -142,8 +149,8 @@ public class FighterGM : Singleton<FighterGM>
             int winnerIndex = playerIndex == 0 ? 1 : 0;
             _playerWinCounts[winnerIndex]++;
 
-            _roundResults = winnerIndex == 0 ? RoundResults.Player1Wins : RoundResults.Player2Wins;
-            FighterGameEvents.OnPlayerKO?.Invoke(new PlayerKOEvent(_roundResults, _playerWinCounts));
+            _roundResult = winnerIndex == 0 ? RoundResult.Player1Wins : RoundResult.Player2Wins;
+            FighterGameEvents.OnPlayerKO?.Invoke(new PlayerKOEvent(_roundResult, _playerWinCounts));
 
             _isRoundActive = false;
 
@@ -153,29 +160,41 @@ public class FighterGM : Singleton<FighterGM>
             }
             else
             {
-                FighterGameEvents.OnMatchStart?.Invoke(new MatchEvent(_roundResults));
+                FighterGameEvents.OnMatchStart?.Invoke(new MatchEvent(_roundResult));
             }
         }
     }
+    #endregion
 
-    public void ResetRoundWins()
+    #region Reset Methods
+    private void ResetMatch()
+    {
+        ResetRoundWins();
+        ResetPlayerHealth();
+        ResetTimer();
+
+        _isRoundActive = true;
+    }
+
+    private void ResetRoundWins()
     {
         _remainingTime = matchConfig.matchTimeLimit;
         FighterGameEvents.OnTimerChanged?.Invoke(new TimerChangedEvent(_remainingTime));
     }
 
-    public void ResetPlayerHealth()
+    private void ResetPlayerHealth()
     {
         _playerWinCounts[0] = 0;
         _playerWinCounts[1] = 0;
     }
 
-    public void ResetTimer()
+    private void ResetTimer()
     {
-        _playerHealths[0] = maxHealth;
-        _playerHealths[1] = maxHealth;
+        _playerHealths[0] = matchConfig.StartingHealth;
+        _playerHealths[1] = matchConfig.StartingHealth;
 
         FighterGameEvents.OnPlayerHit?.Invoke(new PlayerHitEvent(0, 1));
         FighterGameEvents.OnPlayerHit?.Invoke(new PlayerHitEvent(1, 1));
     }
+    #endregion
 }

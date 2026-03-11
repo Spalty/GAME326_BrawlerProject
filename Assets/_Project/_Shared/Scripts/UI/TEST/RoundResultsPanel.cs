@@ -28,7 +28,7 @@ public class RoundResultsPanel : MonoBehaviour
 
     private void UpdateRoundResultsPanel(PlayerKOEvent playerKOEvent)
     {
-        if (playerKOEvent.Result == RoundResults.Tie)
+        if (playerKOEvent.Result == RoundResult.Tie)
         {
             roundResults.text = "Time's Up!";
         }

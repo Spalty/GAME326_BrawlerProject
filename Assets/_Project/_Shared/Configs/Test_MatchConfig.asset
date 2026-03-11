@@ -15,7 +15,7 @@ MonoBehaviour:
   roundsToWin: 2
   roundStartDelay: 2
   roundEndDelay: 1.5
-  matchTimeLimit: 99
+  matchTimeLimit: 9
   respawnInvincibilityDuration: 2
   enableSuddenDeath: 1
   suddenDeathOneHitKO: 1

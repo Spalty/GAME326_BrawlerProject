@@ -154,6 +154,15 @@ public partial class @FighterController: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""a1744134-280d-4055-9ff1-95a8585d41d4"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -475,6 +484,28 @@ public partial class @FighterController: IInputActionCollection2, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5fa3f552-0b81-49d2-85d5-490c8dfd8cd2"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9de030c2-9ae7-4ffe-9dc9-1c2136a1d3ae"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -619,6 +650,7 @@ public partial class @FighterController: IInputActionCollection2, IDisposable
         m_StandingActions_Heavy = m_StandingActions.FindAction("Heavy", throwIfNotFound: true);
         m_StandingActions_Dash = m_StandingActions.FindAction("Dash", throwIfNotFound: true);
         m_StandingActions_Jump = m_StandingActions.FindAction("Jump", throwIfNotFound: true);
+        m_StandingActions_Pause = m_StandingActions.FindAction("Pause", throwIfNotFound: true);
         // CrouchingActions
         m_CrouchingActions = asset.FindActionMap("CrouchingActions", throwIfNotFound: true);
         m_CrouchingActions_CrouchLight = m_CrouchingActions.FindAction("CrouchLight", throwIfNotFound: true);
@@ -712,6 +744,7 @@ public partial class @FighterController: IInputActionCollection2, IDisposable
     private readonly InputAction m_StandingActions_Heavy;
     private readonly InputAction m_StandingActions_Dash;
     private readonly InputAction m_StandingActions_Jump;
+    private readonly InputAction m_StandingActions_Pause;
     /// <summary>
     /// Provides access to input actions defined in input action map "StandingActions".
     /// </summary>
@@ -751,6 +784,10 @@ public partial class @FighterController: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "StandingActions/Jump".
         /// </summary>
         public InputAction @Jump => m_Wrapper.m_StandingActions_Jump;
+        /// <summary>
+        /// Provides access to the underlying input action "StandingActions/Pause".
+        /// </summary>
+        public InputAction @Pause => m_Wrapper.m_StandingActions_Pause;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -798,6 +835,9 @@ public partial class @FighterController: IInputActionCollection2, IDisposable
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         /// <summary>
@@ -830,6 +870,9 @@ public partial class @FighterController: IInputActionCollection2, IDisposable
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         /// <summary>
@@ -1063,6 +1106,13 @@ public partial class @FighterController: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnJump(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Pause" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnPause(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "CrouchingActions" which allows adding and removing callbacks.
