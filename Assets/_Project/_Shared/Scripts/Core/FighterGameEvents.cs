@@ -14,7 +14,8 @@ public static class FighterGameEvents
     public static Action OnGameStateChange;
 
     //Match Events
-    public static Action<MatchEvent> OnMatchEvent;
+    public static Action<MatchEvent> OnMatchStart;
+    public static Action<MatchEvent> OnMatchEnd;
 
     //Round Events
     public static Action<PlayerHitEvent> OnPlayerHit;
@@ -22,11 +23,12 @@ public static class FighterGameEvents
 
     //UI
     public static Action<TimerChangedEvent> OnTimerChanged;
-   
+
     public static void ClearAll()
     {
         OnGameStateChange = null;
-        OnMatchEvent = null;
+        OnMatchStart = null;
+        OnMatchEnd = null;
         OnPlayerHit = null;
         OnPlayerKO = null;
         OnTimerChanged = null;

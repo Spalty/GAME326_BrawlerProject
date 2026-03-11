@@ -6,7 +6,15 @@ public class PlayerCrouchState : PlayerBaseState
 
     public override void EnterState()
     {
+        InitializeSubState();
+
+        //Debug
         Context.CurrentSubState = SubStates.Crouching;
+
+        //Logic
+
+        //Animation
+
     }
 
     public override void InitializeSubState()

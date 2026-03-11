@@ -21,8 +21,6 @@ public class HealthBar : MonoBehaviour
 
     private void UpdateHealthBar(PlayerHitEvent playerHitEvent)
     {
-        Debug.Log($"Player {playerHitEvent.PlayerIndex} was hit for {playerHitEvent.DamagePercent} damage.");
-
         if (playerHitEvent.PlayerIndex == playerIndex)
         {
             float healthPercent = playerHitEvent.DamagePercent;

@@ -33,7 +33,7 @@ namespace Brawler.Core
             }
 
             services[type] = service;
-            Debug.Log($"[ServiceLocator] Registered {type.Name}");
+            //Debug.Log($"[ServiceLocator] Registered {type.Name}");
         }
 
         /// <summary>

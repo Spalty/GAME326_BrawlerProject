@@ -7,27 +7,20 @@ public class PlayerCRHeavyAttackState : PlayerBaseState
     }
     public override void EnterState()
     {
-        // Implementation for entering crouch heavy attack state
-        Debug.Log("Entering Crouch Heavy Attack State");
+        //Debug
+        Context.CurrentSubSubState = SubSubStates.Crouch_HeavyAtk;
+
+        //Logic
+
+        //Animation
+
     }
 
-    public override void UpdateState()
-    {
-        // Implementation for updating crouch heavy attack state
-    }
+    public override void UpdateState() { }
 
-    public override void ExitState()
-    {
-        // Implementation for exiting crouch heavy attack state
-    }
+    public override void ExitState() { }
 
-    public override void CheckSwitchState()
-    {
-        // Implementation for checking state switches
-    }
+    public override void CheckSwitchState() { }
 
-    public override void InitializeSubState()
-    {
-        // Implementation for initializing sub states
-    }
+    public override void InitializeSubState() { }
 }

@@ -39,7 +39,6 @@ public class PlayerLightAttackState : PlayerBaseState
 
     public override void ExitState()
     {
-        Debug.Log("Exiting Light Attack State");
         InputHandler.WasLightAttackPressed = false; // Reset the input flag
     }
 

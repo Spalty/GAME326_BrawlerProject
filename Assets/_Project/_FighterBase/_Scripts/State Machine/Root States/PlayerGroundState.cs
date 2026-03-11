@@ -12,10 +12,14 @@ public class PlayerGroundState : PlayerBaseState
     public override void EnterState()
     {
         InitializeSubState();
+
+        //Debug
         Context.CurrentRootState = RootStates.Grounded;
         
+        //Logic
         Context.PlayerRB.linearVelocity = Vector2.zero; // Stop player movement when entering grounded state
 
+        //Animation
         Context.AnimController.SetGroundedBool(Context.IsGrounded());
     }
 

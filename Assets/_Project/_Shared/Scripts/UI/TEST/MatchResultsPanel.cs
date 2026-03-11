@@ -9,14 +9,14 @@ public class MatchResultsPanel : MonoBehaviour
 
     private void OnEnable()
     {
-        TestGameManager.OnMatchStart += UpdateMatchResultsPanel;
-        TestGameManager.OnMatchEnd += UpdateMatchResultsPanel;
+        FighterGameEvents.OnMatchStart += UpdateMatchResultsPanel;
+        FighterGameEvents.OnMatchEnd += UpdateMatchResultsPanel;
     }
 
     private void OnDisable()
     {
-        TestGameManager.OnMatchStart -= UpdateMatchResultsPanel;
-        TestGameManager.OnMatchEnd -= UpdateMatchResultsPanel;
+        FighterGameEvents.OnMatchStart -= UpdateMatchResultsPanel;
+        FighterGameEvents.OnMatchEnd -= UpdateMatchResultsPanel;
     }
 
     private void Awake()

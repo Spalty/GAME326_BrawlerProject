@@ -2,33 +2,23 @@ using UnityEngine;
 
 public class PlayerWasHitCrouchingState : PlayerBaseState
 {
-    public PlayerWasHitCrouchingState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) : base(currentContext, playerStateFactory)
-    {
+    public PlayerWasHitCrouchingState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) : base(currentContext, playerStateFactory) { }
 
-    }
     public override void EnterState()
     {
-        // Implementation for entering was hit crouching state
-        Debug.Log("Entering Was Hit Crouching State");
+        //Debug
+        Context.CurrentSubSubState = SubSubStates.Crouch_Hit;
+
+        //Logic
+
+        //Animation
     }
 
-    public override void UpdateState()
-    {
-        // Implementation for updating was hit crouching state
-    }
+    public override void UpdateState() { }
 
-    public override void ExitState()
-    {
-        // Implementation for exiting was hit crouching state
-    }
+    public override void ExitState() { }
 
-    public override void CheckSwitchState()
-    {
-        // Implementation for checking state switches
-    }
+    public override void CheckSwitchState() { }
 
-    public override void InitializeSubState()
-    {
-        // Implementation for initializing sub states
-    }
+    public override void InitializeSubState() { }
 }

@@ -14,8 +14,11 @@ public class PlayerJumpState : PlayerBaseState
     public override void EnterState()
     {
         InitializeSubState();
+     
+        //Debug
         Context.CurrentRootState = RootStates.Jump;
         
+        //Logic
         if(JumpCount > 0 && !Context.IsGrounded()) // AIR JUMP
         {
           PlayerRB.linearVelocity = new Vector2(Context.InputHandler.HorizontalInput * FighterData.HorizontalJumpForce/2, FighterData.VerticalJumpForce/2);
@@ -26,6 +29,9 @@ public class PlayerJumpState : PlayerBaseState
             PlayerRB.linearVelocity = new Vector2(Context.InputHandler.HorizontalInput * FighterData.HorizontalJumpForce, FighterData.VerticalJumpForce);
             Context.JumpCount--;
         }
+
+        //Animation
+
     }
 
     public override void InitializeSubState() { }

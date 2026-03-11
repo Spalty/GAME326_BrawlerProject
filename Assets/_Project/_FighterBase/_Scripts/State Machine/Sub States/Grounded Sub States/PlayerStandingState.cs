@@ -7,9 +7,14 @@ public class PlayerStandingState : PlayerBaseState
     public override void EnterState()
     {
         InitializeSubState();
-        Debug.Log("Entered Standing State");
 
+        //Debug
         Context.CurrentSubState = SubStates.Standing;
+
+        //Logic
+
+        //Animation
+
     }
 
     public override void InitializeSubState()

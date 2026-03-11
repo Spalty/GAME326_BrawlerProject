@@ -9,16 +9,16 @@ public class RoundResultsPanel : MonoBehaviour
 
     private void OnEnable()
     {
-        TestGameManager.OnPlayerKO += UpdateRoundResultsPanel;
-        TestGameManager.OnMatchStart += DisableRoundResultsPanel;
-        TestGameManager.OnMatchEnd += DisableRoundResultsPanel;
+        FighterGameEvents.OnPlayerKO += UpdateRoundResultsPanel;
+        FighterGameEvents.OnMatchStart += DisableRoundResultsPanel;
+        FighterGameEvents.OnMatchEnd += DisableRoundResultsPanel;
     }
 
     private void OnDisable()
     {
-        TestGameManager.OnPlayerKO -= UpdateRoundResultsPanel;
-        TestGameManager.OnMatchStart -= DisableRoundResultsPanel;
-        TestGameManager.OnMatchEnd -= DisableRoundResultsPanel;
+        FighterGameEvents.OnPlayerKO -= UpdateRoundResultsPanel;
+        FighterGameEvents.OnMatchStart -= DisableRoundResultsPanel;
+        FighterGameEvents.OnMatchEnd -= DisableRoundResultsPanel;
     }
 
     private void Awake()

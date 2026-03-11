@@ -10,9 +10,13 @@ public class PlayerAirborneState : PlayerBaseState
    public override void EnterState()
     {
         InitializeSubState();
-        Debug.Log("Entering Airborne State");
+
+        //Debug
         Context.CurrentRootState = RootStates.Airborne;
 
+        //Logic
+
+        //Animation
         Context.AnimController.SetGroundedBool(false);
     }
 

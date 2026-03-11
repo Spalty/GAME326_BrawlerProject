@@ -6,9 +6,13 @@ public class PlayerIdleState : PlayerBaseState
    
     public override void EnterState()
     {
-        InitializeSubState();
+        //Debug
         Context.CurrentSubSubState = SubSubStates.Stand_Idle;
 
+        //Logic
+
+
+        //Animation
         Context.AnimController.SetMoveType(MovementType.Idle);
     }
 

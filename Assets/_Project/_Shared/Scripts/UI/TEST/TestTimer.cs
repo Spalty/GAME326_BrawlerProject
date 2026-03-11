@@ -7,12 +7,12 @@ public class TestTimer: MonoBehaviour
 
     private void OnEnable()
     {
-        TestGameManager.OnTimeChanged += UpdateTimerDisplay;
+        FighterGameEvents.OnTimerChanged += UpdateTimerDisplay;
     }
 
     private void OnDisable()
     {
-        TestGameManager.OnTimeChanged -= UpdateTimerDisplay;
+        FighterGameEvents.OnTimerChanged -= UpdateTimerDisplay;
     }
 
     private void Awake()

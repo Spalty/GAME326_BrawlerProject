@@ -16,12 +16,12 @@ public class TestRoundTracker : MonoBehaviour
 
     private void OnEnable()
     {
-        TestGameManager.OnPlayerKO += UpdateRoundTracker;
+        FighterGameEvents.OnPlayerKO += UpdateRoundTracker;
     }
 
     private void OnDisable()
     {
-        TestGameManager.OnPlayerKO -= UpdateRoundTracker;
+        FighterGameEvents.OnPlayerKO -= UpdateRoundTracker;
     }
 
     private void Awake()

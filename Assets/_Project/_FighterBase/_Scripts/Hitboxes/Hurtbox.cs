@@ -11,8 +11,6 @@ public class Hurtbox : MonoBehaviour
     public void TakeDamage(float damage, float hitstunDuration, float baseKnockback, Vector2 knockbackAngle, AttackType attackContext)
     {
         // Implement damage application logic here
-        Debug.Log($"Took {damage} damage with knockback {baseKnockback} at angle {knockbackAngle}. Hitstun: {hitstunDuration}f Attack Type {attackContext},");
-
         FighterGM.Instance.FireHitEvent(_playerIndex, damage);
     }
     #endregion

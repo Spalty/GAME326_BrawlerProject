@@ -1,6 +1,7 @@
 using UnityEngine;
 using Brawler.Combat;
 using NaughtyAttributes;
+using Brawler.Core;
 
 public class PlayerStateMachine : MonoBehaviour
 {
@@ -79,7 +80,17 @@ public class PlayerStateMachine : MonoBehaviour
         _playerRB = GetComponent<Rigidbody2D>();
         _inputHandler = GetComponent<InputHandler>();
         _animController = GetComponent<FighterAnimController>();
+    }
 
+    private void Start()
+    {
+        _states = new PlayerStateFactory(this);
+        _currentState = _states.Grounded();
+        _currentState.EnterState();
+    }
+
+    public void InitializePlayerHitbox()
+    {
         if (hitBox != null)
         {
             hitBox.PlayerIndex = PlayerIndex;
@@ -89,13 +100,6 @@ public class PlayerStateMachine : MonoBehaviour
         {
             hurtBox.PlayerIndex = PlayerIndex;
         }
-    }
-
-    private void Start()
-    {
-        _states = new PlayerStateFactory(this);
-        _currentState = _states.Grounded();
-        _currentState.EnterState();
     }
 
     void Update()
