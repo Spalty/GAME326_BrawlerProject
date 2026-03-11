@@ -6,7 +6,13 @@ public class PlayerBackDashState : PlayerBaseState
 
     public override void EnterState()
     {
-        Debug.Log("Entering Back Dash State");
+        //Debug
+        Context.CurrentSubSubState = SubSubStates.Stand_BackDash;
+
+        //Logic
+
+        //Animation
+
     }
 
     public override void UpdateState()

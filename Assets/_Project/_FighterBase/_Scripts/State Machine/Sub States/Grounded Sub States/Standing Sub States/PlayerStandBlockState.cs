@@ -6,7 +6,13 @@ public class PlayerStandBlockState : PlayerBaseState
 
     public override void EnterState()
     {
-        Debug.Log("Entering Stand Block State");
+        //Debug
+        Context.CurrentSubSubState = SubSubStates.Stand_Block;
+
+        //Logic
+
+        //Animation
+
     }
 
     public override void UpdateState()

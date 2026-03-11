@@ -8,6 +8,7 @@ public class PlayerStateFactory
         //Root States
         Airborne,
         Ground,
+        Jump,
         
         //Ground Sub States
         Standing,
@@ -33,6 +34,9 @@ public class PlayerStateFactory
         WasHitCrouching,
        
         //Air Sub States
+        Falling,
+        FallingIdle,
+        AirDash,
         AirBlock,
         JLightAttack,
         JMediumAttack,
@@ -49,6 +53,7 @@ public class PlayerStateFactory
         //root states
         _stateCache[PlayerStates.Airborne] = new PlayerAirborneState(_context, this);
         _stateCache[PlayerStates.Ground] = new PlayerGroundState(_context, this);
+        _stateCache[PlayerStates.Jump] = new PlayerJumpState(_context, this);
         
         //Ground sub states
         _stateCache[PlayerStates.Standing] = new PlayerStandingState(_context, this);
@@ -74,6 +79,9 @@ public class PlayerStateFactory
         _stateCache[PlayerStates.WasHitCrouching] = new PlayerWasHitCrouchingState(_context, this);
         
         //Airborne sub states
+        _stateCache[PlayerStates.Falling] = new PlayerFallingState(_context, this);
+        _stateCache[PlayerStates.FallingIdle] = new PlayerFallingIdleState(_context, this);
+        _stateCache[PlayerStates.AirDash] = new PlayerAirDashState(_context, this);
         _stateCache[PlayerStates.AirBlock] = new PlayerAirBlockState(_context, this);
         _stateCache[PlayerStates.JLightAttack] = new PlayerJLightAttackState(_context, this);
         _stateCache[PlayerStates.JMediumAttack] = new PlayerJMediumAttackState(_context, this);
@@ -81,9 +89,13 @@ public class PlayerStateFactory
         _stateCache[PlayerStates.WasHitAirborne] = new PlayerWasHitAirborneState(_context, this);
     }
 
-    public PlayerBaseState Grounded()
+    public PlayerBaseState Grounded()//ROOT STATE
     {
         return _stateCache[PlayerStates.Ground];
+    }
+    public PlayerBaseState Jump()//ROOT STATE
+    {
+        return _stateCache[PlayerStates.Jump];
     }
     public PlayerBaseState Standing()
     {
@@ -133,7 +145,7 @@ public class PlayerStateFactory
 
     
     #endregion
-    public PlayerBaseState Crouch()//Crouch is the default sub state of Ground when the player is holding down, so it will be the first state to enter when we switch to Ground while holding down
+    public PlayerBaseState Crouch()
     {
         return _stateCache[PlayerStates.Crouch];
     }
@@ -159,7 +171,7 @@ public class PlayerStateFactory
         return _stateCache[PlayerStates.WasHitCrouching];
     }
     #endregion
-    public PlayerBaseState Airborne()
+    public PlayerBaseState Airborne()//ROOT STATE
     {
         return _stateCache[PlayerStates.Airborne];
     }
@@ -167,6 +179,18 @@ public class PlayerStateFactory
     public PlayerBaseState AirBlock()
     {
         return _stateCache[PlayerStates.AirBlock];
+    }
+    public PlayerBaseState Falling()
+    {
+        return _stateCache[PlayerStates.Falling];
+    }
+    public PlayerBaseState FallingIdle()
+    {
+        return _stateCache[PlayerStates.FallingIdle];
+    }
+    public PlayerBaseState AirDash()
+    {
+        return _stateCache[PlayerStates.AirDash];
     }
     public PlayerBaseState JLightAttack()
     {

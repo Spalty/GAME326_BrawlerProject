@@ -6,9 +6,13 @@ public class PlayerIdleState : PlayerBaseState
    
     public override void EnterState()
     {
-        InitializeSubState();
+        //Debug
         Context.CurrentSubSubState = SubSubStates.Stand_Idle;
 
+        //Logic
+
+
+        //Animation
         Context.AnimController.SetMoveType(MovementType.Idle);
     }
 
@@ -21,23 +25,23 @@ public class PlayerIdleState : PlayerBaseState
 
     public override void CheckSwitchState()
     {
-        if (Context.InputHandler.moveDirection > 0)
+        if (Context.InputHandler.HorizontalInput > 0)
         {
             SwitchState(Factory.ForwardWalk());
         }
-        else if (Context.InputHandler.moveDirection < 0)
+        else if (Context.InputHandler.HorizontalInput < 0)
         {
             SwitchState(Factory.BackWalk());
         }
-        else if (Context.InputHandler.IsLightAttackPressed)
+        else if (Context.InputHandler.WasLightAttackPressed)
         {
             SwitchState(Factory.LightAttack());
         }
-        else if (Context.InputHandler.IsMediumAttackPressed)
+        else if (Context.InputHandler.WasMediumAttackPressed)
         {
             SwitchState(Factory.MediumAttack());
         }
-        else if (Context.InputHandler.IsHeavyAttackPressed)
+        else if (Context.InputHandler.WasHeavyAttackPressed)
         {
             SwitchState(Factory.HeavyAttack());
         }

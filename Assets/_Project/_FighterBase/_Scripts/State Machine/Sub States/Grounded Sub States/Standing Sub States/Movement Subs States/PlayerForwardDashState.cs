@@ -6,8 +6,12 @@ public class PlayerForwardDashState : PlayerBaseState
 
     public override void EnterState()
     {
-        Debug.Log("Entering Forward Dash State");
+        //Debug
+        Context.CurrentSubSubState = SubSubStates.Stand_ForwardDash;
 
+        //Logic
+
+        //Animation
         Context.AnimController.SetMoveType(MovementType.Dashing);
     }
 

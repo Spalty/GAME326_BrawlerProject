@@ -14,5 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1000
   walkSpeed: 5
-  jumpForce: 10
   dashSpeed: 8
+  maxJumpCount: 1
+  verticalJumpForce: 9
+  horizontalJumpForce: 10
+  maxAirDashCount: 1
+  airDashSpeed: 15
+  lightAtk: {fileID: 11400000, guid: 829122c7e51dcdd4e9fd943c9ae5e64a, type: 2}
+  mediumAtk: {fileID: 11400000, guid: 481414c4a168b5e48bf0361856f66ec2, type: 2}
+  heavyAtk: {fileID: 11400000, guid: 81821a38c872a764dbfadf1e95dcc4dd, type: 2}
+  jLightAtk: {fileID: 11400000, guid: 85b34a828556c5f469656cdd0451966f, type: 2}
+  jMediumAtk: {fileID: 0}
+  jHeavyAtk: {fileID: 0}
+  crLightAtk: {fileID: 0}
+  crMediumAtk: {fileID: 0}
+  crHeavyAtk: {fileID: 0}

@@ -103,7 +103,7 @@ namespace Brawler.Fighter
         {
             input = inputHandler;
             fighter = owner;
-            hitbox.Initialize(owner);
+            //hitbox.Initialize(owner);
         }
 
         private void Update()
@@ -212,13 +212,13 @@ namespace Brawler.Fighter
 
             // Active phase - hitbox is active
             currentState = AttackState.Active;
-            hitbox.Activate(attack);
+            //hitbox.Activate(attack);
             OnAttackHitActive?.Invoke(attack);
 
             yield return new WaitForSeconds(attack.ActiveTime);
 
             // Deactivate hitbox
-            hitbox.Deactivate();
+            //hitbox.Deactivate();
 
             // Recovery phase
             currentState = AttackState.Recovery;
@@ -248,7 +248,7 @@ namespace Brawler.Fighter
                 attackCoroutine = null;
             }
 
-            hitbox.Deactivate();
+            //hitbox.Deactivate();
             currentState = AttackState.Idle;
             CurrentAttack = null;
 

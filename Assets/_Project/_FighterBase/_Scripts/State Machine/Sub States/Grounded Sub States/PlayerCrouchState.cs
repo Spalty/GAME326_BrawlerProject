@@ -6,20 +6,28 @@ public class PlayerCrouchState : PlayerBaseState
 
     public override void EnterState()
     {
+        InitializeSubState();
+
+        //Debug
         Context.CurrentSubState = SubStates.Crouching;
+
+        //Logic
+
+        //Animation
+
     }
 
     public override void InitializeSubState()
     {
-        if (Context.InputHandler.IsLightAttackPressed && Context.InputHandler.verticalInput < 0)
+        if (Context.InputHandler.WasLightAttackPressed && Context.InputHandler.VerticalInput < 0)
         {
             SetSubState(Factory.CRLightAttack());
         }
-        else if (Context.InputHandler.IsMediumAttackPressed && Context.InputHandler.verticalInput < 0)
+        else if (Context.InputHandler.WasMediumAttackPressed && Context.InputHandler.VerticalInput < 0)
         {
             SetSubState(Factory.CRMediumAttack());
         }
-        else if (Context.InputHandler.IsHeavyAttackPressed && Context.InputHandler.verticalInput < 0)
+        else if (Context.InputHandler.WasHeavyAttackPressed && Context.InputHandler.VerticalInput < 0)
         {
             SetSubState(Factory.CRHeavyAttack());
         }
@@ -32,7 +40,7 @@ public class PlayerCrouchState : PlayerBaseState
 
     public override void CheckSwitchState()
     {
-        if (Context.InputHandler.verticalInput >= 0)
+        if (Context.InputHandler.VerticalInput >= 0)
         {
             SwitchState(Factory.Standing());
         }

@@ -7,28 +7,35 @@ public class PlayerStandingState : PlayerBaseState
     public override void EnterState()
     {
         InitializeSubState();
+
+        //Debug
         Context.CurrentSubState = SubStates.Standing;
+
+        //Logic
+
+        //Animation
+
     }
 
     public override void InitializeSubState()
     {
-        if (Context.InputHandler.moveDirection > 0)
+        if (Context.InputHandler.HorizontalInput > 0)
         {
             SetSubState(Factory.ForwardWalk());
         }
-        else if (Context.InputHandler.moveDirection < 0)
+        else if (Context.InputHandler.HorizontalInput < 0)
         {
             SetSubState(Factory.BackWalk());
         }
-        else if (Context.InputHandler.IsLightAttackPressed)
+        else if (Context.InputHandler.WasLightAttackPressed)
         {
             SetSubState(Factory.LightAttack());
         }
-        else if (Context.InputHandler.IsMediumAttackPressed)
+        else if (Context.InputHandler.WasMediumAttackPressed)
         {
             SetSubState(Factory.MediumAttack());
         }
-        else if (Context.InputHandler.IsHeavyAttackPressed)
+        else if (Context.InputHandler.WasHeavyAttackPressed)
         {
             SetSubState(Factory.HeavyAttack());
         }
@@ -45,7 +52,7 @@ public class PlayerStandingState : PlayerBaseState
 
     public override void CheckSwitchState()
     {
-        if (Context.InputHandler.verticalInput < 0)
+        if (Context.InputHandler.VerticalInput < 0)
         {
             SwitchState(Factory.Crouch());
         }

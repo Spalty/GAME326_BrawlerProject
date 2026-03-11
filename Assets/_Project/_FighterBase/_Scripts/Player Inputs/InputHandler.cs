@@ -3,188 +3,102 @@ using UnityEngine.InputSystem;
 
 public class InputHandler : MonoBehaviour
 {
-    private FighterController _fighterController;
+    private PlayerInput _playerInput;
+
     private bool _wasDashPressed;
     private bool _wasJumpPressed;
 
-    private bool _isLightAttackPressed;
-    private bool _isMediumAttackPressed;
-    private bool _isHeavyAttackPressed;
+    private bool _wasLightAttackPressed;
+    private bool _wasMediumAttackPressed;
+    private bool _wasHeavyAttackPressed;
     
     private float _horizontalInput;
     private float _verticalInput;
 
     #region ---Getter/Setters---
-    public bool IsLightAttackPressed { get { return _isLightAttackPressed; } set { _isLightAttackPressed = value; } }
-    public bool IsMediumAttackPressed { get { return _isMediumAttackPressed; } set { _isMediumAttackPressed = value; } }
-    public bool IsHeavyAttackPressed { get { return _isHeavyAttackPressed; } set { _isHeavyAttackPressed = value; } }
+    public bool WasLightAttackPressed { get { return _wasLightAttackPressed; } set { _wasLightAttackPressed = value; } }
+    public bool WasMediumAttackPressed { get { return _wasMediumAttackPressed; } set { _wasMediumAttackPressed = value; } }
+    public bool WasHeavyAttackPressed { get { return _wasHeavyAttackPressed; } set { _wasHeavyAttackPressed = value; } }
     public bool WasJumpPressed { get { return _wasJumpPressed; } set { _wasJumpPressed = value; } }
     public bool WasDashPressed { get { return _wasDashPressed; } set { _wasDashPressed = value; } }
-    public float moveDirection { get { return _horizontalInput; } set { _horizontalInput = value; } }
-    public float verticalInput { get { return _verticalInput; } set { _verticalInput = value; } }
+    public float HorizontalInput { get { return _horizontalInput; } set { _horizontalInput = value; } }
+    public float VerticalInput { get { return _verticalInput; } set { _verticalInput = value; } }
     #endregion
-    
-    void Awake()
-    {
-        _fighterController = new FighterController();
-    }
 
-
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-    
-    }
-
-    public void OnHorizontal(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            moveDirection = context.ReadValue<Vector2>().x;
-        }
-        else if (context.canceled)
-        {
-            moveDirection = 0f;
-        }
-    }
-
-    public void OnVertical(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            verticalInput = context.ReadValue<Vector2>().y;
-        }
-        else if (context.canceled)
-        {
-            verticalInput = 0f;
-        }
-    }
-
-    public void OnDash(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            WasDashPressed = true;
-        }
-        else if (context.canceled)
-        {
-            WasDashPressed = false;
-        }
-    }
-
-    public void OnJump(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            WasJumpPressed = true;   
-        }
-        else if (context.canceled)
-        {
-            WasJumpPressed = false;
-        }
-    }
-    public void OnLight(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            IsLightAttackPressed = true;
-        }
-        else if (context.canceled)
-        {
-            IsLightAttackPressed = false;
-        }
-    }
-    public void OnMedium(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            IsMediumAttackPressed = true;
-        }
-        else if (context.canceled)
-        {
-            IsMediumAttackPressed = false;
-        }
-    }
-    public void OnHeavy(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            IsHeavyAttackPressed = true;
-        }
-        else if (context.canceled)
-        {
-            IsHeavyAttackPressed = false;
-        }
+        _playerInput = GetComponent<PlayerInput>();
     }
 
     private void OnEnable()
     {
-        _fighterController.Enable();
-        _fighterController.StandingActions.Enable();
-        _fighterController.CrouchingActions.Enable();
+        _playerInput.actions["Pause"].started += OnPause;
 
-        //--STANDING ACTIONS--
-        _fighterController.StandingActions.Horizontal.performed += OnHorizontal;
-        _fighterController.StandingActions.Horizontal.canceled += OnHorizontal;
-        _fighterController.StandingActions.Vertical.performed += OnVertical;
-        _fighterController.StandingActions.Vertical.canceled += OnVertical;
-        
-        
-        _fighterController.StandingActions.Dash.performed += OnDash;
-        _fighterController.StandingActions.Dash.canceled += OnDash;
-        
-        _fighterController.StandingActions.Light.performed += OnLight;
-        _fighterController.StandingActions.Light.canceled += OnLight;
-        
-        _fighterController.StandingActions.Medium.performed += OnMedium;
-        _fighterController.StandingActions.Medium.canceled += OnMedium;
-        
-        _fighterController.StandingActions.Heavy.performed += OnHeavy;
-        _fighterController.StandingActions.Heavy.canceled += OnHeavy;
-        
-        //--CROUCHING ACTIONS--    
-        _fighterController.CrouchingActions.CrouchLight.performed += OnLight;
-        _fighterController.CrouchingActions.CrouchLight.canceled += OnLight;
-        
-        _fighterController.CrouchingActions.CrouchMedium.performed += OnMedium;
-        _fighterController.CrouchingActions.CrouchMedium.canceled += OnMedium;
-        
-        _fighterController.CrouchingActions.CrouchHeavy.performed += OnHeavy;
-        _fighterController.CrouchingActions.CrouchHeavy.canceled += OnHeavy;
+        _playerInput.actions["Horizontal"].performed += OnHorizontal;
+        _playerInput.actions["Horizontal"].canceled += OnHorizontal;
+
+        _playerInput.actions["Vertical"].performed += OnVertical;
+        _playerInput.actions["Vertical"].canceled += OnVertical;
+
+        _playerInput.actions["Dash"].started += OnDash;
+        _playerInput.actions["Jump"].started += OnJump;
+
+        _playerInput.actions["Light"].started += OnLight;
+        _playerInput.actions["Medium"].started += OnMedium;
+        _playerInput.actions["Heavy"].started += OnHeavy;
     }
     private void OnDisable()
     {
-        _fighterController.Disable();
-        _fighterController.StandingActions.Disable();
-        _fighterController.CrouchingActions.Disable();
+        _playerInput.actions["Pause"].started -= OnPause;
 
-        //--STANDING ACTIONS--
-        _fighterController.StandingActions.Horizontal.performed -= OnHorizontal;
-        _fighterController.StandingActions.Horizontal.canceled -= OnHorizontal;
-        _fighterController.StandingActions.Vertical.performed -= OnVertical;
-        _fighterController.StandingActions.Vertical.canceled -= OnVertical;
-        
-        
-        _fighterController.StandingActions.Dash.performed -= OnDash;
-        _fighterController.StandingActions.Dash.canceled -= OnDash;
-        
-        _fighterController.StandingActions.Light.performed -= OnLight;
-        _fighterController.StandingActions.Light.canceled -= OnLight;
-        
-        _fighterController.StandingActions.Medium.performed -= OnMedium;
-        _fighterController.StandingActions.Medium.canceled -= OnMedium;
-        
-        _fighterController.StandingActions.Heavy.performed -= OnHeavy;
-        _fighterController.StandingActions.Heavy.canceled -= OnHeavy;
+        _playerInput.actions["Horizontal"].performed -= OnHorizontal;
+        _playerInput.actions["Horizontal"].canceled -= OnHorizontal;
 
-        //--CROUNCHING ACTIONS--      
-        _fighterController.CrouchingActions.CrouchLight.performed -= OnLight;
-        _fighterController.CrouchingActions.CrouchLight.canceled -= OnLight;
-        
-        _fighterController.CrouchingActions.CrouchMedium.performed -= OnMedium;
-        _fighterController.CrouchingActions.CrouchMedium.canceled -= OnMedium;
-        
-        _fighterController.CrouchingActions.CrouchHeavy.performed -= OnHeavy;
-        _fighterController.CrouchingActions.CrouchHeavy.canceled -= OnHeavy;
+        _playerInput.actions["Vertical"].performed -= OnVertical;
+        _playerInput.actions["Vertical"].canceled -= OnVertical;
+
+        _playerInput.actions["Dash"].started -= OnDash;
+        _playerInput.actions["Jump"].started -= OnJump;
+
+        _playerInput.actions["Light"].started -= OnLight;
+        _playerInput.actions["Medium"].started -= OnMedium;
+        _playerInput.actions["Heavy"].started -= OnHeavy;
+    }
+
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        FighterGM.Instance.PauseGame();
+    }
+
+    public void OnHorizontal(InputAction.CallbackContext context)
+    {
+        _horizontalInput = context.ReadValue<Vector2>().x;
+    }
+
+    public void OnVertical(InputAction.CallbackContext context)
+    {
+        _verticalInput = context.ReadValue<Vector2>().y;
+    }
+
+    public void OnDash(InputAction.CallbackContext context)
+    {
+        WasDashPressed = true;
+    }
+
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        WasJumpPressed = true;
+    }
+    public void OnLight(InputAction.CallbackContext context)
+    {
+        WasLightAttackPressed = true;
+    }
+    public void OnMedium(InputAction.CallbackContext context)
+    {
+        WasMediumAttackPressed = true;
+    }
+    public void OnHeavy(InputAction.CallbackContext context)
+    {
+        WasHeavyAttackPressed = true;
     }
 }

@@ -7,17 +7,20 @@ public class PlayerGroundState : PlayerBaseState
         IsRootState = true;
     }
 
+    FighterData FighterData => Context.FightData;
+
     public override void EnterState()
     {
         InitializeSubState();
         Context.CurrentRootState = RootStates.Grounded;
-
-        Context.AnimController.SetGroundedBool(true);
+        
+        Context.JumpCount = FighterData.MaxJumpCount; //Reset jump count when entering grounded state
+        Context.AnimController.SetGroundedBool(Context.IsGrounded());
     }
 
     public override void InitializeSubState()
     {
-        if (Context.InputHandler.verticalInput < 0)
+        if (Context.InputHandler.VerticalInput < 0)
         {
             SetSubState(Factory.Crouch());
         }
@@ -34,11 +37,22 @@ public class PlayerGroundState : PlayerBaseState
 
     public override void CheckSwitchState()
     {
-        if (!Context.IsGrounded)
+        if (Context.InputHandler.WasJumpPressed)
+        {
+            SwitchState(Factory.Jump());
+        }
+        else if (!Context.IsGrounded())
         {
             SwitchState(Factory.Airborne());
         }
     }
 
-    public override void ExitState() { }
+    public override void ExitState()
+    {
+        Context.AnimController.SetGroundedBool(false);
+        //Context.IsGrounded();
+
+        
+        Context.AirDashCount = FighterData.MaxAirDashCount; //Reset air dash count when exiting grounded state
+    }
 }

@@ -6,6 +6,8 @@ public enum ParticleTypes
     Jump,
     Hit,
     Magic,
+    Landing,
+    Dash,
 }
 
 public class ParticlePooler : Pooler<ParticleTypes>
