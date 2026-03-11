@@ -15,7 +15,7 @@ MonoBehaviour:
   maxHealth: 1000
   walkSpeed: 5
   dashSpeed: 8
-  maxJumpCount: 2
+  maxJumpCount: 1
   verticalJumpForce: 9
   horizontalJumpForce: 10
   maxAirDashCount: 1

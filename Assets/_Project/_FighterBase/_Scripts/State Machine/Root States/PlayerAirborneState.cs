@@ -6,23 +6,20 @@ public class PlayerAirborneState : PlayerBaseState
     {
         IsRootState = true;
     }
-
+    InputHandler InputHandler => Context.InputHandler;
+    private int Jumpcount => Context.JumpCount;
    public override void EnterState()
     {
         InitializeSubState();
-
-        //Debug
+        Debug.Log("Entering Airborne State");
         Context.CurrentRootState = RootStates.Airborne;
 
-        //Logic
-
-        //Animation
         Context.AnimController.SetGroundedBool(false);
     }
 
     public override void InitializeSubState()
     {
-        SwitchState(Factory.Falling());
+        SetSubState(Factory.Falling()); //MAKE FALLING SUBSTATE LATER
     }
 
     public override void UpdateState()
@@ -36,7 +33,7 @@ public class PlayerAirborneState : PlayerBaseState
         {
             SwitchState(Factory.Grounded());
         }
-        else if (Context.InputHandler.WasJumpPressed)
+        else if (InputHandler.WasJumpPressed && Jumpcount > 0)
         {
             SwitchState(Factory.Jump());
         }

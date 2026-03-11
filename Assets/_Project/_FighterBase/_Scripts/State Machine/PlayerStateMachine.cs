@@ -33,9 +33,12 @@ public class PlayerStateMachine : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [Space(10)]
     [SerializeField] private LayerMask groundLayer;
+    //private bool _isgrounded;
+    
     private const float groundCheckRadius = 0.2f;
     private int _airDashCount;
-    private int _jumpCount;
+    [SerializeField] private int _jumpCount;
+    
 
     private bool _isActionable = true;
     private bool _touchingBlockBox;
@@ -54,7 +57,7 @@ public class PlayerStateMachine : MonoBehaviour
     public InputHandler InputHandler { get { return _inputHandler; } set { _inputHandler = value; } }
     public FighterAnimController AnimController { get { return _animController; } set { _animController = value; } }
 
-    //public bool IsGrounded { get { return _isGrounded; } set { _isGrounded = value; } }
+    //public bool IsGrounded { get { return _isgrounded; } set { _isgrounded = value; } }
     public bool TouchingBlockBox { get { return _touchingBlockBox; } set { _touchingBlockBox = value; } }
     public bool IsActionable { get { return _isActionable; } set { _isActionable = value; } }
     public int JumpCount { get { return _jumpCount; } set { _jumpCount = value; } }
@@ -107,8 +110,18 @@ public class PlayerStateMachine : MonoBehaviour
         HandleSpriteFlipping();
 
         _currentState.UpdateAllStates();
+        IsGrounded();
+        ResetJumpCounter();
     }
 
+    
+   private void ResetJumpCounter()
+    {
+        if(JumpCount==0)
+        {
+            InputHandler.WasJumpPressed = false;
+        }
+    }
     public bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer) != null;
