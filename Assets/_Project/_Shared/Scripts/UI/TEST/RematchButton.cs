@@ -5,7 +5,7 @@ public class RematchButton : MonoBehaviour
 {
     public void RestartGame()
     {
-        TestGameManager.Instance.ResetMatch();
+        FighterGM.Instance.ResetMatch();
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

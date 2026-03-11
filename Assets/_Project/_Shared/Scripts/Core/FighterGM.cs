@@ -9,6 +9,7 @@ public class FighterGM : Singleton<FighterGM>
     [SerializeField] private MatchConfig matchConfig;
 
     [Header("---Game State---")]
+    private GameState _currentGameState;
     private bool _isGamePaused;
 
     [Header("---Player Initialization---")]
@@ -21,6 +22,9 @@ public class FighterGM : Singleton<FighterGM>
     [Header("---Player Healths---")]
     private readonly float[] _playerHealths = new float[2];
 
+    [Header("---Timer---")]
+    private float _remainingTime;
+
     [Header("---Player Round Tracker---")]
     private readonly int[] _playerWinCounts = new int[2];
     private RoundResult _roundResult;
@@ -28,12 +32,9 @@ public class FighterGM : Singleton<FighterGM>
     private bool IsMatchOver => _playerWinCounts[0] >= matchConfig.roundsToWin
                                 || _playerWinCounts[1] >= matchConfig.roundsToWin;
 
-    [Header("---Timer---")]
-    private float _remainingTime;
-
-    [Header("---Debug---")]
-    public bool useDebug;
-    [ShowIf("useDebug")]
+    #region Getters / Setters
+    public GameState CurrentGameState { get { return _currentGameState; } }
+    #endregion
 
     protected override void Awake()
     {
@@ -80,7 +81,8 @@ public class FighterGM : Singleton<FighterGM>
         _isGamePaused = !_isGamePaused;
         Time.timeScale = _isGamePaused ? 0 : 1;
 
-        FighterGameEvents.OnGameStateChange?.Invoke(new GameStateChangeEvent(GameState.Paused));
+        _currentGameState = _isGamePaused ? GameState.Paused : GameState.Fighting;
+        FighterGameEvents.OnGameStateChange?.Invoke(new GameStateChangeEvent(_currentGameState));
     }
     #endregion
 
@@ -167,7 +169,7 @@ public class FighterGM : Singleton<FighterGM>
     #endregion
 
     #region Reset Methods
-    private void ResetMatch()
+    public void ResetMatch()
     {
         ResetRoundWins();
         ResetPlayerHealth();

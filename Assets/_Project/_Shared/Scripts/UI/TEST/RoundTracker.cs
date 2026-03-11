@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TestRoundTracker : MonoBehaviour
+public class RoundTracker : MonoBehaviour
 {
     [Header("---Player Index---")]
     [SerializeField] private int playerIndex;
