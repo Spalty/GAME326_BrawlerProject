@@ -33,13 +33,13 @@ public class FighterGM : Singleton<FighterGM>
 
     [Header("---Player Round Tracker---")]
     private readonly int[] _playerWinCounts = new int[2];
+    private int _roundCount = 1;
     private RoundResult _roundResult;
     private bool _isRoundActive;
     private bool IsMatchOver => _playerWinCounts[0] >= matchConfig.roundsToWin
                                 || _playerWinCounts[1] >= matchConfig.roundsToWin;
     private Coroutine _roundCountdownRoutine;
-    private Coroutine _roundStartDelayRoutine;
-
+    private Coroutine _roundEndDelayRoutine;
 
     [Header("---Brute Force---")]
     private bool isFirstSpawn = true;
@@ -53,7 +53,7 @@ public class FighterGM : Singleton<FighterGM>
         base.Awake();
 
         _remainingTime = matchConfig.matchTimeLimit;
-        _isRoundActive = true;
+        _isRoundActive = false;
         _currentGameState = GameState.Fighting;
     }
 
@@ -65,6 +65,7 @@ public class FighterGM : Singleton<FighterGM>
         if (isFirstSpawn)
         {
             SpawnPlayers();
+            StartRoundCountdown();
             isFirstSpawn = false;
         }
         //Dont delete this;
@@ -82,6 +83,7 @@ public class FighterGM : Singleton<FighterGM>
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         SpawnPlayers();
+        StartRoundCountdown();  
     }
 
     private void Update()
@@ -171,7 +173,7 @@ public class FighterGM : Singleton<FighterGM>
 
         if (!IsMatchOver)
         {
-            _roundStartDelayRoutine = StartCoroutine(StartRoundAfterDelay(matchConfig.roundEndDelay));
+            _roundEndDelayRoutine = StartCoroutine(StartNewRoundAfterDelay(matchConfig.roundEndDelay));
         }
         else
         {
@@ -183,16 +185,28 @@ public class FighterGM : Singleton<FighterGM>
     #region Countdown Methods
     private void StartRoundCountdown()
     {
-        _roundStartDelayRoutine = StartCoroutine(Countdown(matchConfig.roundStartDelay));
+        _roundEndDelayRoutine = StartCoroutine(Countdown(matchConfig.roundStartDelay));
     }
 
     private IEnumerator Countdown(float duration)
     {
-        //Display Round number
+        //-1 indicates "Round {roundCount}"
+        FighterGameEvents.OnCountdownUpdate?.Invoke(new CountdownUpdateEvent(-1, _roundCount)); 
 
         yield return new WaitForSeconds(duration);
 
-        //Start Round
+        //3, 2, 1...
+        float countdownTime = matchConfig.countDownDuration + 1; 
+        for (int i = 0; i < countdownTime; i++)
+        {
+            FighterGameEvents.OnCountdownUpdate?.Invoke(new CountdownUpdateEvent(countdownTime - i, _roundCount));
+            yield return new WaitForSeconds(1f);
+        }
+
+        //0 indicates "Fight"
+        FighterGameEvents.OnCountdownUpdate?.Invoke(new CountdownUpdateEvent(0, _roundCount)); 
+
+        _isRoundActive = true;
     }
     #endregion
 
@@ -220,7 +234,7 @@ public class FighterGM : Singleton<FighterGM>
             if (!IsMatchOver)
             {
                 //Start next round after delay
-                _roundStartDelayRoutine = StartCoroutine(StartRoundAfterDelay(matchConfig.roundEndDelay));
+                _roundEndDelayRoutine = StartCoroutine(StartNewRoundAfterDelay(matchConfig.roundEndDelay));
             }
             else
             {
@@ -231,11 +245,12 @@ public class FighterGM : Singleton<FighterGM>
     #endregion
 
     #region Reset Methods
-    private IEnumerator StartRoundAfterDelay(float duration)
+    private IEnumerator StartNewRoundAfterDelay(float duration)
     {
         yield return new WaitForSeconds(duration);
 
         StartNewRound();
+        StartRoundCountdown();
     }
 
     private void StartNewRound()
@@ -245,7 +260,9 @@ public class FighterGM : Singleton<FighterGM>
 
         ResetPlayerHealth();
         ResetTimer();
-        _isRoundActive = true;
+
+        _roundCount++;
+        _isRoundActive = false;
 
         FighterGameEvents.OnMatchStart?.Invoke(new MatchEvent(RoundResult.None));
     }
@@ -257,7 +274,8 @@ public class FighterGM : Singleton<FighterGM>
         ResetTimer();
         ResetCoroutines();
 
-        _isRoundActive = true;
+        _roundCount = 1;
+        _isRoundActive = false;
 
         //Unpause the game
         _isGamePaused = false;
@@ -292,6 +310,12 @@ public class FighterGM : Singleton<FighterGM>
         {
             StopCoroutine(_roundCountdownRoutine);
             _roundCountdownRoutine = null;
+        }
+
+        if (_roundEndDelayRoutine != null)
+        {
+            StopCoroutine(_roundEndDelayRoutine);
+            _roundEndDelayRoutine = null;
         }
     }
     #endregion

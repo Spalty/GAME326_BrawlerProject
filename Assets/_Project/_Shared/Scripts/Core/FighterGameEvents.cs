@@ -100,10 +100,12 @@ public struct TimerChangedEvent
 
 public struct CountdownUpdateEvent
 {
-    public string CountdownText;
-    public CountdownUpdateEvent(string text)
+    public float CountdownTime;
+    public int RoundCount;
+    public CountdownUpdateEvent(float countdownTime, int roundCount)
     {
-        CountdownText = text;
+        CountdownTime = countdownTime;
+        RoundCount = roundCount;
     }
 }
 

@@ -18,14 +18,16 @@ namespace Brawler.Core
         [Range(1, 5)]
         public int roundsToWin = 2;
 
+        [Header("---Countdown---")]
+        [Range(0, 5)] public int countDownDuration = 3;
+
         [Header("Timing")]
         [Tooltip("Delay before round starts (countdown).")]
         [Range(0f, 5f)]
         public float roundStartDelay = 2f;
-
         [Tooltip("Delay after KO before next round.")]
-        [Range(0.5f, 3f)]
-        public float roundEndDelay = 1.5f;
+        [Range(0, 5f)]
+        public float roundEndDelay = 2f;
 
         [Tooltip("Time limit per round in seconds. 0 = no limit.")]
         [Range(0f, 300f)]

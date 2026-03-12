@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   roundsToWin: 2
-  roundStartDelay: 2
+  countDownDuration: 2
+  roundStartDelay: 1
   roundEndDelay: 2
   matchTimeLimit: 99
   respawnInvincibilityDuration: 2
