@@ -21,11 +21,11 @@ public class PlayerStandingState : PlayerBaseState
     {
         if (Context.InputHandler.HorizontalInput > 0)
         {
-            SetSubState(Factory.ForwardWalk());
+            SetSubState(Factory.RightWalk());
         }
         else if (Context.InputHandler.HorizontalInput < 0)
         {
-            SetSubState(Factory.BackWalk());
+            SetSubState(Factory.LeftWalk());
         }
         else if (Context.InputHandler.WasLightAttackPressed)
         {

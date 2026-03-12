@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class PlayerForwardWalkState : PlayerBaseState
+public class PlayerWalkRightState : PlayerBaseState
 {
-    public PlayerForwardWalkState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) : base(currentContext, playerStateFactory) { }
+    public PlayerWalkRightState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) : base(currentContext, playerStateFactory) { }
 
     private Rigidbody2D PlayerRB => Context.PlayerRB;
     private FighterData FighterData => Context.FightData;
@@ -16,7 +16,6 @@ public class PlayerForwardWalkState : PlayerBaseState
         //Logic
 
         //Animation
-        Context.AnimController.SetMoveDirection(MoveDirection.Right);
         Context.AnimController.SetMoveType(MovementType.Walking);
     }
 
@@ -25,7 +24,19 @@ public class PlayerForwardWalkState : PlayerBaseState
     public override void UpdateState()
     {
         HandleWalkingForward();
-        
+
+        //Block Logic
+        Vector2 directionToOpponent = Context.Opponent.transform.position - Context.transform.position;
+
+        float opponentDirectionSign = Mathf.Sign(directionToOpponent.x);
+        float inputDirectionSign = Mathf.Sign(InputHandler.HorizontalInput);
+
+        Context.IsWalkingBack = inputDirectionSign != opponentDirectionSign;
+
+        //Animation
+        MoveDirection moveDirection = Context.IsWalkingBack ? MoveDirection.Left : MoveDirection.Right;
+        Context.AnimController.SetMoveDirection(moveDirection);
+
         CheckSwitchState();
     }
 
@@ -49,7 +60,11 @@ public class PlayerForwardWalkState : PlayerBaseState
         }
         else if (Context.InputHandler.WasDashPressed)
         {
-            SwitchState(Factory.ForwardDash());
+            SwitchState(Factory.RightDash());
+        }
+        else if (Context.IsBlocking)
+        {
+            SwitchState(Factory.StandBlock());
         }
     }
 
