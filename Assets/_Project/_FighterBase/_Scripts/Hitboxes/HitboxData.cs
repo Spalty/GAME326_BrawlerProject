@@ -3,7 +3,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "HitboxData", menuName = "Scriptable Objects/HitboxData")]
 public class HitboxData : ScriptableObject
 {
-
         [Header("Damage")]
         [Tooltip("Damage dealt to the opponent's health.")]
         [Range(1f, 1000f)]
@@ -25,7 +24,7 @@ public class HitboxData : ScriptableObject
         [Header("Hitstun")]
         [Tooltip("How long the opponent can't act after blocking a hit. 0 = auto-calculate from knockback.")]
         [Range(0f, 1f)]
-        public float blockstunDuration = 5f;
+        public int blockstunDuration = 5;
 
         [Header("Hitstop")]
         [Tooltip("Freeze frame duration on hit. Creates impact feel.")]

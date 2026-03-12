@@ -52,7 +52,7 @@ public class PlayerBackWalkState : PlayerBaseState
         {
             SwitchState(Factory.BackDash());
         }
-        else if (Context.TouchingBlockBox)
+        else if (Context.IsBlocking)
         {
             SwitchState(Factory.StandBlock());
         }

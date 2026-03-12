@@ -275,8 +275,8 @@ public class FighterGM : Singleton<FighterGM>
         _playerHealths[0] = matchConfig.StartingHealth;
         _playerHealths[1] = matchConfig.StartingHealth;
 
-        FighterGameEvents.OnPlayerHit?.Invoke(new PlayerHitEvent(0, 1));
-        FighterGameEvents.OnPlayerHit?.Invoke(new PlayerHitEvent(1, 1));
+        FighterGameEvents.OnHealthReset?.Invoke(new HealthResetEvent(0, 1));
+        FighterGameEvents.OnHealthReset?.Invoke(new HealthResetEvent(1, 1));
     }
 
     private void ResetTimer()

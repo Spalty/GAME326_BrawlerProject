@@ -9,16 +9,19 @@ public class HitFlash : MonoBehaviour
     public int PlayerIndex { get { return _playerIndex; } set { _playerIndex = value; } }
 
     [Header("---Hit Flash Settings---")]
-    [SerializeField] private Color flashColor = Color.red;
+    [SerializeField] private Color hitColor = Color.red;
+    [SerializeField] private Color blockColor = Color.blue;
 
     private void OnEnable()
     {
         FighterGameEvents.OnPlayerHit += HandleHitFlash;
+        FighterGameEvents.OnPlayerBlock += HandleBlockFlash;
     }
 
     private void OnDisable()
     {
        FighterGameEvents.OnPlayerHit -= HandleHitFlash;
+       FighterGameEvents.OnPlayerBlock -= HandleBlockFlash;
     }
 
     private void Awake()
@@ -30,14 +33,22 @@ public class HitFlash : MonoBehaviour
     {
         if (playerHitEvent.PlayerIndex == _playerIndex)
         {
-            StartCoroutine(Flash(0.1f));
+            StartCoroutine(Flash(0.1f, hitColor));
         }
     }
 
-    private IEnumerator Flash(float duration)
+    private void HandleBlockFlash(PlayerBlockEvent playerBlockEvent)
+    {
+        if (playerBlockEvent.PlayerIndex == _playerIndex)
+        {
+            StartCoroutine(Flash(0.1f, blockColor));
+        }
+    }
+
+    private IEnumerator Flash(float duration, Color color)
     {
         Color originalColor = _spriteRenderer.color;
-        _spriteRenderer.color = flashColor;
+        _spriteRenderer.color = color;
         yield return new WaitForSeconds(duration);
         _spriteRenderer.color = originalColor;
     }
