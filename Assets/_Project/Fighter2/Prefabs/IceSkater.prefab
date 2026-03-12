@@ -44,6 +44,10 @@ PrefabInstance:
       propertyPath: playerSprite
       value: 
       objectReference: {fileID: 7204371472987222983}
+    - target: {fileID: 3779399674870028400, guid: ed47a5dc8f7520e4aa5f816521a27d37, type: 3}
+      propertyPath: m_Size.x
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 5743126008330910901, guid: ed47a5dc8f7520e4aa5f816521a27d37, type: 3}
       propertyPath: m_BodyType
       value: 0

@@ -11,6 +11,7 @@ public class TempFighter : FighterBase
     [SerializeField] private Color fighterColor = Color.white;
 
     public override string FighterName => fighterName;
+    //sigma
 
     protected override void Awake()
     {
