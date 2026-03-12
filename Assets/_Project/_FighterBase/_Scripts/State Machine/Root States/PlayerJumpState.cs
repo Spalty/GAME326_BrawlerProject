@@ -10,6 +10,7 @@ public class PlayerJumpState : PlayerBaseState
     private FighterData FighterData => Context.FightData;
     private InputHandler InputHandler => Context.InputHandler;
     private int JumpCount => Context.JumpCount;
+    private int doubleJumpMultiplier = 2;
     
     
 
@@ -27,7 +28,7 @@ public class PlayerJumpState : PlayerBaseState
         }
         else if(!Context.IsGrounded() && JumpCount > 0) // AIR JUMP
         {
-            PlayerRB.linearVelocity = new Vector2(Context.InputHandler.HorizontalInput * FighterData.HorizontalJumpForce/2, FighterData.VerticalJumpForce/2);
+            PlayerRB.linearVelocity = new Vector2(Context.InputHandler.HorizontalInput * FighterData.HorizontalJumpForce/doubleJumpMultiplier, FighterData.VerticalJumpForce/doubleJumpMultiplier);
             Context.JumpCount--;
         }
 
