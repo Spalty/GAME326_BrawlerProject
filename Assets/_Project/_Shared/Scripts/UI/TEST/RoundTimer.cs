@@ -7,12 +7,12 @@ public class RoundTimer: MonoBehaviour
 
     private void OnEnable()
     {
-        FighterGameEvents.OnTimerChanged += UpdateTimerDisplay;
+        FighterGameEvents.OnTimerUpdate += UpdateTimerDisplay;
     }
 
     private void OnDisable()
     {
-        FighterGameEvents.OnTimerChanged -= UpdateTimerDisplay;
+        FighterGameEvents.OnTimerUpdate -= UpdateTimerDisplay;
     }
 
     private void Awake()

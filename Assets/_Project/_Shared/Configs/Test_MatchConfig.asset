@@ -15,8 +15,8 @@ MonoBehaviour:
   maxHealth: 100
   roundsToWin: 2
   roundStartDelay: 2
-  roundEndDelay: 1.5
-  matchTimeLimit: 99
+  roundEndDelay: 2
+  matchTimeLimit: 10
   respawnInvincibilityDuration: 2
   enableSuddenDeath: 1
   suddenDeathOneHitKO: 1
