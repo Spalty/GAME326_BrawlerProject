@@ -1,9 +1,10 @@
 using UnityEngine;
+using Brawler.Combat;
 
 public class HitboxSpawner : MonoBehaviour
 {
     public GameObject hitboxPrefab; // Assign in inspector
-    private HitboxData currentAttackData; // Assign in inspector
+    private AttackData currentAttackData; // Assign in inspector
     public FighterController owner; // Assign the fighter that spawns this hitbox
     
 
@@ -20,7 +21,7 @@ public class HitboxSpawner : MonoBehaviour
         
         Hitbox hitbox = hitboxObj.GetComponent<Hitbox>();
         
-        hitbox.Data = currentAttackData; // Assign the data asset
+        //hitbox.Data = currentAttackData; // Assign the data asset
     } 
 
     public void DestoyHitbox(GameObject hitboxObj)

@@ -12,22 +12,20 @@ public class PlayerWasHitState : PlayerBaseState
     {
         //Debug
         Context.CurrentRootState = RootStates.WasHit;
-        Debug.Log($"Player {Context} was hit for {Context.Hitbox.HitstunFrames} ", Context.gameObject);
 
         //Logic
         Context.IsActionable = false; // Player cannot act while in hitstun
-        Context.StartCoroutine(HandleHitstun(Context.Hitbox.HitstunFrames));
+        Context.StartCoroutine(HandleHitstun(Context.Hurtbox.HitstunFrames));
 
-        //Animations & Effects 
+        //Animations & Effects
+        //Play hit animation, spawn hit effects here
     }
     public override void InitializeSubState() { }
 
     public override void UpdateState()
     {
-        // Implementation for updating was hit standing state
         CheckSwitchState();
     }
-
 
     public override void CheckSwitchState()
     {
@@ -43,17 +41,16 @@ public class PlayerWasHitState : PlayerBaseState
 
     public override void ExitState()
     {
-        // Implementation for exiting was hit standing state
         Context.WasHit = false;
     }
     
-    IEnumerator HandleHitstun(float frameCount)
+    private IEnumerator HandleHitstun(int frameCount)
     {
         for (int i = 0; i < frameCount; i++)
         {
-            yield return null;
+            yield return new WaitForEndOfFrame();
         }
+
         Context.IsActionable = true;
-        
     }
 }

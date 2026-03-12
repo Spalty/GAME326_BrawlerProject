@@ -20,12 +20,12 @@ MonoBehaviour:
   horizontalJumpForce: 10
   maxAirDashCount: 1
   airDashSpeed: 15
-  lightAtk: {fileID: 11400000, guid: 829122c7e51dcdd4e9fd943c9ae5e64a, type: 2}
-  mediumAtk: {fileID: 11400000, guid: 481414c4a168b5e48bf0361856f66ec2, type: 2}
-  heavyAtk: {fileID: 11400000, guid: 81821a38c872a764dbfadf1e95dcc4dd, type: 2}
-  jLightAtk: {fileID: 11400000, guid: 85b34a828556c5f469656cdd0451966f, type: 2}
-  jMediumAtk: {fileID: 0}
-  jHeavyAtk: {fileID: 0}
-  crLightAtk: {fileID: 0}
-  crMediumAtk: {fileID: 0}
-  crHeavyAtk: {fileID: 0}
+  lightAtk: {fileID: 11400000, guid: 4b86871a2fab16648944f8fc00c533aa, type: 2}
+  mediumAtk: {fileID: 11400000, guid: 9f309b80910088649b9ab7a9ccfda829, type: 2}
+  heavyAtk: {fileID: 11400000, guid: 87fed0f03f3359641ae64f4bd26790fa, type: 2}
+  jLightAtk: {fileID: 11400000, guid: 9aa9b67955b472a4faab22f146aca978, type: 2}
+  jMediumAtk: {fileID: 11400000, guid: 4db0e6129dcfca344aa77e84e3bc5190, type: 2}
+  jHeavyAtk: {fileID: 11400000, guid: b9eda523390cd3649b13a123d32b72f9, type: 2}
+  crLightAtk: {fileID: 11400000, guid: d011e7aa76a613e46a18f5084508aef2, type: 2}
+  crMediumAtk: {fileID: 11400000, guid: 39eebc79a56d9054ba098154ae09a543, type: 2}
+  crHeavyAtk: {fileID: 11400000, guid: 6447732504b9a6f4996abe37462c95f5, type: 2}

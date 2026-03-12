@@ -1,8 +1,5 @@
 using UnityEngine;
-using Brawler.Combat;
 using NaughtyAttributes;
-using Brawler.Core;
-using Unity.VisualScripting;
 
 public class PlayerStateMachine : MonoBehaviour
 {
@@ -27,7 +24,6 @@ public class PlayerStateMachine : MonoBehaviour
     private InputHandler _inputHandler;
     private FighterAnimController _animController;
 
-
     private int playerIndex;
     public int PlayerIndex { get { return playerIndex; } set { playerIndex = value; } }
 
@@ -41,7 +37,6 @@ public class PlayerStateMachine : MonoBehaviour
     private int _airDashCount;
     [SerializeField] private int _jumpCount;
     
-
     private bool _isActionable = true;
     private bool _isWalkingBack;
     private bool _touchingBlockBox;
@@ -55,7 +50,9 @@ public class PlayerStateMachine : MonoBehaviour
     [SerializeField] private Hitbox hitBox;
     [SerializeField] private Hurtbox hurtBox;
     private bool _wasHit;
-    
+
+    [Header("---Hit Flash---")]
+    [SerializeField] private HitFlash playerSprite;
 
     #region ---Getter/Setters---
     public Rigidbody2D PlayerRB { get { return _playerRB; } set { _playerRB = value; } }
@@ -76,15 +73,15 @@ public class PlayerStateMachine : MonoBehaviour
     public FighterData FightData => fighterData;
 
     //AttackData
-    public AttackData LightAtk => fighterData.LightAtk;
-    public AttackData MediumAtk => fighterData.MediumAtk;
-    public AttackData HeavyAtk => fighterData.HeavyAtk;
-    public AttackData JLightAtk => fighterData.JLightAtk;
-    public AttackData JMediumAtk => fighterData.JMediumAtk;
-    public AttackData JHeavyAtk => fighterData.JHeavyAtk;
-    public AttackData CRLightAtk => fighterData.CRLightAtk;
-    public AttackData CRMedium => fighterData.CRMediumAtk;
-    public AttackData CRHeavyAtk => fighterData.CRHeavyAtk;
+    public HitboxData LightAtk => fighterData.LightAtk;
+    public HitboxData MediumAtk => fighterData.MediumAtk;
+    public HitboxData HeavyAtk => fighterData.HeavyAtk;
+    public HitboxData JLightAtk => fighterData.JLightAtk;
+    public HitboxData JMediumAtk => fighterData.JMediumAtk;
+    public HitboxData JHeavyAtk => fighterData.JHeavyAtk;
+    public HitboxData CRLightAtk => fighterData.CRLightAtk;
+    public HitboxData CRMediumAtk => fighterData.CRMediumAtk;
+    public HitboxData CRHeavyAtk => fighterData.CRHeavyAtk;
     #endregion
 
     private void OnEnable()
@@ -111,15 +108,9 @@ public class PlayerStateMachine : MonoBehaviour
 
     public void InitializePlayerHitbox()
     {
-        if (hitBox != null)
-        {
-            hitBox.PlayerIndex = PlayerIndex;
-        }
-
-        if (hurtBox != null)
-        {
-            hurtBox.PlayerIndex = PlayerIndex;
-        }
+        if (hitBox != null) hitBox.PlayerIndex = PlayerIndex;
+        if (hurtBox != null) hurtBox.PlayerIndex = PlayerIndex;
+        if (playerSprite != null) playerSprite.PlayerIndex = PlayerIndex;
     }
 
     void Update()

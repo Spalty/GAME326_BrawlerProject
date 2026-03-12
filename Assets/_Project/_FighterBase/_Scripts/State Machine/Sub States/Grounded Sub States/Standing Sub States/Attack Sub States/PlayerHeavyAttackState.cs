@@ -12,6 +12,7 @@ public class PlayerHeavyAttackState : PlayerBaseState
         Context.CurrentSubSubState = SubSubStates.Stand_HeavyAtk;
 
         //Logic
+        Context.Hitbox.Data = Context.HeavyAtk; 
         PlayerRB.linearVelocity = Vector2.zero; // Stop player movement during attack
         Context.IsActionable = false;
 
