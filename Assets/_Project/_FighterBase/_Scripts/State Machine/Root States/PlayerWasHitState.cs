@@ -43,6 +43,7 @@ public class PlayerWasHitState : PlayerBaseState
     public override void ExitState()
     {
         Context.WasHit = false;
+        Context.AnimController.SetHitBool(false);
     }
     
     private void HandleHitStun()

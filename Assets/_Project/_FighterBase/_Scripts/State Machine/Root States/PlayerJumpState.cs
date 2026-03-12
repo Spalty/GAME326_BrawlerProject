@@ -32,7 +32,7 @@ public class PlayerJumpState : PlayerBaseState
         }
 
         //Animation & Effects
-        Context.AnimController.SetJumpingBool(true);
+        
     }
 
     public override void InitializeSubState() { }

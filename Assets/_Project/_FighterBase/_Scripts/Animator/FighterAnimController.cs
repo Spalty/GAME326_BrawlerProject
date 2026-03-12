@@ -22,7 +22,7 @@ public class FighterAnimController : MonoBehaviour
     public int IsGroundedHash => Animator.StringToHash("IsGrounded");
     public int IsCrouchingHash => Animator.StringToHash("IsCrouching");
     public int IsBlockingHash => Animator.StringToHash("IsBlocking");
-    public int IsHitHash => Animator.StringToHash("IsHit");
+    public int IsHitHash => Animator.StringToHash("IsHitstun");
 
     //Movement Hashes
     public int MoveDirectionX => Animator.StringToHash("MoveDirX");

@@ -17,7 +17,7 @@ MonoBehaviour:
   dashSpeed: 8
   maxJumpCount: 1
   verticalJumpForce: 20
-  horizontalJumpForce: 10
+  horizontalJumpForce: 11
   maxAirDashCount: 1
   airDashSpeed: 15
   lightAtk: {fileID: 11400000, guid: 4b86871a2fab16648944f8fc00c533aa, type: 2}

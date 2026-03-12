@@ -10,7 +10,11 @@ public class PlayerFallingIdleState : PlayerBaseState
     InputHandler InputHandler => Context.InputHandler;
     public override void EnterState()
     {
+        //Devbug
         Context.CurrentSubSubState = SubSubStates.FallingIdle;
+
+        //Animations & Effects
+        Context.AnimController.SetJumpingBool(true);
         //Context.AnimController.SetFallingIdleBool(true);
     }
 
