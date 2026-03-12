@@ -9,14 +9,8 @@ public class Hurtbox : MonoBehaviour
     private PlayerStateMachine _hurtboxOwner;
     public PlayerStateMachine HurtBoxOwner { get { return _hurtboxOwner; } set { _hurtboxOwner = value; } }
 
-    //Hitstun Frames
-    private int _hitStunFrames;
-    public int HitstunFrames { get { return _hitStunFrames; } set { _hitStunFrames = value; } }
-
-    //Blockstun Frames
-    private int _blockStunFrames;
-    public int BlockStunFrames { get { return _blockStunFrames; } set { _blockStunFrames = value; } }
-
+    private HitboxData _onHitData;
+    public HitboxData OnHitData { get { return _onHitData; } set { _onHitData = value; } }
 
     #region ---Methods---
     public void TryTakeDamage(float damage, int hitstunDuration, float baseKnockback, Vector2 knockbackAngle, AttackType attackContext)

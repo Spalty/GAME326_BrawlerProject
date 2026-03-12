@@ -47,7 +47,7 @@ public class HitFlash : MonoBehaviour
 
     private IEnumerator Flash(float duration, Color color)
     {
-        Color originalColor = _spriteRenderer.color;
+        Color originalColor = Color.white;
         _spriteRenderer.color = color;
         yield return new WaitForSeconds(duration);
         _spriteRenderer.color = originalColor;

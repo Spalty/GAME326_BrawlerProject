@@ -47,7 +47,7 @@ public class PlayerStandBlockState : PlayerBaseState
             Context.BlockStunCoroutine = null;
         }
 
-        Context.BlockStunCoroutine = Context.StartCoroutine(BlockStun(Context.Hurtbox.BlockStunFrames));
+        Context.BlockStunCoroutine = Context.StartCoroutine(BlockStun(Context.Hurtbox.OnHitData.blockstunDuration));
     }
 
     private IEnumerator BlockStun(int frameCount)
