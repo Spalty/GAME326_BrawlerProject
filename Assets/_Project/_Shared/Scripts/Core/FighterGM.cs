@@ -1,9 +1,8 @@
+using Brawler.Core;
+using NaughtyAttributes;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Brawler.Core;
-using Brawler.Arena;
-using NaughtyAttributes;
 
 public class FighterGM : Singleton<FighterGM>
 {
@@ -23,7 +22,8 @@ public class FighterGM : Singleton<FighterGM>
     private PlayerStateMachine _player1;
     private PlayerStateMachine _player2;
     [Space(10)]
-    private SpawnPoint[] _spawnPoints;
+    private Vector3 _spawnPointPos1;
+    private Vector3 _spawnPointPos2;
 
     [Header("---Player Healths---")]
     private readonly float[] _playerHealths = new float[2];
@@ -33,10 +33,16 @@ public class FighterGM : Singleton<FighterGM>
 
     [Header("---Player Round Tracker---")]
     private readonly int[] _playerWinCounts = new int[2];
+    private int _roundCount = 1;
     private RoundResult _roundResult;
     private bool _isRoundActive;
     private bool IsMatchOver => _playerWinCounts[0] >= matchConfig.roundsToWin
                                 || _playerWinCounts[1] >= matchConfig.roundsToWin;
+    private Coroutine _roundCountdownRoutine;
+    private Coroutine _roundEndDelayRoutine;
+
+    [Header("---Brute Force---")]
+    private bool isFirstSpawn = true;
 
     #region Getters / Setters
     public GameState CurrentGameState { get { return _currentGameState; } }
@@ -46,17 +52,38 @@ public class FighterGM : Singleton<FighterGM>
     {
         base.Awake();
 
-        //Race condition here
-        InitializePlayers();
-
         _remainingTime = matchConfig.matchTimeLimit;
-        _isRoundActive = true;
+        _isRoundActive = false;
+        _currentGameState = GameState.Fighting;
     }
 
-    private void Start()
+    protected override void Start()
     {
-        //Start the match
-        //Start the countdown
+        //Dont delete this;
+        //Some reason players wont spawn on first load, but behaves accordingly on subsequent loads.
+        //This is a temporary fix until I can figure out why.
+        if (isFirstSpawn)
+        {
+            SpawnPlayers();
+            StartRoundCountdown();
+            isFirstSpawn = false;
+        }
+        //Dont delete this;
+
+        base.Start();
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    protected override void OnDestroy()
+    {
+        base.OnDestroy();
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        SpawnPlayers();
+        StartRoundCountdown();  
     }
 
     private void Update()
@@ -65,21 +92,25 @@ public class FighterGM : Singleton<FighterGM>
     }
 
     #region Player Initialization Methods
-    private void InitializePlayers()
+    private void SpawnPlayers()
     {
         _spawnPointHandler = ServiceLocator.Get<SpawnPointHandler>();
-        _spawnPoints = _spawnPointHandler.SpawnPoints; 
+        Transform spawnPoint1 = _spawnPointHandler.SpawnPoints[0].transform;
+        Transform spawnPoint2 = _spawnPointHandler.SpawnPoints[1].transform;
 
-        _player1 = InitializePlayer(0, player1Prefab, _spawnPoints[0].transform);
-        _player2 = InitializePlayer(1, player2Prefab, _spawnPoints[1].transform);
+        if (spawnPoint1 != null) _spawnPointPos1 = spawnPoint1.position;
+        if (spawnPoint2 != null) _spawnPointPos2 = spawnPoint2.position;
+
+        _player1 = InitializePlayer(0, player1Prefab, _spawnPointPos1);
+        _player2 = InitializePlayer(1, player2Prefab, _spawnPointPos2);
 
         _player1.Opponent = _player2.transform;
         _player2.Opponent = _player1.transform;
     }
 
-    private PlayerStateMachine InitializePlayer(int playerIndex, GameObject playerPrefab, Transform spawnPoint)
+    private PlayerStateMachine InitializePlayer(int playerIndex, GameObject playerPrefab, Vector3 spawnPointPos)
     {
-        GameObject player = Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation);
+        GameObject player = Instantiate(playerPrefab, spawnPointPos, Quaternion.identity);
         PlayerStateMachine playerSM = player.GetComponent<PlayerStateMachine>();
 
         playerSM.PlayerIndex = playerIndex;
@@ -97,7 +128,7 @@ public class FighterGM : Singleton<FighterGM>
         _isGamePaused = !_isGamePaused;
         Time.timeScale = _isGamePaused ? 0 : 1;
 
-        _currentGameState = _isGamePaused ? GameState.Paused : GameState.Fighting;
+        _currentGameState = _isGamePaused ? GameState.Paused : GameState.Fighting; //Need to cache the previous gameState
         FighterGameEvents.OnGameStateChange?.Invoke(new GameStateChangeEvent(_currentGameState));
     }
     #endregion
@@ -110,7 +141,7 @@ public class FighterGM : Singleton<FighterGM>
         if (_remainingTime > 0)
         {
             _remainingTime -= Time.deltaTime;
-            FighterGameEvents.OnTimerChanged?.Invoke(new TimerChangedEvent(_remainingTime));
+            FighterGameEvents.OnTimerUpdate?.Invoke(new TimerChangedEvent(_remainingTime));
         }
         else
         {
@@ -142,7 +173,7 @@ public class FighterGM : Singleton<FighterGM>
 
         if (!IsMatchOver)
         {
-            //Start next round after seconds
+            _roundEndDelayRoutine = StartCoroutine(StartNewRoundAfterDelay(matchConfig.roundEndDelay));
         }
         else
         {
@@ -154,16 +185,28 @@ public class FighterGM : Singleton<FighterGM>
     #region Countdown Methods
     private void StartRoundCountdown()
     {
-        StartCoroutine(Countdown(matchConfig.roundStartDelay));
+        _roundEndDelayRoutine = StartCoroutine(Countdown(matchConfig.roundStartDelay));
     }
 
     private IEnumerator Countdown(float duration)
     {
-        //Display Round number
+        //-1 indicates "Round {roundCount}"
+        FighterGameEvents.OnCountdownUpdate?.Invoke(new CountdownUpdateEvent(-1, _roundCount)); 
 
         yield return new WaitForSeconds(duration);
 
-        //Begin Countdown
+        //3, 2, 1...
+        float countdownTime = matchConfig.countDownDuration + 1; 
+        for (int i = 0; i < countdownTime; i++)
+        {
+            FighterGameEvents.OnCountdownUpdate?.Invoke(new CountdownUpdateEvent(countdownTime - i, _roundCount));
+            yield return new WaitForSeconds(1f);
+        }
+
+        //0 indicates "Fight"
+        FighterGameEvents.OnCountdownUpdate?.Invoke(new CountdownUpdateEvent(0, _roundCount)); 
+
+        _isRoundActive = true;
     }
     #endregion
 
@@ -183,8 +226,6 @@ public class FighterGM : Singleton<FighterGM>
             int winnerIndex = playerIndex == 0 ? 1 : 0;
             _playerWinCounts[winnerIndex] += 1;
 
-            Debug.Log($"Player {winnerIndex} won {_playerWinCounts[winnerIndex]} times");
-
             _roundResult = winnerIndex == 0 ? RoundResult.Player1Wins : RoundResult.Player2Wins;
             FighterGameEvents.OnPlayerKO?.Invoke(new PlayerKOEvent(_roundResult, _playerWinCounts));
 
@@ -193,7 +234,7 @@ public class FighterGM : Singleton<FighterGM>
             if (!IsMatchOver)
             {
                 //Start next round after delay
-                StartCoroutine(StartRoundAfterDelay(matchConfig.roundEndDelay));
+                _roundEndDelayRoutine = StartCoroutine(StartNewRoundAfterDelay(matchConfig.roundEndDelay));
             }
             else
             {
@@ -204,21 +245,24 @@ public class FighterGM : Singleton<FighterGM>
     #endregion
 
     #region Reset Methods
-    private IEnumerator StartRoundAfterDelay(float duration)
+    private IEnumerator StartNewRoundAfterDelay(float duration)
     {
         yield return new WaitForSeconds(duration);
 
         StartNewRound();
+        StartRoundCountdown();
     }
 
     private void StartNewRound()
     {
-        _player1.transform.position = _spawnPoints[0].transform.position;
-        _player2.transform.position = _spawnPoints[1].transform.position;
+        _player1.transform.position = _spawnPointPos1;
+        _player2.transform.position = _spawnPointPos2;
 
         ResetPlayerHealth();
         ResetTimer();
-        _isRoundActive = true;
+
+        _roundCount++;
+        _isRoundActive = false;
 
         FighterGameEvents.OnMatchStart?.Invoke(new MatchEvent(RoundResult.None));
     }
@@ -228,8 +272,10 @@ public class FighterGM : Singleton<FighterGM>
         ResetRoundWins();
         ResetPlayerHealth();
         ResetTimer();
+        ResetCoroutines();
 
-        _isRoundActive = true;
+        _roundCount = 1;
+        _isRoundActive = false;
 
         //Unpause the game
         _isGamePaused = false;
@@ -255,7 +301,22 @@ public class FighterGM : Singleton<FighterGM>
     {
         _remainingTime = matchConfig.matchTimeLimit;
 
-        FighterGameEvents.OnTimerChanged?.Invoke(new TimerChangedEvent(_remainingTime));
+        FighterGameEvents.OnTimerUpdate?.Invoke(new TimerChangedEvent(_remainingTime));
+    }
+
+    private void ResetCoroutines()
+    {
+        if (_roundCountdownRoutine != null)
+        {
+            StopCoroutine(_roundCountdownRoutine);
+            _roundCountdownRoutine = null;
+        }
+
+        if (_roundEndDelayRoutine != null)
+        {
+            StopCoroutine(_roundEndDelayRoutine);
+            _roundEndDelayRoutine = null;
+        }
     }
     #endregion
 }

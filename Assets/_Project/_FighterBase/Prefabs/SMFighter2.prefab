@@ -92,7 +92,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 4b86871a2fab16648944f8fc00c533aa, type: 2}
-  ownerHurtboxCollider: {fileID: 7984574092373483938}
   HitboxColor: {r: 1, g: 0, b: 0, a: 0.3882353}
 --- !u!1001 &6506032239099517228
 PrefabInstance:
@@ -178,6 +177,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.31264794
       objectReference: {fileID: 0}
+    - target: {fileID: 5677391460700733802, guid: 97c762c2ce2d57d479e70e610171810d, type: 3}
+      propertyPath: m_NotificationBehavior
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8056205843715737533, guid: 97c762c2ce2d57d479e70e610171810d, type: 3}
       propertyPath: m_Layer
       value: 8
@@ -214,10 +217,5 @@ MonoBehaviour:
 --- !u!4 &6348818133681239418 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 167083631064706134, guid: 97c762c2ce2d57d479e70e610171810d, type: 3}
-  m_PrefabInstance: {fileID: 6506032239099517228}
-  m_PrefabAsset: {fileID: 0}
---- !u!61 &7984574092373483938 stripped
-BoxCollider2D:
-  m_CorrespondingSourceObject: {fileID: 3784420122164295822, guid: 97c762c2ce2d57d479e70e610171810d, type: 3}
   m_PrefabInstance: {fileID: 6506032239099517228}
   m_PrefabAsset: {fileID: 0}

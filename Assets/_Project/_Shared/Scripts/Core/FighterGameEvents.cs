@@ -23,7 +23,8 @@ public static class FighterGameEvents
     public static Action<PlayerKOEvent> OnPlayerKO;
 
     //UI
-    public static Action<TimerChangedEvent> OnTimerChanged;
+    public static Action<TimerChangedEvent> OnTimerUpdate;
+    public static Action<CountdownUpdateEvent> OnCountdownUpdate;
 
     public static void ClearAll()
     {
@@ -32,7 +33,7 @@ public static class FighterGameEvents
         OnMatchEnd = null;
         OnPlayerHit = null;
         OnPlayerKO = null;
-        OnTimerChanged = null;
+        OnTimerUpdate = null;
     }
 }
 
@@ -86,3 +87,13 @@ public struct TimerChangedEvent
     }
 }
 
+public struct CountdownUpdateEvent
+{
+    public float CountdownTime;
+    public int RoundCount;
+    public CountdownUpdateEvent(float countdownTime, int roundCount)
+    {
+        CountdownTime = countdownTime;
+        RoundCount = roundCount;
+    }
+}
