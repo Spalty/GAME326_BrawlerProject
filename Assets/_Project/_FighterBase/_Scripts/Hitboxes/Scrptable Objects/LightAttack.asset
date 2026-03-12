@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LightAttack
   m_EditorClassIdentifier: 
   attackName: New Attack
-  damage: 50
+  damage: 10
   baseKnockback: 5
   knockbackAngle: {x: 1, y: 0.5}
   hitstunDuration: 5
