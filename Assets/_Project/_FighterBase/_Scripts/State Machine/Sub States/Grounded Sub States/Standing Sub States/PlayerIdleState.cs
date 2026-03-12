@@ -27,11 +27,11 @@ public class PlayerIdleState : PlayerBaseState
     {
         if (Context.InputHandler.HorizontalInput > 0)
         {
-            SwitchState(Factory.ForwardWalk());
+            SwitchState(Factory.RightWalk());
         }
         else if (Context.InputHandler.HorizontalInput < 0)
         {
-            SwitchState(Factory.BackWalk());
+            SwitchState(Factory.LeftWalk());
         }
         else if (Context.InputHandler.WasLightAttackPressed)
         {

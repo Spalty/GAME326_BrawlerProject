@@ -63,9 +63,9 @@ public class PlayerStateFactory
         
         //Standing sub states
         _stateCache[PlayerStates.Idle] = new PlayerIdleState(_context, this);
-        _stateCache[PlayerStates.ForwardWalk] = new PlayerForwardWalkState(_context, this);
+        _stateCache[PlayerStates.ForwardWalk] = new PlayerWalkRightState(_context, this);
         _stateCache[PlayerStates.ForwardDash] = new PlayerForwardDashState(_context, this);
-        _stateCache[PlayerStates.BackWalk] = new PlayerBackWalkState(_context, this);
+        _stateCache[PlayerStates.BackWalk] = new PlayerWalkLeftState(_context, this);
         _stateCache[PlayerStates.BackDash] = new PlayerBackDashState(_context, this);
         _stateCache[PlayerStates.StandBlock] = new PlayerStandBlockState(_context, this);
         _stateCache[PlayerStates.LightAttack] = new PlayerLightAttackState(_context, this);
@@ -111,19 +111,19 @@ public class PlayerStateFactory
     {
         return _stateCache[PlayerStates.Idle];
     }
-    public PlayerBaseState ForwardWalk()
+    public PlayerBaseState RightWalk()
     {
         return _stateCache[PlayerStates.ForwardWalk];
     }
-    public PlayerBaseState ForwardDash()
+    public PlayerBaseState RightDash()
     {
         return _stateCache[PlayerStates.ForwardDash];
     }
-    public PlayerBaseState BackWalk()
+    public PlayerBaseState LeftWalk()
     {
         return _stateCache[PlayerStates.BackWalk];
     }
-    public PlayerBaseState BackDash()
+    public PlayerBaseState LeftDash()
     {
         return _stateCache[PlayerStates.BackDash];
     }
