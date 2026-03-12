@@ -14,7 +14,7 @@ public class PlayerStandBlockState : PlayerBaseState
         Context.IsActionable = false;
         Context.PlayerRB.linearVelocity = Vector2.zero;
         HandleBlockStun();
-        //Apply knockback
+        HandleKnockback();
     }
 
     public override void InitializeSubState() { }
@@ -56,5 +56,15 @@ public class PlayerStandBlockState : PlayerBaseState
         }
 
         Context.IsActionable = true;
+    }
+
+    private void HandleKnockback()
+    {
+        Vector2 direction = Context.Hurtbox.OnHitData.knockbackAngle;
+        Vector2 directionToOpponent = (Context.Opponent.position - Context.transform.position).normalized;
+
+        Vector2 knockBackDirection = new(direction.x * -Mathf.Sign(directionToOpponent.x), direction.y);
+
+        Context.PlayerRB.linearVelocity = knockBackDirection * Context.Hurtbox.OnHitData.baseKnockback;
     }
 }
