@@ -50,6 +50,10 @@ public class FighterAnimController : MonoBehaviour
     }
 
     #region Conditional Methods
+    public void SetJumpingBool(bool isJumping)
+    {
+        _animator.SetBool(JumpingHash, isJumping);
+    }
     public void SetGroundedBool(bool isGrounded)
     {
         _animator.SetBool(IsGroundedHash, isGrounded);

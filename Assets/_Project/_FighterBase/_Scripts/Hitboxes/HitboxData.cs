@@ -25,7 +25,7 @@ public class HitboxData : ScriptableObject
         [Header("Hitstun")]
         [Tooltip("How long the opponent can't act after being hit. 0 = auto-calculate from knockback.")]
         [Range(0f, 1f)]
-        public float hitstunDuration = 5f;
+        public int hitstunDuration = 5;
 
         [Header("Hitstun")]
         [Tooltip("How long the opponent can't act after blocking a hit. 0 = auto-calculate from knockback.")]

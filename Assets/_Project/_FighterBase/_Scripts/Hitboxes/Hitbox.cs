@@ -27,9 +27,9 @@ public class Hitbox : MonoBehaviour
     private HashSet<Hurtbox> alreadyHit = new HashSet<Hurtbox>();
     private Hurtbox hurtbox;
     [SerializeField] private Collider2D ownerHurtboxCollider;
-    private float hitstunFrames;
+    private int hitstunFrames;
 
-    public float HitstunFrames { get { return hitstunFrames; }  set { hitstunFrames = value; } }
+    public int HitstunFrames { get { return hitstunFrames; }  set { hitstunFrames = value; } }
    
     void Awake()
     {

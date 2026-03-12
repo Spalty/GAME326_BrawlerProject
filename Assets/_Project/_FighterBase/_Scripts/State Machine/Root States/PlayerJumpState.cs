@@ -16,10 +16,11 @@ public class PlayerJumpState : PlayerBaseState
 
     public override void EnterState()
     {
+        //Debug
         InitializeSubState();
         Context.CurrentRootState = RootStates.Jump;
         
-        
+        //Logic
         if (Context.IsGrounded() && JumpCount > 0) // GROUND JUMP
         {
             PlayerRB.linearVelocity = new Vector2(Context.InputHandler.HorizontalInput * FighterData.HorizontalJumpForce, FighterData.VerticalJumpForce);
@@ -29,6 +30,9 @@ public class PlayerJumpState : PlayerBaseState
             PlayerRB.linearVelocity = new Vector2(Context.InputHandler.HorizontalInput * FighterData.HorizontalJumpForce/2, FighterData.VerticalJumpForce/2);
             Context.JumpCount--;
         }
+
+        //Animation & Effects
+        Context.AnimController.SetJumpingBool(true);
     }
 
     public override void InitializeSubState() { }

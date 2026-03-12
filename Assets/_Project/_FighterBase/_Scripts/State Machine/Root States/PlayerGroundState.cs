@@ -19,7 +19,8 @@ public class PlayerGroundState : PlayerBaseState
         Context.JumpCount = FighterData.MaxJumpCount; //Reset jump count when entering grounded state
 
         //Animations & Effects
-        Context.AnimController.SetGroundedBool(Context.IsGrounded());
+        Context.AnimController.SetGroundedBool(true);
+        Context.AnimController.SetJumpingBool(false);
     }
 
     public override void InitializeSubState()

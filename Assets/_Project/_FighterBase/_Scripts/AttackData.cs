@@ -45,7 +45,7 @@ namespace Brawler.Combat
         [Header("Hitstun")]
         [Tooltip("How long the opponent can't act after being hit. 0 = auto-calculate from knockback.")]
         [Range(0f, 1f)]
-        public float hitstunDuration = 0.2f;
+        public int hitstunDuration = 1;
 
         [Header("Hitstop")]
         [Tooltip("Freeze frame duration on hit. Creates impact feel.")]

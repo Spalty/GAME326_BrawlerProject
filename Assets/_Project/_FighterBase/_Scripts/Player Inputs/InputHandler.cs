@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -101,4 +102,13 @@ public class InputHandler : MonoBehaviour
     {
         WasHeavyAttackPressed = true;
     }
+    IEnumerator InputBuffer(float bufferTime)
+    {
+        for (int i = 0; i < bufferTime; i++)
+        {
+            yield return null;
+        }
+        
+    }
+    
 }

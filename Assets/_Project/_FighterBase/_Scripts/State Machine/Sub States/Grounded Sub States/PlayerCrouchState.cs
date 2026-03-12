@@ -14,6 +14,7 @@ public class PlayerCrouchState : PlayerBaseState
         //Logic
 
         //Animation
+        Context.AnimController.SetCrouchingBool(true);
 
     }
 
@@ -46,5 +47,8 @@ public class PlayerCrouchState : PlayerBaseState
         }
     }
 
-    public override void ExitState() { }
+    public override void ExitState()
+    {
+        Context.AnimController.SetCrouchingBool(false);
+    }
 }

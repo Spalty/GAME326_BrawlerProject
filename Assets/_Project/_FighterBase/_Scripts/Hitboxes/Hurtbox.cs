@@ -8,7 +8,7 @@ public class Hurtbox : MonoBehaviour
     public int PlayerIndex { get { return _playerIndex; } set { _playerIndex = value; } }
 
     #region ---Methods---
-    public void TakeDamage(float damage, float hitstunDuration, float baseKnockback, Vector2 knockbackAngle, AttackType attackContext)
+    public void TakeDamage(float damage, int hitstunDuration, float baseKnockback, Vector2 knockbackAngle, AttackType attackContext)
     {
         // Implement damage application logic here
         FighterGM.Instance.HitPlayer(_playerIndex, damage);
