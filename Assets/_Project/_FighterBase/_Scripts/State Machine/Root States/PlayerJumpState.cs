@@ -32,7 +32,9 @@ public class PlayerJumpState : PlayerBaseState
         }
 
         //Animation & Effects
-        
+        Quaternion rotationX = Quaternion.Euler(90, 0, 0);
+        Context.ParticlePool.SpawnFromPool(ParticleTypes.Jump, Context.GroundCheck.position, rotationX);
+
     }
 
     public override void InitializeSubState() { }

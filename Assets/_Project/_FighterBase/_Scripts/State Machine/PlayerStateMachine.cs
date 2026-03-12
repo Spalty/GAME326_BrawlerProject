@@ -1,4 +1,5 @@
 using UnityEngine;
+using Brawler.Core;
 using NaughtyAttributes;
 
 public class PlayerStateMachine : MonoBehaviour
@@ -23,6 +24,7 @@ public class PlayerStateMachine : MonoBehaviour
     private Rigidbody2D _playerRB;
     private InputHandler _inputHandler;
     private FighterAnimController _animController;
+    private ParticlePooler _particlePooler;
 
     private int playerIndex;
     public int PlayerIndex { get { return playerIndex; } set { playerIndex = value; } }
@@ -61,6 +63,7 @@ public class PlayerStateMachine : MonoBehaviour
     public Rigidbody2D PlayerRB { get { return _playerRB; } set { _playerRB = value; } }
     public InputHandler InputHandler { get { return _inputHandler; } set { _inputHandler = value; } }
     public FighterAnimController AnimController { get { return _animController; } set { _animController = value; } }
+    public ParticlePooler ParticlePool { get { return _particlePooler; } set { _particlePooler = value; } }
 
     //Hitbox / Hurtbox
     public Hitbox Hitbox { get { return hitBox; } set { hitBox = value; } }
@@ -77,6 +80,8 @@ public class PlayerStateMachine : MonoBehaviour
     public bool IsWalkingBack { get { return _isWalkingBack; } set {_isWalkingBack = value;} }
     public int JumpCount { get { return _jumpCount; } set { _jumpCount = value; } }
     public int AirDashCount { get { return _airDashCount; } set { _airDashCount = value; } }
+    public Transform GroundCheck { get { return groundCheck; } set { groundCheck = value; } }
+
 
     //Fighter Data
     public FighterData FightData => fighterData;
@@ -113,6 +118,8 @@ public class PlayerStateMachine : MonoBehaviour
         _states = new PlayerStateFactory(this);
         _currentState = _states.Grounded();
         _currentState.EnterState();
+
+        _particlePooler = ServiceLocator.Get<ParticlePooler>();
     }
 
     public void InitializePlayerHitbox()
