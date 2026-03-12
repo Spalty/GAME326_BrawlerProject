@@ -15,9 +15,18 @@ public class Hurtbox : MonoBehaviour
     #region ---Methods---
     public void TryTakeDamage(float damage, int hitstunDuration, float baseKnockback, Vector2 knockbackAngle, AttackType attackContext)
     {
-        if (_hurtboxOwner.IsWalkingBack)
+        if (_hurtboxOwner.BlockMeter > 0 && _hurtboxOwner.IsWalkingBack)
         {
+            HurtBoxOwner.BlockMeter -= damage; // Reduce block meter by the damage amount (you can adjust this as needed)
+
+            if (_hurtboxOwner.BlockMeter <= 0)
+            {
+                //Block was broken, apply remaining damage to player health
+                _hurtboxOwner.ParticlePool.SpawnFromPool(ParticleTypes.Block, _hurtboxOwner.transform.position, _hurtboxOwner.transform.rotation);
+            }
+
             _hurtboxOwner.IsBlocking = true;
+
             FighterGameEvents.OnPlayerBlock?.Invoke(new PlayerBlockEvent(PlayerIndex));
             return;
         }

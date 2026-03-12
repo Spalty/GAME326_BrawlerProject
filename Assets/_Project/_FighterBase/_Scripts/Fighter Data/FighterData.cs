@@ -15,9 +15,14 @@ public class FighterData : ScriptableObject
     [SerializeField] private float horizontalJumpForce = 5f;
     [SerializeField] private int maxAirDashCount = 1;
     [SerializeField] private float airDashSpeed = 15f;
-    
+
     [Space(10)]
-    
+
+    [Header("---Block Data---")]
+    [SerializeField] private float maxBlockMeter = 50f;
+
+    [Space(10)]
+
     [Header("---Attack Data---")]
     [Expandable][SerializeField] private HitboxData lightAtk;
     [Expandable][SerializeField] private HitboxData mediumAtk;
@@ -41,6 +46,8 @@ public class FighterData : ScriptableObject
     public int MaxJumpCount => maxJumpCount;
     public int MaxAirDashCount => maxAirDashCount;
     public float AirDashSpeed => airDashSpeed;
+    
+    public float MaxBlockMeter => maxBlockMeter;
 
     //Attack Data
     public HitboxData LightAtk => lightAtk;
