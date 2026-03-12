@@ -70,8 +70,6 @@ public class PlayerWasHitState : PlayerBaseState
 
     private void HandleHitStop()
     {
-        Debug.Log("Handling HitStop");
-
         if (Context.HitStunCoroutine != null)
         {
             Context.StopCoroutine(Context.HitStunCoroutine);

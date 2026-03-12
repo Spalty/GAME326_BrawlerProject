@@ -12,6 +12,10 @@ public class FighterGM : Singleton<FighterGM>
     [Header("---Match Configs---")]
     [SerializeField] private MatchConfig matchConfig;
 
+    [Expandable]
+    [Header("---VFX Configs---")]
+    [SerializeField] private VFXData vfxData;
+
     [Header("---Game State---")]
     private GameState _currentGameState;
     private bool _isGamePaused;
@@ -216,8 +220,13 @@ public class FighterGM : Singleton<FighterGM>
         if (!_isRoundActive) return;
         if (_playerHealths[playerIndex] <= 0) return;
 
-        _playerHealths[playerIndex] -= damageAmount;
+        if (damageAmount > vfxData.MinDamageForShake)
+        {
+            FighterGameEvents.OnStrongHit?.Invoke(new StrongHitEvent(damageAmount));
+        }
 
+        _playerHealths[playerIndex] -= damageAmount;
+        
         float damagePercent = _playerHealths[playerIndex] / matchConfig.StartingHealth;
         FighterGameEvents.OnPlayerHit?.Invoke(new PlayerHitEvent(playerIndex, damagePercent));
 

@@ -1,8 +1,7 @@
 using UnityEngine;
-using Brawler.Combat;
 using NaughtyAttributes;
 
-[CreateAssetMenu(fileName = "FighterData", menuName = "Scriptable Objects/FighterData")]
+[CreateAssetMenu(fileName = "FighterData", menuName = "Game Data/FighterData")]
 public class FighterData : ScriptableObject
 {
     [Header("Fighter Properties")]

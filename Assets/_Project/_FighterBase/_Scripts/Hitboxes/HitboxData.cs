@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "HitboxData", menuName = "Scriptable Objects/HitboxData")]
+[CreateAssetMenu(fileName = "HitboxData", menuName = "Game Data/HitboxData")]
 public class HitboxData : ScriptableObject
 {
         [Header("Damage")]
