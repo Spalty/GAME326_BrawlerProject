@@ -20,6 +20,7 @@ public static class FighterGameEvents
 
     //Round Events
     public static Action<PlayerHitEvent> OnPlayerHit;
+    public static Action<StrongHitEvent> OnStrongHit;
     public static Action<PlayerBlockEvent> OnPlayerBlock;
     public static Action<PlayerKOEvent> OnPlayerKO;
 
@@ -34,8 +35,12 @@ public static class FighterGameEvents
         OnMatchStart = null;
         OnMatchEnd = null;
         OnPlayerHit = null;
+        OnStrongHit = null;
+        OnPlayerBlock = null;
         OnPlayerKO = null;
         OnTimerUpdate = null;
+        OnCountdownUpdate = null;
+        OnHealthReset = null;
     }
 }
 
@@ -115,6 +120,15 @@ public struct HealthResetEvent
     {
         PlayerIndex = playerIndex;
         NewHealthPercent = newHealthPercent;
+    }
+}
+
+public struct StrongHitEvent
+{
+    public float DamageAmount;
+    public StrongHitEvent(float damage)
+    {
+        DamageAmount = damage;
     }
 }
 

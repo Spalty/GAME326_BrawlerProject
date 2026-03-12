@@ -202,6 +202,14 @@ public class FighterGM : Singleton<FighterGM>
         if (!_isRoundActive) return;
         if (_playerHealths[playerIndex] <= 0) return;
 
+        //If damage amount exceeds a player's remaining health
+        //Fire a camera shake event with intensity based on the overkill damage
+
+        if (damageAmount > 10)
+        {
+            FighterGameEvents.OnStrongHit?.Invoke(new StrongHitEvent(damageAmount));
+        }
+
         _playerHealths[playerIndex] -= damageAmount;
 
         float damagePercent = _playerHealths[playerIndex] / matchConfig.StartingHealth;
