@@ -704,6 +704,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 814479373949134498, guid: e09444edbb3d6e442a9516bca2be2acb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 814479373949134498, guid: e09444edbb3d6e442a9516bca2be2acb, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -15
+      objectReference: {fileID: 0}
     - target: {fileID: 1236279408245833710, guid: e09444edbb3d6e442a9516bca2be2acb, type: 3}
       propertyPath: m_Name
       value: FighterUI
@@ -1000,6 +1008,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8810891326944297395, guid: e09444edbb3d6e442a9516bca2be2acb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8900996231722540224, guid: e09444edbb3d6e442a9516bca2be2acb, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1029,71 +1041,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 21143209955702156, guid: e09444edbb3d6e442a9516bca2be2acb, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e09444edbb3d6e442a9516bca2be2acb, type: 3}
---- !u!1001 &1473705951
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3267381500845142069, guid: 515c7db848e4d7948a07ec070e698c0b, type: 3}
-      propertyPath: m_Size.x
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4697401365984746815, guid: 515c7db848e4d7948a07ec070e698c0b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4697401365984746815, guid: 515c7db848e4d7948a07ec070e698c0b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4697401365984746815, guid: 515c7db848e4d7948a07ec070e698c0b, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4697401365984746815, guid: 515c7db848e4d7948a07ec070e698c0b, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4697401365984746815, guid: 515c7db848e4d7948a07ec070e698c0b, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4697401365984746815, guid: 515c7db848e4d7948a07ec070e698c0b, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4697401365984746815, guid: 515c7db848e4d7948a07ec070e698c0b, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4697401365984746815, guid: 515c7db848e4d7948a07ec070e698c0b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4697401365984746815, guid: 515c7db848e4d7948a07ec070e698c0b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4697401365984746815, guid: 515c7db848e4d7948a07ec070e698c0b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7429964159307073875, guid: 515c7db848e4d7948a07ec070e698c0b, type: 3}
-      propertyPath: m_Name
-      value: TestSMFighter
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 515c7db848e4d7948a07ec070e698c0b, type: 3}
 --- !u!1 &1536293942
 GameObject:
   m_ObjectHideFlags: 0
@@ -1529,4 +1481,3 @@ SceneRoots:
   - {fileID: 411118269}
   - {fileID: 2129265996}
   - {fileID: 862757474}
-  - {fileID: 1473705951}
