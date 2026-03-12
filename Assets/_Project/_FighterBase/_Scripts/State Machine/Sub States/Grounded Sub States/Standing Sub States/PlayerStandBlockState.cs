@@ -17,7 +17,7 @@ public class PlayerStandBlockState : PlayerBaseState
         //Apply knockback
 
         //Animation
-        //
+        Context.ParticlePool.SpawnFromPool(ParticleTypes.Block, Context.transform.position, Context.transform.rotation);
     }
     public override void InitializeSubState() { }
 

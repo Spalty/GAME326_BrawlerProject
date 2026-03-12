@@ -21,6 +21,9 @@ public class PlayerWasHitState : PlayerBaseState
 
         //Animations & Effects
         Context.AnimController.SetHitBool(true);
+
+        Quaternion randomRotationX = Quaternion.Euler(Random.Range(0, 360), 90, 0);
+        Context.ParticlePool.SpawnFromPool(ParticleTypes.Hit, Context.transform.position, randomRotationX);
     }
     public override void InitializeSubState() { }
 

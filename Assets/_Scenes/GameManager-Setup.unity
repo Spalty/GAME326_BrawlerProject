@@ -661,14 +661,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pools:
   - Type: 0
-    Prefab: {fileID: 0}
-    PoolSize: 0
-  - Type: 3
-    Prefab: {fileID: 0}
-    PoolSize: 0
-  - Type: 4
-    Prefab: {fileID: 0}
-    PoolSize: 0
+    Prefab: {fileID: 2904328683656673033, guid: 75ecfc1ed5451664cb727e25b2683be4, type: 3}
+    PoolSize: 5
+  - Type: 5
+    Prefab: {fileID: 9165608927684083846, guid: 48b37c5af74ce9747850b7132dcd200e, type: 3}
+    PoolSize: 5
+  - Type: 1
+    Prefab: {fileID: 8331830150668933639, guid: dd1b172ef3152d641b5c48bf62a38990, type: 3}
+    PoolSize: 5
 --- !u!4 &1354833560
 Transform:
   m_ObjectHideFlags: 0

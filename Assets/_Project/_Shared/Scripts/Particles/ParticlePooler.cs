@@ -8,6 +8,7 @@ public enum ParticleTypes
     Magic,
     Landing,
     Dash,
+    Block,
 }
 
 public class ParticlePooler : Pooler<ParticleTypes>
