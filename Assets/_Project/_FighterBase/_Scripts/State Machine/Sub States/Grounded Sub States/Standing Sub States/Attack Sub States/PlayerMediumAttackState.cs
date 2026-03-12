@@ -12,6 +12,7 @@ public class PlayerMediumAttackState : PlayerBaseState
         Context.CurrentSubSubState = SubSubStates.Stand_MediumAtk;
         
         //Logic
+        Context.Hitbox.Data = Context.MediumAtk;
         PlayerRB.linearVelocity = Vector2.zero; // Stop player movement during attack
         Context.IsActionable = false;
 

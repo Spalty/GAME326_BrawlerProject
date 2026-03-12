@@ -13,6 +13,7 @@ public class PlayerLightAttackState : PlayerBaseState
         Context.CurrentSubSubState = SubSubStates.Stand_LightAtk;
 
         //Logic
+        Context.Hitbox.Data = Context.LightAtk;
         PlayerRB.linearVelocity = Vector2.zero; // Stop player movement during attack
         Context.IsActionable = false;
 
