@@ -92,6 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 4b86871a2fab16648944f8fc00c533aa, type: 2}
+  ownerHurtboxCollider: {fileID: 0}
   HitboxColor: {r: 1, g: 0, b: 0, a: 0.3882353}
 --- !u!1001 &6506032239099517228
 PrefabInstance:
@@ -195,6 +196,7 @@ PrefabInstance:
       objectReference: {fileID: 2516457440336525871}
     m_RemovedComponents:
     - {fileID: 5190556926835213069, guid: 97c762c2ce2d57d479e70e610171810d, type: 3}
+    - {fileID: 210434255444907765, guid: 97c762c2ce2d57d479e70e610171810d, type: 3}
     m_RemovedGameObjects:
     - {fileID: 519687396977134052, guid: 97c762c2ce2d57d479e70e610171810d, type: 3}
     m_AddedGameObjects:

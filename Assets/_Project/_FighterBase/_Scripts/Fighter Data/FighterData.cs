@@ -20,17 +20,17 @@ public class FighterData : ScriptableObject
     [Space(10)]
     
     [Header("---Attack Data---")]
-    [Expandable][SerializeField] private AttackData lightAtk;
-    [Expandable][SerializeField] private AttackData mediumAtk;
-    [Expandable][SerializeField] private AttackData heavyAtk;
+    [Expandable][SerializeField] private HitboxData lightAtk;
+    [Expandable][SerializeField] private HitboxData mediumAtk;
+    [Expandable][SerializeField] private HitboxData heavyAtk;
     [Space(10)]
-    [Expandable][SerializeField] private AttackData jLightAtk;
-    [Expandable][SerializeField] private AttackData jMediumAtk;
-    [Expandable][SerializeField] private AttackData jHeavyAtk;
+    [Expandable][SerializeField] private HitboxData jLightAtk;
+    [Expandable][SerializeField] private HitboxData jMediumAtk;
+    [Expandable][SerializeField] private HitboxData jHeavyAtk;
     [Space(10)]
-    [Expandable][SerializeField] private AttackData crLightAtk;
-    [Expandable][SerializeField] private AttackData crMediumAtk;
-    [Expandable][SerializeField] private AttackData crHeavyAtk;
+    [Expandable][SerializeField] private HitboxData crLightAtk;
+    [Expandable][SerializeField] private HitboxData crMediumAtk;
+    [Expandable][SerializeField] private HitboxData crHeavyAtk;
 
     #region Getter / Setter Properties
     //Fighter Properties
@@ -44,16 +44,16 @@ public class FighterData : ScriptableObject
     public float AirDashSpeed => airDashSpeed;
 
     //Attack Data
-    public AttackData LightAtk => lightAtk;
-    public AttackData MediumAtk => mediumAtk;
-    public AttackData HeavyAtk => heavyAtk;
+    public HitboxData LightAtk => lightAtk;
+    public HitboxData MediumAtk => mediumAtk;
+    public HitboxData HeavyAtk => heavyAtk;
 
-    public AttackData JLightAtk => jLightAtk;
-    public AttackData JMediumAtk => jMediumAtk;
-    public AttackData JHeavyAtk => jHeavyAtk;
+    public HitboxData JLightAtk => jLightAtk;
+    public HitboxData JMediumAtk => jMediumAtk;
+    public HitboxData JHeavyAtk => jHeavyAtk;
 
-    public AttackData CRLightAtk => crLightAtk;
-    public AttackData CRMediumAtk => crMediumAtk;
-    public AttackData CRHeavyAtk => crHeavyAtk;
+    public HitboxData CRLightAtk => crLightAtk;
+    public HitboxData CRMediumAtk => crMediumAtk;
+    public HitboxData CRHeavyAtk => crHeavyAtk;
     #endregion
 }

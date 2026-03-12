@@ -7,6 +7,10 @@ public class Hurtbox : MonoBehaviour
     private int _playerIndex;
     public int PlayerIndex { get { return _playerIndex; } set { _playerIndex = value; } }
 
+    //Hitstun Frames
+    private int hitstunFrames;
+    public int HitstunFrames { get { return hitstunFrames; } set { hitstunFrames = value; } }
+
     #region ---Methods---
     public void TakeDamage(float damage, float hitstunDuration, float baseKnockback, Vector2 knockbackAngle, AttackType attackContext)
     {
