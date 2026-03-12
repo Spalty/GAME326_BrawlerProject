@@ -91,8 +91,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 027949f7702f3b248ba3dfbb06228e79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 4b86871a2fab16648944f8fc00c533aa, type: 2}
-  ownerHurtboxCollider: {fileID: 0}
+  useDebugData: 0
+  debugData: {fileID: 0}
   HitboxColor: {r: 1, g: 0, b: 0, a: 0.3882353}
 --- !u!1001 &6506032239099517228
 PrefabInstance:
@@ -194,6 +194,10 @@ PrefabInstance:
       propertyPath: hurtBox
       value: 
       objectReference: {fileID: 2516457440336525871}
+    - target: {fileID: 8578769181945966681, guid: 97c762c2ce2d57d479e70e610171810d, type: 3}
+      propertyPath: playerSprite
+      value: 
+      objectReference: {fileID: 4675516452743138388}
     m_RemovedComponents:
     - {fileID: 5190556926835213069, guid: 97c762c2ce2d57d479e70e610171810d, type: 3}
     - {fileID: 210434255444907765, guid: 97c762c2ce2d57d479e70e610171810d, type: 3}
@@ -214,6 +218,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f8a96e18ea4ab454f84cd61f864da75c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4675516452743138388 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1921019062448280952, guid: 97c762c2ce2d57d479e70e610171810d, type: 3}
+  m_PrefabInstance: {fileID: 6506032239099517228}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8c2c3663ae71c5448f6cf5433b4f624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &6348818133681239418 stripped
