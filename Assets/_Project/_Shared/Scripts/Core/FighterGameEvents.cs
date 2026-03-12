@@ -20,11 +20,13 @@ public static class FighterGameEvents
 
     //Round Events
     public static Action<PlayerHitEvent> OnPlayerHit;
+    public static Action<PlayerBlockEvent> OnPlayerBlock;
     public static Action<PlayerKOEvent> OnPlayerKO;
 
     //UI
     public static Action<TimerChangedEvent> OnTimerUpdate;
     public static Action<CountdownUpdateEvent> OnCountdownUpdate;
+    public static Action<HealthResetEvent> OnHealthReset;
 
     public static void ClearAll()
     {
@@ -54,6 +56,15 @@ public struct PlayerHitEvent
     {
         PlayerIndex = index;
         DamagePercent = percent;
+    }
+}
+
+public struct PlayerBlockEvent
+{
+    public int PlayerIndex;
+    public PlayerBlockEvent(int index)
+    {
+        PlayerIndex = index;
     }
 }
 
@@ -93,6 +104,17 @@ public struct CountdownUpdateEvent
     public CountdownUpdateEvent(string text)
     {
         CountdownText = text;
+    }
+}
+
+public struct HealthResetEvent
+{
+    public int PlayerIndex;
+    public float NewHealthPercent;
+    public HealthResetEvent(int playerIndex, float newHealthPercent)
+    {
+        PlayerIndex = playerIndex;
+        NewHealthPercent = newHealthPercent;
     }
 }
 

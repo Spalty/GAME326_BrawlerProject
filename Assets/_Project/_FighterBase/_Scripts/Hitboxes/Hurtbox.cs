@@ -6,14 +6,28 @@ public class Hurtbox : MonoBehaviour
     //Player Index
     private int _playerIndex;
     public int PlayerIndex { get { return _playerIndex; } set { _playerIndex = value; } }
+    private PlayerStateMachine _hurtboxOwner;
+    public PlayerStateMachine HurtBoxOwner { get { return _hurtboxOwner; } set { _hurtboxOwner = value; } }
 
     //Hitstun Frames
-    private int hitstunFrames;
-    public int HitstunFrames { get { return hitstunFrames; } set { hitstunFrames = value; } }
+    private int _hitStunFrames;
+    public int HitstunFrames { get { return _hitStunFrames; } set { _hitStunFrames = value; } }
+
+    //Blockstun Frames
+    private int _blockStunFrames;
+    public int BlockStunFrames { get { return _blockStunFrames; } set { _blockStunFrames = value; } }
+
 
     #region ---Methods---
-    public void TakeDamage(float damage, int hitstunDuration, float baseKnockback, Vector2 knockbackAngle, AttackType attackContext)
+    public void TryTakeDamage(float damage, int hitstunDuration, float baseKnockback, Vector2 knockbackAngle, AttackType attackContext)
     {
+        if (_hurtboxOwner.IsWalkingBack)
+        {
+            _hurtboxOwner.IsBlocking = true;
+            FighterGameEvents.OnPlayerBlock?.Invoke(new PlayerBlockEvent(PlayerIndex));
+            return;
+        }
+
         // Implement damage application logic here
         FighterGM.Instance.HitPlayer(_playerIndex, damage);
     }

@@ -15,7 +15,8 @@ public class PlayerWasHitState : PlayerBaseState
 
         //Logic
         Context.IsActionable = false; // Player cannot act while in hitstun
-        Context.StartCoroutine(HandleHitstun(Context.Hurtbox.HitstunFrames));
+        HandleHitStun();
+        //Apply Knockback
 
         //Animations & Effects
         //Play hit animation, spawn hit effects here
@@ -44,7 +45,18 @@ public class PlayerWasHitState : PlayerBaseState
         Context.WasHit = false;
     }
     
-    private IEnumerator HandleHitstun(int frameCount)
+    private void HandleHitStun()
+    {
+        if (Context.HitStunCoroutine != null)
+        {
+            Context.StopCoroutine(Context.HitStunCoroutine);
+            Context.HitStunCoroutine = null;
+        }
+
+        Context.HitStunCoroutine = Context.StartCoroutine(HitStun(Context.Hurtbox.HitstunFrames));
+    }
+
+    private IEnumerator HitStun(int frameCount)
     {
         for (int i = 0; i < frameCount; i++)
         {
