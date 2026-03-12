@@ -1266,7 +1266,7 @@ MonoBehaviour:
   matchConfig: {fileID: 11400000, guid: 0009b645aa70dc247bf3c93e1a2b6213, type: 2}
   vfxData: {fileID: 11400000, guid: 440d27034f8b8fe4ab2336d77d95de2a, type: 2}
   player1Prefab: {fileID: 7429964159307073875, guid: 515c7db848e4d7948a07ec070e698c0b, type: 3}
-  player2Prefab: {fileID: 7429964159307073875, guid: 515c7db848e4d7948a07ec070e698c0b, type: 3}
+  player2Prefab: {fileID: 6714392075591622277, guid: 9c6aa8ab292a594439488a431e704497, type: 3}
 --- !u!4 &2091746497
 Transform:
   m_ObjectHideFlags: 0
