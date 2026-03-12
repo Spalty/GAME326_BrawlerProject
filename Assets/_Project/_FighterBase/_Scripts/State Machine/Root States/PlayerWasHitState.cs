@@ -10,12 +10,15 @@ public class PlayerWasHitState : PlayerBaseState
     
     public override void EnterState()
     {
-        // Implementation for entering was hit standing state
+        //Debug
+        Context.CurrentRootState = RootStates.WasHit;
+        Debug.Log($"Player {Context} was hit for {Context.Hitbox.HitstunFrames} ", Context.gameObject);
+
+        //Logic
         Context.IsActionable = false; // Player cannot act while in hitstun
-        Context.StartCoroutine(HandleHitstun(Context.Hitbox.HitstunFrames)); // Assuming 30 frames of hit
-        
-        Debug.Log("Entering Was Hit Standing State");
-        Debug.Log("Player was hit hit for " + Context.Hitbox.Data.damage + " damage");
+        Context.StartCoroutine(HandleHitstun(Context.Hitbox.HitstunFrames));
+
+        //Animations & Effects 
     }
     public override void InitializeSubState() { }
 
@@ -41,6 +44,7 @@ public class PlayerWasHitState : PlayerBaseState
     public override void ExitState()
     {
         // Implementation for exiting was hit standing state
+        Context.WasHit = false;
     }
     
     IEnumerator HandleHitstun(float frameCount)

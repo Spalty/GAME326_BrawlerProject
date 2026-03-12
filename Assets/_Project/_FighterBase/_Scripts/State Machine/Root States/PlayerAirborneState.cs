@@ -11,10 +11,14 @@ public class PlayerAirborneState : PlayerBaseState
    public override void EnterState()
     {
         InitializeSubState();
-        Debug.Log("Entering Airborne State");
+        
+        //Debug
         Context.CurrentRootState = RootStates.Airborne;
-
+        
+        //Logic
         Context.AnimController.SetGroundedBool(false);
+
+        //Animations & Effects
     }
 
     public override void InitializeSubState()
@@ -29,7 +33,12 @@ public class PlayerAirborneState : PlayerBaseState
 
     public override void CheckSwitchState()
     {
-        if (Context.IsGrounded())
+        
+        if (Context.WasHit)
+        {
+            SwitchState(Factory.WasHit());
+        }
+        else if (Context.IsGrounded())
         {
             SwitchState(Factory.Grounded());
         }
@@ -37,7 +46,13 @@ public class PlayerAirborneState : PlayerBaseState
         {
             SwitchState(Factory.Jump());
         }
+
     }
 
-    public override void ExitState() { }
+    public override void ExitState()
+    {
+         // Unsubscribe from the event when exiting the state
+    }
+
+    
 }

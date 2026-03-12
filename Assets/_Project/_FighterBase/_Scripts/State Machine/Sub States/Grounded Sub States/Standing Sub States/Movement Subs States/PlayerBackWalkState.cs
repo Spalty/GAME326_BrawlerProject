@@ -13,7 +13,8 @@ public class PlayerBackWalkState : PlayerBaseState
         //Debug
         Context.CurrentSubSubState = SubSubStates.Stand_BackWalk;
 
-        //Logic 
+        //Logic
+        Context.IsWalkingBack = true; 
 
         //Animation
         Context.AnimController.SetMoveDirection(MoveDirection.Left);
@@ -57,7 +58,10 @@ public class PlayerBackWalkState : PlayerBaseState
         }
     }
 
-    public override void ExitState() { }
+    public override void ExitState()
+    {
+        Context.IsWalkingBack = false;
+    }
 
     private void HandleWalkingBackwards()
     {

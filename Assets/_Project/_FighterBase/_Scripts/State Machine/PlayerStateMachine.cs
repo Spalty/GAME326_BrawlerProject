@@ -2,6 +2,7 @@ using UnityEngine;
 using Brawler.Combat;
 using NaughtyAttributes;
 using Brawler.Core;
+using Unity.VisualScripting;
 
 public class PlayerStateMachine : MonoBehaviour
 {
@@ -25,8 +26,7 @@ public class PlayerStateMachine : MonoBehaviour
     private Rigidbody2D _playerRB;
     private InputHandler _inputHandler;
     private FighterAnimController _animController;
-    private Hitbox _hitbox;
-    private Hurtbox _hurtbox;
+
 
     private int playerIndex;
     public int PlayerIndex { get { return playerIndex; } set { playerIndex = value; } }
@@ -43,6 +43,7 @@ public class PlayerStateMachine : MonoBehaviour
     
 
     private bool _isActionable = true;
+    private bool _isWalkingBack;
     private bool _touchingBlockBox;
 
     public Transform Opponent { get; set; }
@@ -53,17 +54,21 @@ public class PlayerStateMachine : MonoBehaviour
     [Header("---Hit / Hurt Boxes---")]
     [SerializeField] private Hitbox hitBox;
     [SerializeField] private Hurtbox hurtBox;
+    private bool _wasHit;
+    
 
     #region ---Getter/Setters---
     public Rigidbody2D PlayerRB { get { return _playerRB; } set { _playerRB = value; } }
     public InputHandler InputHandler { get { return _inputHandler; } set { _inputHandler = value; } }
     public FighterAnimController AnimController { get { return _animController; } set { _animController = value; } }
-    public Hitbox Hitbox { get { return _hitbox; } set { _hitbox = value; } }
-    public Hurtbox Hurtbox { get { return _hurtbox; } set { _hurtbox = value; } }
+    public Hitbox Hitbox { get { return hitBox; } set { hitBox = value; } }
+    public Hurtbox Hurtbox { get { return hurtBox; } set { hurtBox = value; } }
+    public bool WasHit {get { return _wasHit; }  set  {_wasHit = value;} }
 
     //public bool IsGrounded { get { return _isgrounded; } set { _isgrounded = value; } }
     public bool TouchingBlockBox { get { return _touchingBlockBox; } set { _touchingBlockBox = value; } }
     public bool IsActionable { get { return _isActionable; } set { _isActionable = value; } }
+    public bool IsWalkingBack { get { return _isWalkingBack; } set {_isWalkingBack = value;} }
     public int JumpCount { get { return _jumpCount; } set { _jumpCount = value; } }
     public int AirDashCount { get { return _airDashCount; } set { _airDashCount = value; } }
 
@@ -81,7 +86,15 @@ public class PlayerStateMachine : MonoBehaviour
     public AttackData CRMedium => fighterData.CRMediumAtk;
     public AttackData CRHeavyAtk => fighterData.CRHeavyAtk;
     #endregion
-    
+
+    private void OnEnable()
+    {
+        FighterGameEvents.OnPlayerHit += WasPlayerHit; // Subscribe to the event
+    }
+    private void OnDisable()
+    {
+        FighterGameEvents.OnPlayerHit -= WasPlayerHit; // Unsubscribe from the event
+    }
     void Awake()
     {
         _playerRB = GetComponent<Rigidbody2D>();
@@ -121,7 +134,7 @@ public class PlayerStateMachine : MonoBehaviour
     
    private void ResetJumpCounter()
     {
-        if(JumpCount==0)
+        if(JumpCount == 0)
         {
             InputHandler.WasJumpPressed = false;
         }
@@ -140,6 +153,14 @@ public class PlayerStateMachine : MonoBehaviour
         float flippedScaleX = directionToOpponent.x < 0 ? -1 : 1;
         transform.localScale = new(Mathf.Abs(transform.localScale.x) * flippedScaleX, transform.localScale.y, transform.localScale.z);
     }
+
+    private void WasPlayerHit(PlayerHitEvent playerHitEvent)
+    {
+        if(playerHitEvent.PlayerIndex == playerIndex)
+        {
+            WasHit = true;
+        }
+    }
 }
 
 public enum RootStates
@@ -147,6 +168,7 @@ public enum RootStates
     Grounded,
     Airborne,
     Jump,
+    WasHit,
 }
 
 public enum SubStates

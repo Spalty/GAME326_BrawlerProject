@@ -10,19 +10,26 @@ public class PlayerStandBlockState : PlayerBaseState
         Context.CurrentSubSubState = SubSubStates.Stand_Block;
 
         //Logic
+        Context.PlayerRB.linearVelocity = Vector2.zero;
 
         //Animation
-
+        //
     }
+    public override void InitializeSubState() { }
 
     public override void UpdateState()
     {
         CheckSwitchState();
     }
 
+
+    public override void CheckSwitchState()
+    {
+        if (!Context.TouchingBlockBox || !Context.IsWalkingBack)
+        {
+            SwitchState(Factory.Idle());
+        }
+    }
     public override void ExitState() { }
 
-    public override void CheckSwitchState() { }
-
-    public override void InitializeSubState() { }
 }

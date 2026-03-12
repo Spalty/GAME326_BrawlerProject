@@ -12,14 +12,19 @@ public class PlayerGroundState : PlayerBaseState
     public override void EnterState()
     {
         InitializeSubState();
+        //Debug
         Context.CurrentRootState = RootStates.Grounded;
-        
+
+        //Logic
         Context.JumpCount = FighterData.MaxJumpCount; //Reset jump count when entering grounded state
+
+        //Animations & Effects
         Context.AnimController.SetGroundedBool(Context.IsGrounded());
     }
 
     public override void InitializeSubState()
     {
+        
         if (Context.InputHandler.VerticalInput < 0)
         {
             SetSubState(Factory.Crouch());
@@ -37,7 +42,11 @@ public class PlayerGroundState : PlayerBaseState
 
     public override void CheckSwitchState()
     {
-        if (Context.InputHandler.WasJumpPressed)
+        if (Context.WasHit)
+        {
+            SwitchState(Factory.WasHit());
+        }
+        else if (Context.InputHandler.WasJumpPressed)
         {
             SwitchState(Factory.Jump());
         }
