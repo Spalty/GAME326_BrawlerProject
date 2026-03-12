@@ -31,8 +31,7 @@ public class Hitbox : MonoBehaviour
             // Apply damage and knockback to the target
             HitboxData data = useDebugData ? debugData : _data;
 
-            opponentHurtbox.HitstunFrames = data.hitstunDuration;
-            opponentHurtbox.BlockStunFrames = data.blockstunDuration;
+            opponentHurtbox.OnHitData = data;
             opponentHurtbox.TryTakeDamage(data.damage, data.hitstunDuration, data.baseKnockback, data.knockbackAngle, data.attackContext);
         }
     }

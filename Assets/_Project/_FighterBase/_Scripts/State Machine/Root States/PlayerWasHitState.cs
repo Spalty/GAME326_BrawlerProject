@@ -15,6 +15,7 @@ public class PlayerWasHitState : PlayerBaseState
 
         //Logic
         Context.IsActionable = false; // Player cannot act while in hitstun
+        HandleHitStop();
         HandleHitStun();
         //Apply Knockback
 
@@ -53,7 +54,7 @@ public class PlayerWasHitState : PlayerBaseState
             Context.HitStunCoroutine = null;
         }
 
-        Context.HitStunCoroutine = Context.StartCoroutine(HitStun(Context.Hurtbox.HitstunFrames));
+        Context.HitStunCoroutine = Context.StartCoroutine(HitStun(Context.Hurtbox.OnHitData.hitstunDuration));
     }
 
     private IEnumerator HitStun(int frameCount)
@@ -64,5 +65,25 @@ public class PlayerWasHitState : PlayerBaseState
         }
 
         Context.IsActionable = true;
+    }
+
+    private void HandleHitStop()
+    {
+        Debug.Log("Handling HitStop");
+
+        if (Context.HitStunCoroutine != null)
+        {
+            Context.StopCoroutine(Context.HitStunCoroutine);
+            Context.HitStunCoroutine = null;
+        }    
+
+        Context.HitStopCoroutine = Context.StartCoroutine(HitStop(Context.Hurtbox.OnHitData.hitstopDuration));
+    }
+
+    private IEnumerator HitStop(float duration)
+    {
+        Time.timeScale = 0f;
+        yield return new WaitForSecondsRealtime(duration);
+        Time.timeScale = 1f;
     }
 }

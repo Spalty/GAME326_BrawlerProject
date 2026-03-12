@@ -10,7 +10,7 @@ public class PlayerIdleState : PlayerBaseState
         Context.CurrentSubSubState = SubSubStates.Stand_Idle;
 
         //Logic
-
+        Context.IsWalkingBack = false;
 
         //Animation
         Context.AnimController.SetMoveType(MovementType.Idle);

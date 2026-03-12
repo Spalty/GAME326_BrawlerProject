@@ -51,6 +51,7 @@ public class PlayerStateMachine : MonoBehaviour
     [SerializeField] private Hurtbox hurtBox;
     private bool _wasHit;
     private Coroutine _hitStunCoroutine;
+    private Coroutine _hitStopCoroutine;
     private Coroutine _blockStunCoroutine;
 
     [Header("---Hit Flash---")]
@@ -66,6 +67,7 @@ public class PlayerStateMachine : MonoBehaviour
     public Hurtbox Hurtbox { get { return hurtBox; } set { hurtBox = value; } }
     public bool WasHit {get { return _wasHit; }  set  {_wasHit = value;} }
     public Coroutine HitStunCoroutine { get { return _hitStunCoroutine; } set { _hitStunCoroutine = value; } }
+    public Coroutine HitStopCoroutine { get { return _hitStopCoroutine; } set { _hitStopCoroutine = value; } }
     public Coroutine BlockStunCoroutine { get { return _blockStunCoroutine; } set { _blockStunCoroutine = value; } }
 
     //Movement
