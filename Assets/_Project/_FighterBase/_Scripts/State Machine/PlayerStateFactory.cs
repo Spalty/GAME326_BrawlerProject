@@ -9,6 +9,7 @@ public class PlayerStateFactory
         Airborne,
         Ground,
         Jump,
+        WasHit,
         
         //Ground Sub States
         Standing,
@@ -24,7 +25,7 @@ public class PlayerStateFactory
         LightAttack,
         MediumAttack,
         HeavyAttack,
-        WasHitStanding,
+        
         
         //Crouch Sub States
         CrouchBlock,
@@ -54,6 +55,7 @@ public class PlayerStateFactory
         _stateCache[PlayerStates.Airborne] = new PlayerAirborneState(_context, this);
         _stateCache[PlayerStates.Ground] = new PlayerGroundState(_context, this);
         _stateCache[PlayerStates.Jump] = new PlayerJumpState(_context, this);
+        _stateCache[PlayerStates.WasHit] = new PlayerWasHitState(_context, this);
         
         //Ground sub states
         _stateCache[PlayerStates.Standing] = new PlayerStandingState(_context, this);
@@ -69,7 +71,6 @@ public class PlayerStateFactory
         _stateCache[PlayerStates.LightAttack] = new PlayerLightAttackState(_context, this);
         _stateCache[PlayerStates.MediumAttack] = new PlayerMediumAttackState(_context, this);
         _stateCache[PlayerStates.HeavyAttack] = new PlayerHeavyAttackState(_context, this);
-        _stateCache[PlayerStates.WasHitStanding] = new PlayerWasHitStandingState(_context, this);
         
         //Crouch sub states
         _stateCache[PlayerStates.CrouchBlock] = new PlayerCrouchBlockState(_context, this);
@@ -96,6 +97,10 @@ public class PlayerStateFactory
     public PlayerBaseState Jump()//ROOT STATE
     {
         return _stateCache[PlayerStates.Jump];
+    }
+    public PlayerBaseState WasHit()//ROOT STATE
+    {
+        return _stateCache[PlayerStates.WasHit];
     }
     public PlayerBaseState Standing()
     {
@@ -137,10 +142,6 @@ public class PlayerStateFactory
     public PlayerBaseState HeavyAttack()
     {
         return _stateCache[PlayerStates.HeavyAttack];
-    }
-    public PlayerBaseState WasHitStanding()
-    {
-        return _stateCache[PlayerStates.WasHitStanding];
     }
 
     
