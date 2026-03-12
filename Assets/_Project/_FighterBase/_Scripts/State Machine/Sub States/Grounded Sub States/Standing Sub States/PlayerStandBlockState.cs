@@ -15,10 +15,8 @@ public class PlayerStandBlockState : PlayerBaseState
         Context.PlayerRB.linearVelocity = Vector2.zero;
         HandleBlockStun();
         //Apply knockback
-
-        //Animation
-        Context.ParticlePool.SpawnFromPool(ParticleTypes.Block, Context.transform.position, Context.transform.rotation);
     }
+
     public override void InitializeSubState() { }
 
     public override void UpdateState()

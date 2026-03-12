@@ -1,6 +1,3 @@
-using UnityEngine;
-using System.Collections;
-
 public class PlayerJLightAttackState : PlayerBaseState
 {
     public PlayerJLightAttackState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) : base(currentContext, playerStateFactory) { }

@@ -42,6 +42,7 @@ public class PlayerStateMachine : MonoBehaviour
     private bool _isActionable = true;
     private bool _isWalkingBack;
     private bool _isBlocking;
+    private float _blockMeter; 
 
     public Transform Opponent { get; set; }
 
@@ -72,6 +73,7 @@ public class PlayerStateMachine : MonoBehaviour
     public Coroutine HitStunCoroutine { get { return _hitStunCoroutine; } set { _hitStunCoroutine = value; } }
     public Coroutine HitStopCoroutine { get { return _hitStopCoroutine; } set { _hitStopCoroutine = value; } }
     public Coroutine BlockStunCoroutine { get { return _blockStunCoroutine; } set { _blockStunCoroutine = value; } }
+    public float BlockMeter { get { return _blockMeter; } set { _blockMeter = value; } }
 
     //Movement
     //public bool IsGrounded { get { return _isgrounded; } set { _isgrounded = value; } }
@@ -111,6 +113,8 @@ public class PlayerStateMachine : MonoBehaviour
         _playerRB = GetComponent<Rigidbody2D>();
         _inputHandler = GetComponent<InputHandler>();
         _animController = GetComponent<FighterAnimController>();
+
+        _blockMeter = fighterData.MaxBlockMeter;
     }
 
     private void Start()
