@@ -22,7 +22,7 @@ public class FighterAnimController : MonoBehaviour
     public int IsGroundedHash => Animator.StringToHash("IsGrounded");
     public int IsCrouchingHash => Animator.StringToHash("IsCrouching");
     public int IsBlockingHash => Animator.StringToHash("IsBlocking");
-    public int IsHitHash => Animator.StringToHash("IsHit");
+    public int IsHitHash => Animator.StringToHash("IsHitstun");
 
     //Movement Hashes
     public int MoveDirectionX => Animator.StringToHash("MoveDirX");
@@ -50,6 +50,10 @@ public class FighterAnimController : MonoBehaviour
     }
 
     #region Conditional Methods
+    public void SetJumpingBool(bool isJumping)
+    {
+        _animator.SetBool(JumpingHash, isJumping);
+    }
     public void SetGroundedBool(bool isGrounded)
     {
         _animator.SetBool(IsGroundedHash, isGrounded);

@@ -133,7 +133,11 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 128
+  _jumpCount: 0
   fighterData: {fileID: 11400000, guid: 9b94ca8b441ec7f4da78092fba58dc2e, type: 2}
+  hitBox: {fileID: 0}
+  hurtBox: {fileID: 0}
+  playerSprite: {fileID: 0}
 --- !u!114 &9153227143332511016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,6 +212,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2538342434589704537}
   - component: {fileID: 8335715729093544716}
+  - component: {fileID: 1921019062448280952}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -285,6 +290,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1921019062448280952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5854634869299189014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8c2c3663ae71c5448f6cf5433b4f624, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &8056205843715737533
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,11 +12,13 @@ public class HealthBar : MonoBehaviour
     private void OnEnable()
     {
         FighterGameEvents.OnPlayerHit += UpdateHealthBar;
+        FighterGameEvents.OnHealthReset += ResetHealthBar;
     }
 
     private void OnDisable()
     {
         FighterGameEvents.OnPlayerHit -= UpdateHealthBar;
+        FighterGameEvents.OnHealthReset -= ResetHealthBar;
     }
 
     private void UpdateHealthBar(PlayerHitEvent playerHitEvent)
@@ -24,6 +26,15 @@ public class HealthBar : MonoBehaviour
         if (playerHitEvent.PlayerIndex == playerIndex)
         {
             float healthPercent = playerHitEvent.DamagePercent;
+            fill.fillAmount = healthPercent;
+        }
+    }
+
+    private void ResetHealthBar(HealthResetEvent healthResetEvent)
+    {
+        if (healthResetEvent.PlayerIndex == playerIndex)
+        {
+            float healthPercent = healthResetEvent.NewHealthPercent;
             fill.fillAmount = healthPercent;
         }
     }

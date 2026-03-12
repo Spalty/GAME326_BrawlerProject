@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,6 +15,8 @@ public class InputHandler : MonoBehaviour
     
     private float _horizontalInput;
     private float _verticalInput;
+
+    private bool requireNewVerticalInput;
 
     #region ---Getter/Setters---
     public bool WasLightAttackPressed { get { return _wasLightAttackPressed; } set { _wasLightAttackPressed = value; } }
@@ -78,6 +81,25 @@ public class InputHandler : MonoBehaviour
     public void OnVertical(InputAction.CallbackContext context)
     {
         _verticalInput = context.ReadValue<Vector2>().y;
+
+        //Require a new vertical input after a jump
+        //Prevents player from simply holding the joystick up to jump
+        if (!requireNewVerticalInput)
+        {
+            if (_verticalInput > 0)
+            {
+                WasJumpPressed = true;
+                requireNewVerticalInput = true;
+            }
+        }
+        else
+        {
+            if (_verticalInput <= 0) //You can adjust this to be a threshold if you want to allow for some leniency in the input
+            {
+                WasJumpPressed = false;
+                requireNewVerticalInput = false;
+            }
+        }
     }
 
     public void OnDash(InputAction.CallbackContext context)
@@ -101,4 +123,13 @@ public class InputHandler : MonoBehaviour
     {
         WasHeavyAttackPressed = true;
     }
+    IEnumerator InputBuffer(float bufferTime)
+    {
+        for (int i = 0; i < bufferTime; i++)
+        {
+            yield return null;
+        }
+        
+    }
+    
 }

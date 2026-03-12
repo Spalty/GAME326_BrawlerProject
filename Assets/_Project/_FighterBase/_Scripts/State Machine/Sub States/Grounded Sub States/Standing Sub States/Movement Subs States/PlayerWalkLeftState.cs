@@ -1,8 +1,9 @@
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-public class PlayerBackWalkState : PlayerBaseState
+public class PlayerWalkLeftState : PlayerBaseState
 {
-    public PlayerBackWalkState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) : base(currentContext, playerStateFactory) { }
+    public PlayerWalkLeftState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) : base(currentContext, playerStateFactory) { }
 
     private InputHandler InputHandler => Context.InputHandler;
     private Rigidbody2D PlayerRB => Context.PlayerRB;
@@ -13,10 +14,9 @@ public class PlayerBackWalkState : PlayerBaseState
         //Debug
         Context.CurrentSubSubState = SubSubStates.Stand_BackWalk;
 
-        //Logic 
+        //Logic
 
         //Animation
-        Context.AnimController.SetMoveDirection(MoveDirection.Left);
         Context.AnimController.SetMoveType(MovementType.Walking);
     }
 
@@ -25,6 +25,18 @@ public class PlayerBackWalkState : PlayerBaseState
     public override void UpdateState()
     {
         HandleWalkingBackwards();
+
+        //Block Logic
+        Vector2 directionToOpponent = Context.Opponent.transform.position - Context.transform.position;
+
+        float opponentDirectionSign = Mathf.Sign(directionToOpponent.x);    
+        float inputDirectionSign = Mathf.Sign(InputHandler.HorizontalInput);
+
+        Context.IsWalkingBack = inputDirectionSign != opponentDirectionSign;
+
+        //Animation
+        MoveDirection moveDirection = Context.IsWalkingBack ? MoveDirection.Left : MoveDirection.Right;
+        Context.AnimController.SetMoveDirection(moveDirection);
 
         CheckSwitchState();
     }
@@ -49,15 +61,18 @@ public class PlayerBackWalkState : PlayerBaseState
         }
         else if (Context.InputHandler.WasDashPressed)
         {
-            SwitchState(Factory.BackDash());
+            SwitchState(Factory.LeftDash());
         }
-        else if (Context.TouchingBlockBox)
+        else if (Context.IsBlocking)
         {
             SwitchState(Factory.StandBlock());
         }
     }
 
-    public override void ExitState() { }
+    public override void ExitState()
+    {
+        Context.IsWalkingBack = false;
+    }
 
     private void HandleWalkingBackwards()
     {
