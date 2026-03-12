@@ -17,8 +17,10 @@ public class Hitbox : MonoBehaviour
     private HashSet<Hurtbox> alreadyHit = new HashSet<Hurtbox>();
     private Hurtbox hurtbox;
     public Collider2D ownerHurtboxCollider;
+    private float hitstunFrames;
 
-
+    public float HitstunFrames { get { return hitstunFrames; }  set { hitstunFrames = value; } }
+   
     void Awake()
     {
         hitboxCollider = GetComponent<Collider2D>();
@@ -43,13 +45,16 @@ public class Hitbox : MonoBehaviour
             // Apply damage and knockback to the target
             opponentHurtbox.TakeDamage(data.damage, data.hitstunDuration, data.baseKnockback, data.knockbackAngle, data.attackContext);
             alreadyHit.Add(opponentHurtbox); // Mark this target as hit to prevent multiple hits from the same hitbox instance
+            hitstunFrames = data.hitstunDuration; // Convert hitstun duration from seconds to frames if needed
         }
     }
 
     void OnDisable()
     {
-        alreadyHit.Clear(); //
+        alreadyHit.Clear();
     }
+
+    
 
     [Header("Debug")]
     [SerializeField] private Color HitboxColor = new Color(1f, 0f, 0f, 0.5f); // Semi-transparent red

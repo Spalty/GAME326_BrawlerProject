@@ -19,10 +19,6 @@ public class Hurtbox : MonoBehaviour
     }
 
 
-
-
-
-
     #region ---Methods---
     public void TakeDamage(float damage, float hitstunDuration, float baseKnockback, Vector2 knockbackAngle, AttackType attackContext)
     {

@@ -24,6 +24,8 @@ public class PlayerStateMachine : MonoBehaviour
     private Rigidbody2D _playerRB;
     private InputHandler _inputHandler;
     private FighterAnimController _animController;
+    private Hitbox _hitbox;
+    private Hurtbox _hurtbox;
 
     [Header("---Ground Check---")]
     [SerializeField] private Transform groundCheck;
@@ -46,6 +48,8 @@ public class PlayerStateMachine : MonoBehaviour
     public Rigidbody2D PlayerRB { get { return _playerRB; } set { _playerRB = value; } }
     public InputHandler InputHandler { get { return _inputHandler; } set { _inputHandler = value; } }
     public FighterAnimController AnimController { get { return _animController; } set { _animController = value; } }
+    public Hitbox Hitbox { get { return _hitbox; } set { _hitbox = value; } }
+    public Hurtbox Hurtbox { get { return _hurtbox; } set { _hurtbox = value; } }
 
     //public bool IsGrounded { get { return _isgrounded; } set { _isgrounded = value; } }
     public bool TouchingBlockBox { get { return _touchingBlockBox; } set { _touchingBlockBox = value; } }

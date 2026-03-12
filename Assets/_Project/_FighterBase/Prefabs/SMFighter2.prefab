@@ -178,6 +178,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.31264794
       objectReference: {fileID: 0}
+    - target: {fileID: 5677391460700733802, guid: 97c762c2ce2d57d479e70e610171810d, type: 3}
+      propertyPath: m_NotificationBehavior
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8056205843715737533, guid: 97c762c2ce2d57d479e70e610171810d, type: 3}
       propertyPath: m_Layer
       value: 8
