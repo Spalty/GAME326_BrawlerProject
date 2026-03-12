@@ -18,7 +18,7 @@ public class PlayerWasHitState : PlayerBaseState
         Context.StartCoroutine(HandleHitstun(Context.Hurtbox.HitstunFrames));
 
         //Animations & Effects
-        //Play hit animation, spawn hit effects here
+        Context.AnimController.SetHitBool(true);
     }
     public override void InitializeSubState() { }
 

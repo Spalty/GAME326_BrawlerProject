@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 602208771005539513, guid: ed47a5dc8f7520e4aa5f816521a27d37, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 8511dac7a78ee444abdde84cd7387683, type: 2}
+      objectReference: {fileID: 9100000, guid: e1fca894d0fc2c64c9931b2eadad15f4, type: 2}
     - target: {fileID: 937843817175371592, guid: ed47a5dc8f7520e4aa5f816521a27d37, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -40,13 +40,17 @@ PrefabInstance:
       propertyPath: fighterData
       value: 
       objectReference: {fileID: 11400000, guid: 1d0d8eedccb843b4e8c30e851e47df41, type: 2}
+    - target: {fileID: 3262849991843064181, guid: ed47a5dc8f7520e4aa5f816521a27d37, type: 3}
+      propertyPath: playerSprite
+      value: 
+      objectReference: {fileID: 7204371472987222983}
     - target: {fileID: 5743126008330910901, guid: ed47a5dc8f7520e4aa5f816521a27d37, type: 3}
       propertyPath: m_BodyType
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5743126008330910901, guid: ed47a5dc8f7520e4aa5f816521a27d37, type: 3}
       propertyPath: m_GravityScale
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5743126008330910901, guid: ed47a5dc8f7520e4aa5f816521a27d37, type: 3}
       propertyPath: m_LinearDamping
@@ -166,5 +170,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 027949f7702f3b248ba3dfbb06228e79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7204371472987222983 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4675516452743138388, guid: ed47a5dc8f7520e4aa5f816521a27d37, type: 3}
+  m_PrefabInstance: {fileID: 2529286716605579155}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8c2c3663ae71c5448f6cf5433b4f624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

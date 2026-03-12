@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: IceSkaterData
   m_EditorClassIdentifier: 
   maxHealth: 1000
-  walkSpeed: 5
+  walkSpeed: 8
   dashSpeed: 8
-  maxJumpCount: 2
-  verticalJumpForce: 10
-  horizontalJumpForce: 5
+  maxJumpCount: 1
+  verticalJumpForce: 20
+  horizontalJumpForce: 10
   maxAirDashCount: 1
   airDashSpeed: 15
-  lightAtk: {fileID: 0}
-  mediumAtk: {fileID: 0}
-  heavyAtk: {fileID: 0}
+  lightAtk: {fileID: 11400000, guid: 4b86871a2fab16648944f8fc00c533aa, type: 2}
+  mediumAtk: {fileID: 11400000, guid: 9f309b80910088649b9ab7a9ccfda829, type: 2}
+  heavyAtk: {fileID: 11400000, guid: 87fed0f03f3359641ae64f4bd26790fa, type: 2}
   jLightAtk: {fileID: 0}
   jMediumAtk: {fileID: 0}
   jHeavyAtk: {fileID: 0}

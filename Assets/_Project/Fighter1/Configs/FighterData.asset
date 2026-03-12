@@ -16,7 +16,7 @@ MonoBehaviour:
   walkSpeed: 5
   dashSpeed: 8
   maxJumpCount: 1
-  verticalJumpForce: 9
+  verticalJumpForce: 20
   horizontalJumpForce: 10
   maxAirDashCount: 1
   airDashSpeed: 15
